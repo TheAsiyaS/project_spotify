@@ -1,0 +1,25 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+const add = Icons.add;
+const iconsearch = Icons.search;
+const notification = Icons.notifications_none_outlined;
+const playround = Icons.play_circle_fill_outlined;
+const pauseround = Icons.pause_circle_filled_outlined;
+const play = Icons.play_arrow;
+const pause = Icons.pause;
+const next = Icons.skip_next;
+const skipback = Icons.skip_previous;
+const favorite = Icons.favorite;
+const favorite_outline = Icons.favorite_border_outlined;
+const close = Icons.close;
+const history = Icons.history_toggle_off;
+const Setting = CupertinoIcons.gear;
+const more_vertical = Icons.more_vert_outlined;
+const check = CupertinoIcons.check_mark;
+const roundDownload = CupertinoIcons.download_circle;
+const iconshuffle = CupertinoIcons.shuffle_medium;
+const circleplay = CupertinoIcons.play_circle_fill;
+const share = Icons.share_outlined;
+const repeat = CupertinoIcons.arrow_counterclockwise;
+const goback = Icons.arrow_back;

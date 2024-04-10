@@ -101,6 +101,7 @@ class _$_ClientFailure implements _ClientFailure {
   }
 
   @override
+  // ignore: non_nullable_equals_parameter
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$_ClientFailure);
@@ -203,6 +204,7 @@ class _$_ServerFailure implements _ServerFailure {
   }
 
   @override
+  // ignore: non_nullable_equals_parameter
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType && other is _$_ServerFailure);
