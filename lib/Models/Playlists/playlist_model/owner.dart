@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'external_urls.dart';
 import 'followers.dart';
 
 part 'owner.g.dart';
