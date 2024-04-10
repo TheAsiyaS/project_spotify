@@ -1,6 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: 'AIzaSyBHHgw5mINO2uCLzb6EElFjSN_jUMdZyRI',
+          appId: '1:353992947181:web:2761512b584a1fbed523e4',
+          messagingSenderId: '353992947181',
+          projectId: 'project-spotify-ed3ad'));
   runApp(const MyApp());
 }
 
@@ -123,3 +131,25 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+/*
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBHHgw5mINO2uCLzb6EElFjSN_jUMdZyRI",
+  authDomain: "project-spotify-ed3ad.firebaseapp.com",
+  projectId: "project-spotify-ed3ad",
+  storageBucket: "project-spotify-ed3ad.appspot.com",
+  messagingSenderId: "353992947181",
+  appId: "1:353992947181:web:2761512b584a1fbed523e4",
+  measurementId: "G-Q4NX39RJ9L"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app); */
