@@ -17,6 +17,7 @@ class text_spotify extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class text extends StatelessWidget {
   text(
       {super.key,
