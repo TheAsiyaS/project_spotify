@@ -16,10 +16,5 @@ _i1.GetIt $initGetIt(
   String? environment,
   _i2.EnvironmentFilter? environmentFilter,
 }) {
-  final gh = _i2.GetItHelper(
-    get,
-    environment,
-    environmentFilter,
-  );
   return get;
 }
