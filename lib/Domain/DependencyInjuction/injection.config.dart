@@ -8,7 +8,8 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../application/Album/album_bloc.dart' as _i13;
+import '../../application/Album/album_bloc.dart' as _i14;
+import '../../application/Artists/list_artists_bloc.dart' as _i13;
 import '../../Infrastructure/Album/albumlist_service.dart' as _i4;
 import '../../Infrastructure/Artist_list/Artists_service.dart' as _i6;
 import '../../Infrastructure/playlist/playlist_service.dart' as _i12;
@@ -38,6 +39,8 @@ _i1.GetIt $initGetIt(
   gh.lazySingleton<_i7.I_Search_Repo>(() => _i8.SearchRepo());
   gh.lazySingleton<_i9.I_Toptrack_Repo>(() => _i10.ToptrackRepo());
   gh.lazySingleton<_i11.I_playlist_Repo>(() => _i12.Playlistservice());
-  gh.factory<_i13.AlbumBloc>(() => _i13.AlbumBloc(get<_i3.I_Album_Repo>()));
+  gh.factory<_i13.ListArtistsBloc>(
+      () => _i13.ListArtistsBloc(get<_i5.I_Artists_Repo>()));
+  gh.factory<_i14.AlbumBloc>(() => _i14.AlbumBloc(get<_i3.I_Album_Repo>()));
   return get;
 }
