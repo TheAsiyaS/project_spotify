@@ -8,10 +8,11 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../application/Album/album_bloc.dart' as _i16;
+import '../../application/Album/album_bloc.dart' as _i17;
 import '../../application/Artists/list_artists_bloc.dart' as _i13;
 import '../../application/playlistBloc/playlist_bloc.dart' as _i14;
 import '../../application/Search/search_bloc.dart' as _i15;
+import '../../application/SongVlaues/songvalues_bloc.dart' as _i16;
 import '../../Infrastructure/Album/albumlist_service.dart' as _i4;
 import '../../Infrastructure/Artist_list/Artists_service.dart' as _i6;
 import '../../Infrastructure/playlist/playlist_service.dart' as _i12;
@@ -46,6 +47,7 @@ _i1.GetIt $initGetIt(
   gh.factory<_i14.PlaylistBloc>(
       () => _i14.PlaylistBloc(get<_i11.I_playlist_Repo>()));
   gh.factory<_i15.SearchBloc>(() => _i15.SearchBloc(get<_i7.I_Search_Repo>()));
-  gh.factory<_i16.AlbumBloc>(() => _i16.AlbumBloc(get<_i3.I_Album_Repo>()));
+  gh.factory<_i16.SongvaluesBloc>(() => _i16.SongvaluesBloc());
+  gh.factory<_i17.AlbumBloc>(() => _i17.AlbumBloc(get<_i3.I_Album_Repo>()));
   return get;
 }
