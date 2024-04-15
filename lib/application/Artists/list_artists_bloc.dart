@@ -8,7 +8,7 @@ import 'package:project_spotifyclone/core/failures/mainFailure.dart';
 
 part 'list_artists_event.dart';
 part 'list_artists_state.dart';
-part 'list_artists_bloc.freezed.dart';
+part 'list_artists_bloc.freezed.dart';//
 
 @injectable
 class ListArtistsBloc extends Bloc<ListArtistsEvent, ListArtistsState> {
@@ -33,7 +33,7 @@ class ListArtistsBloc extends Bloc<ListArtistsEvent, ListArtistsState> {
         (mainFailure fail) => const ListArtistsState(
             artist: [], artistList: [], isLoading: false, iserror: true),
         (List<Artist> result) => ListArtistsState(
-            artist: result,
+            artist: result,//
             artistList: state.artistList,
             isLoading: false,
             iserror: false),
