@@ -14,7 +14,17 @@ class home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+    String greeting = '';
+    DateTime now = DateTime.now();
+    int hour = now.hour;
+
+    if (hour >= 0 && hour < 12) {
+      greeting = 'Good Morning';
+    } else if (hour >= 12 && hour < 17) {
+      greeting = 'Good Afternoon';
+    } else {
+      greeting = 'Good Evening';
+    }
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -57,7 +67,7 @@ class home extends StatelessWidget {
         ),
         title: text(
           maxline: 1,
-          stringtext: 'greeting',
+          stringtext: greeting,
           fontSize: 25,
         ),
         actions: [
