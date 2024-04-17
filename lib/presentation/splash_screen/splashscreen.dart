@@ -5,6 +5,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import '../../core/colors.dart';
 import '../../core/size.dart';
+import '../../widgets/NavigationBar.dart';
 import '../../widgets/texts.dart';
 
 class splashScreen extends StatelessWidget {
@@ -13,9 +14,9 @@ class splashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 3), () {
-      // Navigator.of(context).pushAndRemoveUntil(
-      //     MaterialPageRoute(builder: (context) => const navigationBar()),
-      //     (route) => false);
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => const navigationBar()),
+          (route) => false);
     });
     return Scaffold(
       body: Center(
