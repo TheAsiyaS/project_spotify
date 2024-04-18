@@ -46,7 +46,7 @@ class home extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => const screen_signIn()),
                   (route) => false);
-            } else if (value == 'Profile') {}
+            } else if (value == 'Profilr  e') {}
           },
           itemBuilder: (BuildContext context) {
             return [
