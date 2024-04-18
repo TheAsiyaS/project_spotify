@@ -5,13 +5,16 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../application/SongVlaues/songvalues_bloc.dart';
 import '../core/colors.dart';
+import '../presentation/Search/search.dart';
+import '../presentation/home/home.dart';
+import '../presentation/library/library.dart';
 import 'ListtitleSongCommon.dart';
 
 ValueNotifier<int> bottomIndex = ValueNotifier(0); //bottomnavigationBar index
 final navigationScreens = [
-  // const home(),
-  // const Search(),
-  // const your_library(),
+   const home(),
+  const Search(),
+ const your_library(),
   // const permium()
 ];
 
