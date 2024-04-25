@@ -4,6 +4,7 @@ import '../../core/colors.dart';
 import '../../core/icons.dart';
 import '../../core/size.dart';
 import '../../domain/provider/signIn_working_class.dart';
+import '../../widgets/home_gridview.dart';
 import '../../widgets/iconbutton.dart';
 import '../../widgets/texts.dart';
 import '../signIn/signup_ui.dart';
@@ -13,7 +14,7 @@ class home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String greeting = '';   
+    String greeting = '';
     DateTime now = DateTime.now();
     int hour = now.hour;
 
@@ -106,12 +107,44 @@ class home extends StatelessWidget {
                 fontSize: 25,
               ),
               h20,
+              gridview_home(
+                albumlist: const [],
+                albumsList: const [],
+                playlistoverview: const [],
+                artistdatalist: const [],
+                stacktext: '',
+                mImageheight: 4.5,
+                wImgheight: 3.5,
+                isradio: false,
+                size: size,
+                id: 'getstart',
+                itemCount: 1,
+                verticalor: false,
+                lines: 2,
+              ),
               text(
                 maxline: 1,
                 stringtext: 'Popular Albums',
                 fontSize: 25,
               ),
               h30,
+              gridview_home(
+                albumlist: const [],
+                albumsList: [], //data must added here
+                //episode
+                playlistoverview: const [],
+                artistdatalist: const [],
+                stacktext: '',
+                mImageheight: 4.5,
+                wImgheight: 4,
+
+                isradio: false,
+                lines: 2,
+                size: size,
+                id: 'albumsong',
+                itemCount: 0, //data must added here
+                verticalor: false,
+              ),
               h30,
               text(
                 maxline: 1,
@@ -119,25 +152,89 @@ class home extends StatelessWidget {
                 fontSize: 25,
               ),
               h20,
+              gridview_home(
+                  albumlist: const [],
+                  albumsList: const [],
+                  playlistoverview: const [],
+                  artistdatalist: [], //data must added here
+                  stacktext: '',
+                  mImageheight: 4.5,
+                  wImgheight: 4,
+                  isradio: false,
+                  lines: 1,
+                  verticalor: false,
+                  size: size,
+                  id: 'profile',
+                  itemCount: 0 //data must added here
+                  ),
               h30,
               text(
                 maxline: 1,
-                stringtext: 'Made for username',
+                stringtext:
+                    'Made for Username}', //change username to current username
                 fontSize: 25,
               ),
               h20,
+              gridview_home(
+                albumlist: const [],
+                albumsList: const [],
+                playlistoverview: [], //sate list pass here//data must added here
+                artistdatalist: const [],
+                stacktext: '',
+                mImageheight: 4.5,
+                wImgheight: 4,
+
+                isradio: false,
+                lines: 2,
+                size: size,
+                id: 'playlist',
+                itemCount: 0, //data must added here
+                verticalor: false,
+              ),
               text(
                 maxline: 1,
                 stringtext: 'Recommand for today',
                 fontSize: 25,
               ),
               h20,
+              gridview_home(
+                albumlist: const [],
+                albumsList: [], //data must added here
+                playlistoverview: const [],
+                artistdatalist: const [],
+                stacktext: '',
+                mImageheight: 4.5,
+                wImgheight: 4,
+                isradio: false,
+                lines: 2,
+                size: size,
+                id: 'album',
+                itemCount: 0, //data must added here
+                verticalor: false,
+              ),
               text(
                 maxline: 1,
                 stringtext: 'Recommanded audio',
                 fontSize: 25,
               ),
               h20,
+              gridview_home(
+                albumlist: const [],
+                albumsList: const [],
+
+                playlistoverview: [], //sate list pass here//data must added here
+                artistdatalist: const [],
+                stacktext: '',
+                mImageheight: 4.5,
+                wImgheight: 4,
+
+                isradio: true,
+                lines: 2,
+                size: size,
+                id: 'playlist',
+                itemCount: 0, //data must added here
+                verticalor: false,
+              ),
             ],
           ),
         ),
