@@ -227,3 +227,56 @@ class albumitems extends StatelessWidget {
         itemCount: albumsList.length);
   }
 }
+
+class searchalbumitems extends StatelessWidget {
+  const searchalbumitems({
+    super.key,
+    required this.albumid,
+  });
+
+  final String albumid;
+
+  @override
+  Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<AlbumBloc>(context)
+          .add(AlbumEvent.getalbum(albumid: [albumid]));
+    });
+    return BlocBuilder<AlbumBloc, AlbumState>(
+      builder: (context, state) {
+        return ListView.separated(
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                  onTap: () {
+                    log('url : ${state.albumList[0].tracks!.items![index].previewUrl ?? 'nourl'}');
+                    //navigate to playSongui[screen]
+                  },
+                  child: ListTile(
+                    title: text(
+                      stringtext:
+                          state.albumList[0].tracks!.items![index].name ??
+                              'name ',
+                      fontSize: 19,
+                    ),
+                    subtitle: text(
+                        stringtext: state.albumList[0].tracks!.items![index]
+                                .artists![0].name ??
+                            error_artist_name),
+                    trailing: iconbutton(
+                      iconwidget: const Icon(
+                        more_vertical,
+                        size: 27,
+                        color: white,
+                      ),
+                      onpress: () {},
+                    ),
+                  ));
+            },
+            separatorBuilder: (context, index) {
+              return divider;
+            },
+            itemCount: state.albumList[0].tracks!.items!.length);
+      },
+    );
+  }
+}
