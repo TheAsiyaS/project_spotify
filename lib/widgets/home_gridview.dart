@@ -4,16 +4,17 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:project_spotifyclone/Models/album/albummodel/album.dart';
 import 'package:project_spotifyclone/core/CommonErrorText.dart';
-import 'package:project_spotifyclone/core/icons.dart';
 import 'package:project_spotifyclone/core/url.dart';
 import 'package:project_spotifyclone/widgets/circleavatar.dart';
 import 'package:project_spotifyclone/widgets/image.dart';
-import 'package:project_spotifyclone/widgets/listtitle.dart';
 import 'package:project_spotifyclone/widgets/texts.dart';
 
 import '../Models/Artist_list/model/artist_lists/artist.dart';
 import '../core/colors.dart';
 import '../core/size.dart';
+import '../presentation/Mix/mixSongs.dart';
+import '../presentation/album_episode_ui/AlbumUi.dart';
+import '../presentation/profile/artist_profile.dart';
 
 class gridview_home extends StatelessWidget {
   const gridview_home({
@@ -36,7 +37,7 @@ class gridview_home extends StatelessWidget {
   final Size size;
   final String id;
   final int itemCount;
-  final bool verticalor; //Vertical or horizontal
+  final bool verticalor;
   final int lines;
   final bool isradio;
   final double mImageheight;
@@ -63,12 +64,14 @@ class gridview_home extends StatelessWidget {
               onTap: () async {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
-                  return listtitle(
-                      leadingWidget: h10,
-                      trailingWidget: Icon(more_vertical),
-                      titleWidget: text(stringtext: 'title'),
-                      subtitleWidget:
-                          text(stringtext: 'sub title')); //ListOfSongs [Screen]
+                  return const ListOfSongs(
+                      artistsConatin: 'BTS, ENHYPEN, SEVENTEEN and more',
+                      whosmix: 'BTS',
+                      playlistId: '5N65TKI8w6VTEFJVqBUlhu',
+                      titletext: 'Daily Mix 1',
+                      coverUrl:
+                          'https://i.scdn.co/image/ab67706c0000bebbd540196c2a5cc76ff599a644',
+                      id: 'madeforuser');
                 }));
               },
               child: gridviewcard(
@@ -87,11 +90,17 @@ class gridview_home extends StatelessWidget {
               onTap: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
-                  return listtitle(
-                      leadingWidget: h10,
-                      trailingWidget: Icon(more_vertical),
-                      titleWidget: text(stringtext: 'title'),
-                      subtitleWidget: text(stringtext: 'sub title')); //commonui
+                  return AbumUi(
+                    isidAlbum: false,
+                    albumsList: albumsList[index].tracks!.items ?? [],
+                    albumid: albumsList[index].id!,
+                    Albumtitle: albumsList[index].name ?? 'no title',
+                    Albumcover: albumsList[index].images![0].url ?? noImg,
+                    Albumartist:
+                        albumsList[index].artists![0].name ?? error_artist_name,
+                    Albumyear: albumsList[index].releaseDate ?? 'year',
+                    totalsong: albumsList[index].totalTracks.toString(),
+                  );
                 }));
               },
               child: gridviewcard(
@@ -109,14 +118,15 @@ class gridview_home extends StatelessWidget {
             return GestureDetector(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => listtitle(
-                        leadingWidget: h10,
-                        trailingWidget: Icon(more_vertical),
-                        titleWidget: text(stringtext: 'title'),
-                        subtitleWidget:
-                            text(stringtext: 'sub title')) //Artistprofile
-
-                    ));
+                    builder: (context) => artist_profile(
+                        artistId: artistdatalist[index].id ?? 'no id',
+                        artistname:
+                            artistdatalist[index].name ?? error_artist_name,
+                        profileimag:
+                            artistdatalist[index].images![0].url ?? noImg,
+                        monthlylisterners:
+                            '${artistdatalist[index].followers!.total ?? ''} monthly listeners',
+                        views: '90,567,897')));
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -149,12 +159,14 @@ class gridview_home extends StatelessWidget {
               onTap: () async {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
-                  return listtitle(
-                      leadingWidget: h10,
-                      trailingWidget: Icon(more_vertical),
-                      titleWidget: text(stringtext: 'title'),
-                      subtitleWidget:
-                          text(stringtext: 'sub title')); //listofsong
+                  return ListOfSongs(
+                      artistsConatin:
+                          isradio ? 'By Spotify' : formattedArtistNames,
+                      whosmix: playlistoverview[index]['name'],
+                      playlistId: playlistoverview[index]['id'],
+                      titletext: playlistoverview[index]['name'],
+                      coverUrl: playlistoverview[index]['images'],
+                      id: 'madeforuser');
                 }));
               },
               child: gridviewcard(
@@ -172,11 +184,17 @@ class gridview_home extends StatelessWidget {
               onTap: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
-                  return listtitle(
-                      leadingWidget: h10,
-                      trailingWidget: Icon(more_vertical),
-                      titleWidget: text(stringtext: 'title'),
-                      subtitleWidget: text(stringtext: 'sub title')); //commonui
+                  return AbumUi(
+                    isidAlbum: false,
+                    albumsList: albumsList[index].tracks!.items ?? [],
+                    albumid: albumsList[index].id!,
+                    Albumtitle: albumsList[index].name ?? 'no title',
+                    Albumcover: albumsList[index].images![0].url ?? noImg,
+                    Albumartist:
+                        albumsList[index].artists![0].name ?? error_artist_name,
+                    Albumyear: albumsList[index].releaseDate ?? 'year',
+                    totalsong: albumsList[index].totalTracks.toString(),
+                  );
                 }));
               },
               child: gridviewcard(
@@ -196,12 +214,16 @@ class gridview_home extends StatelessWidget {
               onTap: () async {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
-                  return listtitle(
-                      leadingWidget: h10,
-                      trailingWidget: Icon(more_vertical),
-                      titleWidget: text(stringtext: 'title'),
-                      subtitleWidget:
-                          text(stringtext: 'sub title')); //Listofsong
+                  return ListOfSongs(
+                      artistsConatin: 'artistsname',
+                      whosmix: '',
+                      playlistId: playlistoverview[0]['playlists']['items']
+                          [index]['id'],
+                      titletext: playlistoverview[0]['playlists']['items']
+                          [index]['name'],
+                      coverUrl: playlistoverview[0]['playlists']['items'][index]
+                          ['images'][0]['url'],
+                      id: 'madeforuser');
                 }));
               },
               child: gridviewcard(
@@ -223,11 +245,24 @@ class gridview_home extends StatelessWidget {
               onTap: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
-                  return listtitle(
-                      leadingWidget: h10,
-                      trailingWidget: Icon(more_vertical),
-                      titleWidget: text(stringtext: 'title'),
-                      subtitleWidget: text(stringtext: 'sub title')); //commonUI
+                  return AbumUi(
+                    isidAlbum: true,
+                    albumsList: const [],
+                    albumid: albumlist[0]['albums']['items'][index]['id'],
+                    Albumtitle: albumlist[0]['albums']['items'][index]
+                            ['name'] ??
+                        'no title',
+                    Albumcover: albumlist[0]['albums']['items'][index]['images']
+                            [0]['url'] ??
+                        noImg,
+                    Albumartist: albumlist[0]['albums']['items'][index]
+                            ['artists'][0]['name'] ??
+                        error_artist_name,
+                    Albumyear: albumlist[0]['albums']['items'][index]
+                            ['release_date'] ??
+                        'year',
+                    totalsong: albumlist[0]['albums']['total'].toString(),
+                  );
                 }));
               },
               child: gridviewcard(
