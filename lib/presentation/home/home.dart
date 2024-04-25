@@ -1,19 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:project_spotifyclone/Models/Artist_list/model/artist_lists/artist.dart';
+import 'package:project_spotifyclone/application/Artists/list_artists_bloc.dart';
+import 'package:project_spotifyclone/core/CommonErrorText.dart';
 
+import '../../application/Album/album_bloc.dart';
+import '../../application/playlistBloc/playlist_bloc.dart';
+import '../../core/Ids.dart';
 import '../../core/colors.dart';
 import '../../core/icons.dart';
 import '../../core/size.dart';
 import '../../domain/provider/signIn_working_class.dart';
 import '../../widgets/home_gridview.dart';
 import '../../widgets/iconbutton.dart';
+import '../../widgets/snapWaiting.dart';
 import '../../widgets/texts.dart';
 import '../signIn/signup_ui.dart';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class home extends StatelessWidget {
   const home({super.key});
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<ListArtistsBloc>(context)
+          .add(const ListArtistsEvent.getartistslist());
+      BlocProvider.of<PlaylistBloc>(context).add(
+          const PlaylistEvent.getplaylistOverview(playlistids: playlistIds));
+      BlocProvider.of<PlaylistBloc>(context).add(
+          const PlaylistEvent.getplaylistOverview1(
+              playlistids: playlist_radio));
+      BlocProvider.of<AlbumBloc>(context).add(const AlbumEvent.getalbumlist());
+      BlocProvider.of<AlbumBloc>(context).add(const AlbumEvent.getalbumsongs());
+    });
     String greeting = '';
     DateTime now = DateTime.now();
     int hour = now.hour;
@@ -122,28 +142,32 @@ class home extends StatelessWidget {
                 verticalor: false,
                 lines: 2,
               ),
-              text(
+             text(
                 maxline: 1,
                 stringtext: 'Popular Albums',
                 fontSize: 25,
               ),
               h30,
-              gridview_home(
-                albumlist: const [],
-                albumsList: [], //data must added here
-                //episode
-                playlistoverview: const [],
-                artistdatalist: const [],
-                stacktext: '',
-                mImageheight: 4.5,
-                wImgheight: 4,
+              BlocBuilder<AlbumBloc, AlbumState>(
+                builder: (context, state) {
+                  return gridview_home(
+                    albumlist: const [],
+                    albumsList: state.albumsongs,
+                    //episode
+                    playlistoverview: const [],
+                    artistdatalist: const [],
+                    stacktext: '',
+                    mImageheight: 4.5,
+                    wImgheight: 4,
 
-                isradio: false,
-                lines: 2,
-                size: size,
-                id: 'albumsong',
-                itemCount: 0, //data must added here
-                verticalor: false,
+                    isradio: false,
+                    lines: 2,
+                    size: size,
+                    id: 'albumsong',
+                    itemCount: state.albumsongs.length,
+                    verticalor: false,
+                  );
+                },
               ),
               h30,
               text(
@@ -152,89 +176,143 @@ class home extends StatelessWidget {
                 fontSize: 25,
               ),
               h20,
-              gridview_home(
-                  albumlist: const [],
-                  albumsList: const [],
-                  playlistoverview: const [],
-                  artistdatalist: [], //data must added here
-                  stacktext: '',
-                  mImageheight: 4.5,
-                  wImgheight: 4,
-                  isradio: false,
-                  lines: 1,
-                  verticalor: false,
-                  size: size,
-                  id: 'profile',
-                  itemCount: 0 //data must added here
-                  ),
+              BlocBuilder<ListArtistsBloc, ListArtistsState>(
+                  builder: (context, state) {
+                if (state.isLoading) {
+                  return const snapwaiting(color: white);
+                } else if (state.artistList.isEmpty) {
+                  return const Center(
+                    child: snapwaiting(color: spotify_green),
+                  );
+                } else if (state.iserror) {
+                  return Center(child: text(stringtext: error_text));
+                } else {
+                  List<Artist> shuffledList = List.of(state.artistList as Iterable<Artist>)
+                    ..shuffle();
+                  return gridview_home(
+                    albumlist: const [],
+                    albumsList: const [],
+                    playlistoverview: const [],
+                    artistdatalist: shuffledList,
+                    stacktext: '',
+                    mImageheight: 4.5,
+                    wImgheight: 4,
+                    isradio: false,
+                    lines: 1,
+                    verticalor: false,
+                    size: size,
+                    id: 'profile',
+                    itemCount: state.artistList.length,
+                  );
+                }
+              }),
               h30,
               text(
                 maxline: 1,
-                stringtext:
-                    'Made for Username}', //change username to current username
+                stringtext: 'Made for username',
                 fontSize: 25,
               ),
               h20,
-              gridview_home(
-                albumlist: const [],
-                albumsList: const [],
-                playlistoverview: [], //sate list pass here//data must added here
-                artistdatalist: const [],
-                stacktext: '',
-                mImageheight: 4.5,
-                wImgheight: 4,
+              BlocBuilder<PlaylistBloc, PlaylistState>(
+                  builder: (context, state) {
+                if (state.isLoading) {
+                  return const snapwaiting(color: white);
+                } else if (state.paylistoverview.isEmpty) {
+                  return const Center(
+                    child: snapwaiting(color: spotify_green),
+                  );
+                } else if (state.iserror) {
+                  return Center(child: text(stringtext: error_text));
+                } else {
+                  return gridview_home(
+                    albumlist: const [],
+                    albumsList: const [],
+                    playlistoverview:
+                        state.paylistoverview, //sate list pass here
+                    artistdatalist: const [],
+                    stacktext: '',
+                    mImageheight: 4.5,
+                    wImgheight: 4,
 
-                isradio: false,
-                lines: 2,
-                size: size,
-                id: 'playlist',
-                itemCount: 0, //data must added here
-                verticalor: false,
-              ),
+                    isradio: false,
+                    lines: 2,
+                    size: size,
+                    id: 'playlist',
+                    itemCount: state.paylistoverview.length,
+                    verticalor: false,
+                  );
+                }
+              }),
               text(
                 maxline: 1,
                 stringtext: 'Recommand for today',
                 fontSize: 25,
               ),
               h20,
-              gridview_home(
-                albumlist: const [],
-                albumsList: [], //data must added here
-                playlistoverview: const [],
-                artistdatalist: const [],
-                stacktext: '',
-                mImageheight: 4.5,
-                wImgheight: 4,
-                isradio: false,
-                lines: 2,
-                size: size,
-                id: 'album',
-                itemCount: 0, //data must added here
-                verticalor: false,
-              ),
+              BlocBuilder<AlbumBloc, AlbumState>(builder: (context, state) {
+                if (state.isLoading) {
+                  return const snapwaiting(color: white);
+                } else if (state.albumList.isEmpty) {
+                  return const Center(
+                    child: snapwaiting(color: spotify_green),
+                  );
+                } else if (state.iserror) {
+                  return Center(child: text(stringtext: error_text));
+                } else {
+                  return gridview_home(
+                    albumlist: const [],
+                    albumsList: state.albumList,
+                    playlistoverview: const [],
+                    artistdatalist: const [],
+                    stacktext: '',
+                    mImageheight: 4.5,
+                    wImgheight: 4,
+                    isradio: false,
+                    lines: 2,
+                    size: size,
+                    id: 'album',
+                    itemCount: state.albumList.length,
+                    verticalor: false,
+                  );
+                }
+              }),
               text(
                 maxline: 1,
                 stringtext: 'Recommanded audio',
                 fontSize: 25,
               ),
               h20,
-              gridview_home(
-                albumlist: const [],
-                albumsList: const [],
+              BlocBuilder<PlaylistBloc, PlaylistState>(
+                  builder: (context, state) {
+                if (state.isLoading) {
+                  return const snapwaiting(color: white);
+                } else if (state.paylistoverview1.isEmpty) {
+                  return const Center(
+                    child: snapwaiting(color: spotify_green),
+                  );
+                } else if (state.iserror) {
+                  return Center(child: text(stringtext: error_text));
+                } else {
+                  return gridview_home(
+                    albumlist: const [],
+                    albumsList: const [],
 
-                playlistoverview: [], //sate list pass here//data must added here
-                artistdatalist: const [],
-                stacktext: '',
-                mImageheight: 4.5,
-                wImgheight: 4,
+                    playlistoverview:
+                        state.paylistoverview1, //sate list pass here
+                    artistdatalist: const [],
+                    stacktext: '',
+                    mImageheight: 4.5,
+                    wImgheight: 4,
 
-                isradio: true,
-                lines: 2,
-                size: size,
-                id: 'playlist',
-                itemCount: 0, //data must added here
-                verticalor: false,
-              ),
+                    isradio: true,
+                    lines: 2,
+                    size: size,
+                    id: 'playlist',
+                    itemCount: state.paylistoverview1.length,
+                    verticalor: false,
+                  );
+                }
+              }),
             ],
           ),
         ),
