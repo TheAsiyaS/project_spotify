@@ -24,7 +24,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.example.project_spotifyclone"
-    compileSdk 33
+    compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -45,6 +45,7 @@ android {
         applicationId "com.example.project_spotifyclone"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
+        manifestPlaceholders = [appAuthRedirectScheme: 'com.example.project_spotifyclone']
         minSdkVersion 26
         targetSdkVersion 30
         multiDexEnabled true

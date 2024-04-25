@@ -8,6 +8,7 @@ import '../widgets/image.dart';
 import '../widgets/texts.dart';
 import 'colors.dart';
 
+// ignore: must_be_immutable
 class elevated_button extends StatelessWidget {
   elevated_button(
       {super.key,

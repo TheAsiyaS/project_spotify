@@ -14,7 +14,7 @@ class home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String greeting = '';
+    String greeting = '';   
     DateTime now = DateTime.now();
     int hour = now.hour;
 
@@ -34,7 +34,7 @@ class home extends StatelessWidget {
             radius: 18,
             backgroundColor: green,
             child: text(
-              stringtext: CurrentUserData!.displayName![0],
+              stringtext: 'u',
               color: black,
             ),
           ),
@@ -46,7 +46,7 @@ class home extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => const screen_signIn()),
                   (route) => false);
-            } else if (value == 'Profilr  e') {}
+            } else if (value == 'Profile') {}
           },
           itemBuilder: (BuildContext context) {
             return [
@@ -123,7 +123,7 @@ class home extends StatelessWidget {
               h30,
               text(
                 maxline: 1,
-                stringtext: 'Made for ${CurrentUserData!.displayName!}',
+                stringtext: 'Made for username',
                 fontSize: 25,
               ),
               h20,

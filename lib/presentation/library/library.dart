@@ -28,7 +28,7 @@ class your_library extends StatelessWidget {
             size: size,
             height: 12,
             width: 6,
-            img_url: CurrentUserData!.photoURL ?? noImg,
+            img_url:  noImg,
             borderRadius: 50),
         title: text(
           stringtext: 'Your Library',
@@ -64,7 +64,7 @@ class your_library extends StatelessWidget {
               size: size,
               borderRadius: 25,
               boxtext: 'Artists',
-              boxheight: 15,
+              boxheight: 15, 
               boxwidth: 3),
           divider,
           rowText(
