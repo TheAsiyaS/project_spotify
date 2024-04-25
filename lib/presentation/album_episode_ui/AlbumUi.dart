@@ -182,7 +182,9 @@ class AbumUi extends StatelessWidget {
             SizedBox(
                 height: size.height / 3,
                 width: double.infinity,
-                child: h10)
+                child: isidAlbum
+                    ? searchalbumitems(albumid: albumid)
+                    : albumitems(albumsList: albumsList))
           ],
         ),
       ),
