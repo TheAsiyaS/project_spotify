@@ -189,3 +189,41 @@ class AbumUi extends StatelessWidget {
     ]));
   }
 }
+
+
+
+class albumitems extends StatelessWidget {
+  const albumitems({
+    super.key,
+    required this.albumsList,
+  });
+
+  final List<Item> albumsList;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+        itemBuilder: (context, index) {
+          return GestureDetector(
+              onTap: () {
+                log('url : ${albumsList[index].previewUrl ?? 'nourl'}');
+                //navigate to palysongui (screen)
+              },
+              child: listtitle(
+                  leadingWidget: h10,
+                  trailingWidget: GestureDetector(
+                      onTap: () async {}, child: const Icon(more_vertical)),
+                  titleWidget:
+                      text(stringtext: albumsList[index].name ?? 'no name'),
+                  subtitleWidget: text(
+                      stringtext: albumsList[index].artists![0].name ??
+                          error_artist_name))
+            
+              );
+        },
+        separatorBuilder: (context, index) {
+          return divider;
+        },
+        itemCount: albumsList.length);
+  }
+}
