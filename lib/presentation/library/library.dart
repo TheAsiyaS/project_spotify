@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project_spotifyclone/widgets/image.dart';
 
 import '../../core/colors.dart';
-import '../../core/currentuser_detail.dart';
 import '../../core/divider.dart';
 import '../../core/icons.dart';
 import '../../core/size.dart';

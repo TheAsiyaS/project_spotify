@@ -22,7 +22,7 @@ class rowText extends StatelessWidget {
       this.rotatevalue,
       this.iconclor,
       this.trailicon,
-      this.icon})
+      this.icon})   
       : super(key: key);
 
   final Size size;
@@ -57,10 +57,14 @@ class rowText extends StatelessWidget {
                 borderRadius: 0,
               ),
         w20,
-        text(
-          stringtext: stringtext,
-          color: color,
-          fontSize: fontSize,
+        SizedBox(
+          height: 30,
+          width: size.width/1.5,   
+          child: text(
+            stringtext: stringtext,
+            color: color,
+            fontSize: fontSize,
+          ),
         ),
         spacer,
         Icon(

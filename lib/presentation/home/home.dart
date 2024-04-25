@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../core/colors.dart';
-import '../../core/currentuser_detail.dart';
 import '../../core/icons.dart';
 import '../../core/size.dart';
 import '../../domain/provider/signIn_working_class.dart';
