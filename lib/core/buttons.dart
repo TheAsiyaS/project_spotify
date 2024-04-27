@@ -94,7 +94,7 @@ class Container_button extends StatelessWidget {
             return const navigationBar();
           }));
         } else if (id == 'whatmusicNEXT') {
-          //artsist choosing screen
+         // artsist choosing screen
           // Navigator.of(context).push(
           //     MaterialPageRoute(builder: (context) => const choose_artist()));
         }

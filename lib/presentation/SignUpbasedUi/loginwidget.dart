@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_spotifyclone/Domain/provider/signIn_working_class.dart';
 import 'package:project_spotifyclone/core/colors.dart';
 import 'package:project_spotifyclone/core/size.dart';
+import 'package:project_spotifyclone/presentation/SignUpbasedUi/whatmusiclike.dart';
 import 'package:project_spotifyclone/widgets/rowtext.dart';
 import 'package:project_spotifyclone/widgets/texts.dart';
 
@@ -80,14 +81,14 @@ class Login_widget extends StatelessWidget {
                     context,
                     listen: false);
                 provider.login();
-                // Navigator.of(context).pushAndRemoveUntil(
-                //     MaterialPageRoute(
-                //         builder: (context) => const whatmusiclike()),
-                //     (route) => false);
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                        builder: (context) =>  const whatmusiclike()),
+                    (route) => false);
               },
               child: rowText(
                 iconornot: false,
-                size: size,
+                size: size,   
                 image_url:
                     'asset/image/some/google_318-278809-removebg-preview.png',
                 stringtext: 'LogIn with google',
