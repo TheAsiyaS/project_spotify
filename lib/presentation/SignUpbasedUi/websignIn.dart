@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_spotifyclone/core/colors.dart';
 import 'package:project_spotifyclone/widgets/image.dart';
-import 'package:project_spotifyclone/widgets/loginwidget.dart';
+import 'package:project_spotifyclone/presentation/SignUpbasedUi/loginwidget.dart';
 import 'package:project_spotifyclone/widgets/texts.dart';
 
 class webSignIn extends StatelessWidget {
@@ -57,7 +57,7 @@ class webSignIn extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: size.width / 9),
-                    child: const login_widget(),
+                    child: const Login_widget(),
                   )
                 ],
               ),

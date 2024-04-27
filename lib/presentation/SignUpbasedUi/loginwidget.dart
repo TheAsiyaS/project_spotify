@@ -6,9 +6,8 @@ import 'package:project_spotifyclone/widgets/rowtext.dart';
 import 'package:project_spotifyclone/widgets/texts.dart';
 
 import 'package:provider/provider.dart';
-
-class login_widget extends StatelessWidget {
-  const login_widget({
+class Login_widget extends StatelessWidget {
+  const Login_widget({
     super.key,
   });
 

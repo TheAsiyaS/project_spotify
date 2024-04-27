@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:project_spotifyclone/widgets/image.dart';
-import 'package:project_spotifyclone/widgets/loginwidget.dart';
+import 'package:project_spotifyclone/presentation/SignUpbasedUi/loginwidget.dart';
 import 'package:project_spotifyclone/widgets/texts.dart';
 
 class screen_signIn extends StatelessWidget {
@@ -48,7 +48,7 @@ class screen_signIn extends StatelessWidget {
               SizedBox(
                 height: size.height / 8,
               ),
-              const login_widget()
+              const Login_widget()
             ],
           ),
         ),
