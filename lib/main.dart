@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
               scaffoldBackgroundColor: black,
               brightness: Brightness.dark,
               appBarTheme: const AppBarTheme(backgroundColor: black)),
-          home: navigationBar()),
+          home: const navigationBar()),
     );
   }
-}
+}  

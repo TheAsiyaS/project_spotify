@@ -10,7 +10,7 @@ import 'package:project_spotifyclone/core/Ids.dart';
 import 'package:project_spotifyclone/core/colors.dart';
 import 'package:project_spotifyclone/core/icons.dart';
 import 'package:project_spotifyclone/core/size.dart';
-import 'package:project_spotifyclone/presentation/signIn/signup_ui.dart';
+import 'package:project_spotifyclone/presentation/signIn_out/signup_ui.dart';
 import 'package:project_spotifyclone/widgets/home_gridview.dart';
 import 'package:project_spotifyclone/widgets/iconbutton.dart';
 import 'package:project_spotifyclone/widgets/snapWaiting.dart';

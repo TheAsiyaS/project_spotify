@@ -159,7 +159,7 @@ class permium extends StatelessWidget {
             ),
             h50,
             Container(
-              height: size.height / 2.4,
+              height: size.height / 2.2,
               width: size.width / 1.04,
               decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 78, 78, 78),
