@@ -14,6 +14,7 @@ import 'widgets/NavigationBar.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await configInjection();
   await Firebase.initializeApp(
       options: const FirebaseOptions(
           apiKey: 'AIzaSyBHHgw5mINO2uCLzb6EElFjSN_jUMdZyRI',
@@ -21,7 +22,8 @@ Future<void> main() async {
           messagingSenderId: '353992947181',
           projectId: 'project-spotify-ed3ad'));
   runApp(const MyApp());
-}
+}    
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

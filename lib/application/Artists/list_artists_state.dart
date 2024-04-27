@@ -11,3 +11,4 @@ class ListArtistsState with _$ListArtistsState {
   factory ListArtistsState.initial() => const ListArtistsState(
       artistList: [], iserror: false, isLoading: false, artist: []);
 }
+  

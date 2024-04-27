@@ -1,14 +1,15 @@
 import 'package:bloc/bloc.dart';
 
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:project_spotifyclone/Models/Artist_list/I_artist_list_repo.dart';
-import 'package:project_spotifyclone/Models/album/albummodel/artist.dart';
+import 'package:project_spotifyclone/Models/Artist_list/model/artist_lists/artist.dart';
 import 'package:project_spotifyclone/core/failures/mainFailure.dart';
 
 part 'list_artists_event.dart';
 part 'list_artists_state.dart';
-part 'list_artists_bloc.freezed.dart';//
+part 'list_artists_bloc.freezed.dart';
 
 @injectable
 class ListArtistsBloc extends Bloc<ListArtistsEvent, ListArtistsState> {
@@ -33,7 +34,7 @@ class ListArtistsBloc extends Bloc<ListArtistsEvent, ListArtistsState> {
         (mainFailure fail) => const ListArtistsState(
             artist: [], artistList: [], isLoading: false, iserror: true),
         (List<Artist> result) => ListArtistsState(
-            artist: result,//
+            artist: result,
             artistList: state.artistList,
             isLoading: false,
             iserror: false),

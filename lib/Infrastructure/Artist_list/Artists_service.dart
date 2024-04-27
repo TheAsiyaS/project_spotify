@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:dartz/dartz.dart';
 import 'package:project_spotifyclone/Models/Artist_list/I_artist_list_repo.dart';
-import 'package:project_spotifyclone/Models/album/albummodel/artist.dart';
+import 'package:project_spotifyclone/Models/Artist_list/model/artist_lists/artist.dart';
 import 'package:project_spotifyclone/core/Ids.dart';
 import 'package:project_spotifyclone/core/api/Spotify_token_acces.dart';
 import 'package:project_spotifyclone/core/failures/mainFailure.dart';

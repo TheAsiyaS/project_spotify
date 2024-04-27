@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'followers.dart';
 import 'image.dart';
 
-part 'artist.g.dart';
+part 'artist.g.dart';   
 
 @JsonSerializable()
 class Artist {

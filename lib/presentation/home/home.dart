@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:project_spotifyclone/Models/Artist_list/model/artist_lists/artist.dart';
-import 'package:project_spotifyclone/application/Artists/list_artists_bloc.dart';
-import 'package:project_spotifyclone/core/CommonErrorText.dart';
-
-import '../../application/Album/album_bloc.dart';
-import '../../application/playlistBloc/playlist_bloc.dart';
-import '../../core/Ids.dart';
-import '../../core/colors.dart';
-import '../../core/icons.dart';
-import '../../core/size.dart';
-import '../../domain/provider/signIn_working_class.dart';
-import '../../widgets/home_gridview.dart';
-import '../../widgets/iconbutton.dart';
-import '../../widgets/snapWaiting.dart';
-import '../../widgets/texts.dart';
-import '../signIn/signup_ui.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project_spotifyclone/Domain/provider/signIn_working_class.dart';
+import 'package:project_spotifyclone/Models/Artist_list/model/artist_lists/artist.dart';
+import 'package:project_spotifyclone/application/Album/album_bloc.dart';
+import 'package:project_spotifyclone/application/Artists/list_artists_bloc.dart';
+import 'package:project_spotifyclone/application/playlistBloc/playlist_bloc.dart';
+import 'package:project_spotifyclone/core/CommonErrorText.dart';
+import 'package:project_spotifyclone/core/Ids.dart';
+import 'package:project_spotifyclone/core/colors.dart';
+import 'package:project_spotifyclone/core/icons.dart';
+import 'package:project_spotifyclone/core/size.dart';
+import 'package:project_spotifyclone/presentation/signIn/signup_ui.dart';
+import 'package:project_spotifyclone/widgets/home_gridview.dart';
+import 'package:project_spotifyclone/widgets/iconbutton.dart';
+import 'package:project_spotifyclone/widgets/snapWaiting.dart';
+import 'package:project_spotifyclone/widgets/texts.dart';
 
 class home extends StatelessWidget {
   const home({super.key});
@@ -142,7 +140,7 @@ class home extends StatelessWidget {
                 verticalor: false,
                 lines: 2,
               ),
-             text(
+              text(
                 maxline: 1,
                 stringtext: 'Popular Albums',
                 fontSize: 25,
@@ -187,7 +185,7 @@ class home extends StatelessWidget {
                 } else if (state.iserror) {
                   return Center(child: text(stringtext: error_text));
                 } else {
-                  List<Artist> shuffledList = List.of(state.artistList as Iterable<Artist>)
+                  List<Artist> shuffledList = List.of(state.artistList)
                     ..shuffle();
                   return gridview_home(
                     albumlist: const [],
