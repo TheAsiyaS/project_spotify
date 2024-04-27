@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:project_spotifyclone/application/SongVlaues/songvalues_bloc.dart';
 
 import '../core/colors.dart';
 import '../presentation/Search/search.dart';
@@ -7,6 +9,7 @@ import '../presentation/home/home.dart';
 import '../presentation/library/library.dart';
 import '../presentation/premium/premium.dart';
 import 'ListtitleSongCommon.dart';
+
 
 ValueNotifier<int> bottomIndex = ValueNotifier(0); //bottomnavigationBar index
 final navigationScreens = [
@@ -60,16 +63,20 @@ class navigationBar extends StatelessWidget {
                 Padding(
                     padding:
                         const EdgeInsets.only(bottom: 20, left: 5, right: 5),
-                    child: bottom_song(
-                        imageurl:
-                            'https://i.ytimg.com/vi/IwzkfMmNMpM/maxresdefault.jpg',
-                        songname: 'dreamer',
-                        songurl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-                        artistname: 'jungkook',
-                        id: 'werer'))
+                    child: BlocBuilder<SongvaluesBloc, SongvaluesState>(
+                      builder: (context, state) {
+                        return bottom_song(
+                            imageurl: state.songimgurl,
+                            songname: state.songname,
+                            songurl: state.songUrl,
+                            artistname: state.artistname,
+                            id: state.artistid);
+                      },
+                    ))
               ],
             ),
           );
         });
   }
 }
+
