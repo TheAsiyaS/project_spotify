@@ -1,6 +1,6 @@
 
 import 'package:dartz/dartz.dart';
-import 'package:project_spotifyclone/Models/album/albummodel/item.dart';
+import 'package:project_spotifyclone/Models/Playlists/playlist_model/item.dart';
 import 'package:project_spotifyclone/core/failures/mainFailure.dart';
 
 abstract class I_playlist_Repo {

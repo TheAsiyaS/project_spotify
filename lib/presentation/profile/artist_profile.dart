@@ -27,10 +27,8 @@ class artist_profile extends StatelessWidget {
   final String artistname;
   @override
   Widget build(BuildContext context) {
-   
-
     ValueNotifier<bool> isfollow = ValueNotifier(false);
-   
+
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -38,22 +36,21 @@ class artist_profile extends StatelessWidget {
         slivers: [
           SliverAppBar(
               leading: Container(
-                height: 80,
-                width: 80,
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(108, 43, 43, 43),
-                    borderRadius: BorderRadius.circular(50)),
-                child: iconbutton(
-                  iconwidget: const Icon(
-                    goback,
-                    size: 27,
-                    color: white,
-                  ),
-                  onpress: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-              ),
+                  height: 80,
+                  width: 80,
+                  decoration: BoxDecoration(
+                      color: const Color.fromARGB(108, 43, 43, 43),
+                      borderRadius: BorderRadius.circular(50)),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Icon(
+                      goback,
+                      size: 27,
+                      color: white,
+                    ),
+                  )),
               pinned: true,
               expandedHeight: size.height / 3.5,
               flexibleSpace: FlexibleSpaceBar(
@@ -74,7 +71,7 @@ class artist_profile extends StatelessWidget {
               )),
           SliverToBoxAdapter(
               child: Container(
-            height: size.height / 5,
+            height: size.height / 4,
             width: size.width,
             decoration: const BoxDecoration(
                 gradient: LinearGradient(
@@ -98,9 +95,7 @@ class artist_profile extends StatelessWidget {
                           valueListenable: isfollow,
                           builder: (context, snapshot, newdata) {
                             return GestureDetector(
-                              onTap: () async {
-                               
-                              },
+                              onTap: () async {},
                               child: containertext(
                                   bordercolor:
                                       isfollow.value ? spotify_green : white,
@@ -134,7 +129,7 @@ class artist_profile extends StatelessWidget {
                       ),
                       w20,
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 30, right: 20),
+                        padding: const EdgeInsets.only(bottom: 0, right: 20),
                         child: iconbutton(
                           iconwidget: const Icon(
                             circleplay,
@@ -155,55 +150,46 @@ class artist_profile extends StatelessWidget {
             ),
           )),
           SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) => GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => palysongui(
-                                artistId:
-                                    
-                                        error_artist_id,
-                                songid: 
-                                    error_song_id,
-                                artistname: 
-                                    error_artist_name,
-                                songname:
-                                    error_song_name,
-                                songurl: 
-                                    'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-                                songCover: profileimag,
-                                whoMix: '',
-                              )));
-                    },
-                    child: Row(
-                      children: [
-                        text(stringtext: '${index + 1}'),
-                        Expanded(
-                          child: listtitle(
-                            leadingWidget: CircleAvatar(
-                              radius: 30,
-                              backgroundImage: NetworkImage(profileimag),
-                            ),
-                            subtitleWidget: text(
-                                stringtext: 
-                                    'no name'),
-                            titleWidget: text(stringtext: ''),
-                            trailingWidget: iconbutton(
-                                iconwidget: const Icon(
-                                  more_vertical,
-                                  size: 27,
-                                  color: grey,
-                                ),
-                                onpress: () {}),
-                          
+              delegate: SliverChildBuilderDelegate(
+            (context, index) => GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => palysongui(
+                          artistId: error_artist_id,
+                          songid: error_song_id,
+                          artistname: error_artist_name,
+                          songname: error_song_name,
+                          songurl:
+                              'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+                          songCover: profileimag,
+                          whoMix: '',
+                        )));
+              },
+              child: Row(
+                children: [
+                  text(stringtext: '${index + 1}'),
+                  Expanded(
+                    child: listtitle(
+                      leadingWidget: CircleAvatar(
+                        radius: 30,
+                        backgroundImage: NetworkImage(profileimag),
+                      ),
+                      subtitleWidget: text(stringtext: 'no name'),
+                      titleWidget: text(stringtext: ''),
+                      trailingWidget: iconbutton(
+                          iconwidget: const Icon(
+                            more_vertical,
+                            size: 27,
+                            color: grey,
                           ),
-                        ),
-                      ],
+                          onpress: () {}),
                     ),
                   ),
-                  childCount: 3,
-                ))
-           
+                ],
+              ),
+            ),
+            childCount: 3,
+          ))
         ],
       ),
     );

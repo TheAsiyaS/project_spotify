@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:project_spotifyclone/Models/Playlists/I_playlist_repo.dart';
-import 'package:project_spotifyclone/Models/album/albummodel/item.dart';
+import 'package:project_spotifyclone/Models/Playlists/playlist_model/item.dart';
 import 'package:project_spotifyclone/core/failures/mainFailure.dart';
 
 part 'playlist_event.dart';

@@ -1,9 +1,16 @@
+import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:palette_generator/palette_generator.dart';
+import 'package:project_spotifyclone/application/playlistBloc/playlist_bloc.dart';
+import 'package:project_spotifyclone/core/CommonErrorText.dart';
+import 'package:project_spotifyclone/core/url.dart';
+import 'package:project_spotifyclone/presentation/songUi/playsongui.dart';
 
 import '../../core/colors.dart';
 import '../../core/divider.dart';
@@ -17,7 +24,6 @@ import '../../widgets/rowtext.dart';
 import '../../widgets/snapWaiting.dart';
 import '../../widgets/texts.dart';
 
-
 class ListOfSongs extends StatelessWidget {
   const ListOfSongs({
     super.key,
@@ -25,7 +31,7 @@ class ListOfSongs extends StatelessWidget {
     required this.id,
     required this.titletext,
     required this.playlistId,
-    required this.whosmix, 
+    required this.whosmix,
     required this.artistsConatin,
   });
 
@@ -37,7 +43,10 @@ class ListOfSongs extends StatelessWidget {
   final String artistsConatin;
   @override
   Widget build(BuildContext context) {
-   
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<PlaylistBloc>(context)
+          .add(PlaylistEvent.getplaylistItems(playlistids: [playlistId]));
+    });
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -45,16 +54,8 @@ class ListOfSongs extends StatelessWidget {
         slivers: [
           SliverAppBar(
             pinned: true,
-            expandedHeight: size.height / 1.99,
+            expandedHeight: size.height / 1.9,
             flexibleSpace: FlexibleSpaceBar(
-                title: Padding(
-                  padding: EdgeInsets.only(bottom: size.height / 14, left: 20),
-                  child: text(
-                    stringtext: titletext,
-                    fontSize: 19,
-                    maxline: 2,
-                  ),
-                ),
                 background: FutureBuilder<PaletteGenerator>(
                     future: PaletteGenerator.fromImageProvider(
                         NetworkImage(coverUrl)),
@@ -125,9 +126,7 @@ class ListOfSongs extends StatelessWidget {
                                 ],
                               ),
                               h30,
-                              Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: size.width / 5),
+                              Center(
                                 child: Stack(
                                   alignment: AlignmentDirectional.bottomEnd,
                                   children: [
@@ -208,7 +207,7 @@ class ListOfSongs extends StatelessWidget {
                     onpress: () {},
                   ),
                   SizedBox(
-                    width: size.width / 4,
+                    width: size.width / 5,
                   ),
                   iconbutton(
                     iconwidget: const Icon(
@@ -235,24 +234,58 @@ class ListOfSongs extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(
-         child: SizedBox(
+            child: BlocBuilder<PlaylistBloc, PlaylistState>(
+                builder: (context, state) {
+              if (state.isLoading) {
+                return const snapwaiting(color: white);
+              } else if (state.playlistItems.isEmpty) {
+                return const Center(
+                  child: snapwaiting(color: spotify_green),
+                );
+              } else if (state.iserror) {
+                return Center(child: text(stringtext: error_text));
+              } else {
+                return SizedBox(
                     height: size.height / 3,
                     width: double.infinity,
                     child: ListView.separated(
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
-                          
+                              log(state.playlistItems[index].track!.artists![0]
+                                      .id ??
+                                  '1234');
 
-                              //navigate to playsong ui
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => palysongui(
+                                        artistId: state.playlistItems[index]
+                                                .track!.artists![0].id ??
+                                            error_artist_id,
+                                        songid: state.playlistItems[index]
+                                                .track!.id ??
+                                            error_song_id,
+                                        artistname: state.playlistItems[index]
+                                                .track!.artists![0].name ??
+                                            error_artist_name,
+                                        songname: state.playlistItems[index]
+                                                .track!.name ??
+                                            error_song_name,
+                                        songurl: state.playlistItems[index]
+                                                .track!.previewUrl ??
+                                            'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+                                        songCover: state.playlistItems[index]
+                                                .track!.album!.images![0].url ??
+                                            noImg,
+                                        whoMix: whosmix,
+                                      )));
                             },
                             child: listtitle(
-                            
                               leadingWidget: show_networkimage(
                                   size: size,
                                   height: 5,
                                   width: kIsWeb ? 20 : 6,
-                                  img_url: 'image url here',
+                                  img_url: state.playlistItems[index].track!
+                                      .album!.images![0].url!,
                                   borderRadius: 5,
                                   opacity: 5,
                                   color1: transparent,
@@ -267,9 +300,10 @@ class ListOfSongs extends StatelessWidget {
                               ),
                               titleWidget: text(
                                   stringtext:
-                                      'track_name'),
+                                      state.playlistItems[index].track!.name!),
                               subtitleWidget: text(
-                                  stringtext: 
+                                  stringtext: state.playlistItems[index].track!
+                                          .artists![0].name ??
                                       'Artist name currently unavailble'),
                             ),
                           );
@@ -277,9 +311,9 @@ class ListOfSongs extends StatelessWidget {
                         separatorBuilder: (context, index) {
                           return divider;
                         },
-                        itemCount:2)),
-              
-            
+                        itemCount: state.playlistItems.length));
+              }
+            }),
           ),
         ],
       ),

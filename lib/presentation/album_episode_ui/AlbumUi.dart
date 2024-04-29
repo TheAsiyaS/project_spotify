@@ -4,8 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:palette_generator/palette_generator.dart';
 import 'package:project_spotifyclone/Models/album/albummodel/item.dart';
 
-
-
 import '../../application/Album/album_bloc.dart';
 import '../../core/CommonErrorText.dart';
 import '../../core/colors.dart';
@@ -17,7 +15,6 @@ import '../../widgets/image.dart';
 import '../../widgets/listtitle.dart';
 import '../../widgets/snapWaiting.dart';
 import '../../widgets/texts.dart';
-
 
 class AbumUi extends StatelessWidget {
   const AbumUi({
@@ -154,7 +151,7 @@ class AbumUi extends StatelessWidget {
                     onpress: () {},
                   ),
                   SizedBox(
-                    width: size.width / 4,
+                    width: size.width / 4.5,
                   ),
                   iconbutton(
                     iconwidget: const Icon(
@@ -192,8 +189,6 @@ class AbumUi extends StatelessWidget {
   }
 }
 
-
-
 class albumitems extends StatelessWidget {
   const albumitems({
     super.key,
@@ -219,9 +214,7 @@ class albumitems extends StatelessWidget {
                       text(stringtext: albumsList[index].name ?? 'no name'),
                   subtitleWidget: text(
                       stringtext: albumsList[index].artists![0].name ??
-                          error_artist_name))
-            
-              );
+                          error_artist_name)));
         },
         separatorBuilder: (context, index) {
           return divider;

@@ -2,6 +2,7 @@
 
 // ignore: must_be_immutable
 import 'package:flutter/material.dart';
+import 'package:project_spotifyclone/presentation/SignUpbasedUi/chooseArtists.dart';
 
 import '../widgets/NavigationBar.dart';
 import '../widgets/image.dart';
@@ -94,11 +95,11 @@ class Container_button extends StatelessWidget {
             return const navigationBar();
           }));
         } else if (id == 'whatmusicNEXT') {
-         // artsist choosing screen
-          // Navigator.of(context).push(
-          //     MaterialPageRoute(builder: (context) => const choose_artist()));
+       //  artsist choosing screen
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const choose_artist()));
         }
-      },
+      }, 
       child: Container(
         height: height,
         width: width,
@@ -109,13 +110,13 @@ class Container_button extends StatelessWidget {
             ]),
             borderRadius: BorderRadius.circular(30)),
         child: Center(
-          child: text(
+          child: text( 
             maxline: 1,
-            stringtext: buttontext,
+            stringtext: buttontext,  
             fontSize: fontsize,
-            color: textcolor,
+            color: textcolor,    
           ),
-        ),
+        ), 
       ),
     );
   }

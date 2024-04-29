@@ -59,7 +59,7 @@ class rowText extends StatelessWidget {
         w20,
         SizedBox(
           height: 30,
-          width: size.width/1.5,   
+          width: size.width/1.7,   
           child: text(
             stringtext: stringtext,
             color: color,
