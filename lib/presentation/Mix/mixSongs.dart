@@ -208,7 +208,7 @@ class ListOfSongs extends StatelessWidget {
                   ),
                   SizedBox(
                     width: size.width / 5,
-                  ),
+                  ),  
                   iconbutton(
                     iconwidget: const Icon(
                       iconshuffle,
