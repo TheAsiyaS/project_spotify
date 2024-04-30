@@ -1,8 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter/material.dart';
+import 'package:project_spotifyclone/core/CommonErrorText.dart';
 import 'package:project_spotifyclone/core/colors.dart';
 import 'package:project_spotifyclone/core/size.dart';
+import 'package:project_spotifyclone/presentation/Search/AftersearchScreen/album.dart';
+import 'package:project_spotifyclone/presentation/Search/AftersearchScreen/artists.dart';
+import 'package:project_spotifyclone/presentation/Search/AftersearchScreen/playlists.dart';
+import 'package:project_spotifyclone/presentation/Search/AftersearchScreen/songs.dart';
+import 'package:project_spotifyclone/widgets/snapWaiting.dart';
 import 'package:project_spotifyclone/widgets/texts.dart';
 
 import '../../application/Search/search_bloc.dart';
@@ -31,12 +37,25 @@ class aftersearch extends StatelessWidget {
           fontWeight: FontWeight.normal,
         ),
       ),
-      body:  SafeArea(
+      body: BlocBuilder<SearchBloc, SearchState>(builder: (context, state) {
+        if (state.isLoading) {
+          return const snapwaiting(color: white);
+        } else if (state.searchItems.isEmpty) {
+          return const Center(
+            child: snapwaiting(color: spotify_green),
+          );
+        } else if (state.iserror) {
+          return Center(child: text(stringtext: error_text));
+        } else {
+          return SafeArea(
               child: ValueListenableBuilder(
                   valueListenable: currentpage,
                   builder: (context, value, _) {
                     final screens = [
-                    //screens
+                      songs(trackList: state.searchItems),
+                      Artists(artistList: state.searchItems),
+                      playlists(playList: state.searchItems),
+                      Album(albumList: state.searchItems),
                     ];
                     return Column(
                       children: [
@@ -60,8 +79,9 @@ class aftersearch extends StatelessWidget {
                         Expanded(child: screens[currentpage.value])
                       ],
                     );
-                  }))
-       
+                  }));
+        }
+      }),
     );
   }
 }
