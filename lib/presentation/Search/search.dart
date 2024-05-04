@@ -18,7 +18,6 @@ import '../../core/size.dart';
 import '../../widgets/listtitle.dart';
 import '../../widgets/texts.dart';
 
-
 class Search extends StatelessWidget {
   const Search({
     super.key,
@@ -80,11 +79,12 @@ class Search extends StatelessWidget {
                             log('isadd : $isadd');
 
                             if (isadd == false) {
-                              await FirestoreMethod().search_add(
+                              final res = FirestoreMethod().search_add(
                                   profileImg: CurrentUserData!.photoURL!,
                                   username: CurrentUserData!.displayName!,
                                   serach_query: value,
                                   uid: CurrentUserData!.uid);
+                              log('res : $res');
                             }
                             isadd = false;
                             textEditingController.text = '';
@@ -99,7 +99,7 @@ class Search extends StatelessWidget {
                           .orderBy('search_query', descending: false)
                           .snapshots(),
                       builder: (
-                        context,  
+                        context,
                         snapshot,
                       ) {
                         if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
@@ -140,7 +140,7 @@ class Search extends StatelessWidget {
                                                               'searchUid']);
                                                 },
                                                 child:
-                                                    const Icon(more_vertical)),
+                                                    const Icon(close)),
                                             titleWidget: text(
                                                 stringtext:
                                                     data['search_query']),
