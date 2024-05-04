@@ -1,5 +1,10 @@
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project_spotifyclone/Domain/Db/infrastructure/firestoreMethod.dart';
+import 'package:project_spotifyclone/application/TopTrack/toptracklist_bloc.dart';
+import 'package:project_spotifyclone/core/currentuser_detail.dart';
 import '../../core/CommonErrorText.dart';
 import '../../core/colors.dart';
 import '../../core/divider.dart';
@@ -27,8 +32,21 @@ class artist_profile extends StatelessWidget {
   final String artistname;
   @override
   Widget build(BuildContext context) {
-    ValueNotifier<bool> isfollow = ValueNotifier(false);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<ToptracklistBloc>(context)
+          .add(ToptracklistEvent.gettoptrackslist(artistId));
+    });
 
+    ValueNotifier<bool> isfollow = ValueNotifier(false);
+    FirebaseFirestore.instance
+        .collection('followartists')
+        .doc(artistId)
+        .get()
+        .then((docSnapshot) {
+      if (docSnapshot.exists) {
+        isfollow.value = true; // Set isfollow value to true if artistId exists
+      }
+    });
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -36,21 +54,22 @@ class artist_profile extends StatelessWidget {
         slivers: [
           SliverAppBar(
               leading: Container(
-                  height: 80,
-                  width: 80,
-                  decoration: BoxDecoration(
-                      color: const Color.fromARGB(108, 43, 43, 43),
-                      borderRadius: BorderRadius.circular(50)),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: const Icon(
-                      goback,
-                      size: 27,
-                      color: white,
-                    ),
-                  )),
+                height: 80,
+                width: 80,
+                decoration: BoxDecoration(
+                    color: const Color.fromARGB(108, 43, 43, 43),
+                    borderRadius: BorderRadius.circular(50)),
+                child: iconbutton(
+                  iconwidget: const Icon(
+                    goback,
+                    size: 27,
+                    color: white,
+                  ),
+                  onpress: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ),
               pinned: true,
               expandedHeight: size.height / 3.5,
               flexibleSpace: FlexibleSpaceBar(
@@ -95,7 +114,27 @@ class artist_profile extends StatelessWidget {
                           valueListenable: isfollow,
                           builder: (context, snapshot, newdata) {
                             return GestureDetector(
-                              onTap: () async {},
+                              onTap: () async {
+                                DocumentReference docRef = FirebaseFirestore
+                                    .instance
+                                    .collection('followartists')
+                                    .doc(artistId);
+                                bool documentExists =
+                                    (await docRef.get()).exists;
+
+                                isfollow.value = !isfollow.value;
+
+                                if (documentExists == true) {
+                                  await FirestoreMethod()
+                                      .unfollow_artists(artistuid: artistId);
+                                } else {
+                                  await FirestoreMethod().follow_artists(
+                                      artistid: artistId,
+                                      profileImg: CurrentUserData!.photoURL,
+                                      uid: CurrentUserData!.uid,
+                                      username: CurrentUserData!.displayName!);
+                                }
+                              },
                               child: containertext(
                                   bordercolor:
                                       isfollow.value ? spotify_green : white,
@@ -149,47 +188,61 @@ class artist_profile extends StatelessWidget {
               ),
             ),
           )),
-          SliverList(
-              delegate: SliverChildBuilderDelegate(
-            (context, index) => GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => palysongui(
-                          artistId: error_artist_id,
-                          songid: error_song_id,
-                          artistname: error_artist_name,
-                          songname: error_song_name,
-                          songurl:
-                              'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-                          songCover: profileimag,
-                          whoMix: '',
-                        )));
-              },
-              child: Row(
-                children: [
-                  text(stringtext: '${index + 1}'),
-                  Expanded(
-                    child: listtitle(
-                      leadingWidget: CircleAvatar(
-                        radius: 30,
-                        backgroundImage: NetworkImage(profileimag),
-                      ),
-                      subtitleWidget: text(stringtext: 'no name'),
-                      titleWidget: text(stringtext: ''),
-                      trailingWidget: iconbutton(
-                          iconwidget: const Icon(
-                            more_vertical,
-                            size: 27,
-                            color: grey,
+          BlocBuilder<ToptracklistBloc, ToptracklistState>(
+            builder: (context, state) {
+              return SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) => GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => palysongui(
+                                artistId:
+                                    state.toptrackList[index].artists![0].id ??
+                                        error_artist_id,
+                                songid: state.toptrackList[index].id ??
+                                    error_song_id,
+                                artistname: state
+                                        .toptrackList[index].artists![0].name ??
+                                    error_artist_name,
+                                songname: state.toptrackList[index].name ??
+                                    error_song_name,
+                                songurl: state.toptrackList[index].previewUrl ??
+                                    'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+                                songCover: profileimag,
+                                whoMix: '',
+                              )));
+                    },
+                    child: Row(
+                      children: [
+                        text(stringtext: '${index + 1}'),
+                        Expanded(
+                          child: listtitle(
+                            leadingWidget: CircleAvatar(
+                              radius: 30,
+                              backgroundImage: NetworkImage(profileimag),
+                            ),
+                            subtitleWidget: text(
+                                stringtext: state.toptrackList[index].name ??
+                                    'no name'),
+                            titleWidget: text(stringtext: ''),
+                            trailingWidget: iconbutton(
+                                iconwidget: const Icon(
+                                  more_vertical,
+                                  size: 27,
+                                  color: grey,
+                                ),
+                                onpress: () {}),
+                          
                           ),
-                          onpress: () {}),
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
-            ),
-            childCount: 3,
-          ))
+                  childCount: state.toptrackList.length,
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
