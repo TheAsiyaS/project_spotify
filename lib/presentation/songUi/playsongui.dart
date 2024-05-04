@@ -3,7 +3,12 @@ import 'dart:developer';
 import 'package:audioplayers/audioplayers.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project_spotifyclone/application/Artists/list_artists_bloc.dart';
+import 'package:project_spotifyclone/application/SongVlaues/songvalues_bloc.dart';
+import 'package:project_spotifyclone/core/CommonErrorText.dart';
 import 'package:project_spotifyclone/widgets/listtitle.dart';
+import 'package:project_spotifyclone/widgets/snapWaiting.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 import '../../core/colors.dart';
@@ -21,7 +26,7 @@ class palysongui extends StatefulWidget {
     required this.songurl,
     required this.songCover,
     required this.songid,
-    required this.whoMix,
+    required this.whoMix, 
     required this.songname,
     required this.artistname,
     required this.artistId,
@@ -73,6 +78,14 @@ class _palysonguiState extends State<palysongui> {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<SongvaluesBloc>(context).add(SongvaluesEvent.getSongvalue(
+          songimgurl: widget.songCover,
+          songUrl: widget.songurl,
+          songname: widget.songname,
+          artistname: widget.artistname,
+          artistid: widget.artistId));
+    });
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
@@ -299,23 +312,45 @@ class artistbloc extends StatelessWidget {
   final String artistId;
   @override
   Widget build(BuildContext context) {
-    return listtitle(
-      leadingWidget: CircleAvatar(
-        radius: 30,
-        backgroundImage: NetworkImage(noImg),
-      ),
-      subtitleWidget: text(stringtext: songname),
-      titleWidget: text(stringtext: artistname),
-      trailingWidget: iconbutton(
-        iconwidget: Icon(
-          islike.value ? favorite : favorite_outline,
-          size: 27,
-          color: islike.value ? spotify_green : white,
-        ),
-        onpress: () {
-          islike.value = !islike.value;
-        },
-      ),
-    );
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<ListArtistsBloc>(context)
+          .add(ListArtistsEvent.getartist([artistId]));
+    });
+    return BlocBuilder<ListArtistsBloc, ListArtistsState>(
+        builder: (context, state) {
+      if (state.isLoading) {
+        return const snapwaiting(color: white);
+      } else if (state.artist.isEmpty) {
+        return const Center(
+          child: snapwaiting(color: spotify_green),
+        );
+      } else if (state.iserror) {
+        return Center(child: text(stringtext: error_text));
+      } else {
+        return ValueListenableBuilder(
+            valueListenable: islike,
+            builder: (context, snapshot, _) {
+              return listtitle(
+                  leadingWidget: CircleAvatar(
+                    radius: 30,
+                    backgroundImage:
+                        NetworkImage(state.artist[0].images![0].url ?? noImg),
+                  ),
+                  subtitleWidget: text(stringtext: songname),
+                  titleWidget: text(stringtext: artistname),
+                  trailingWidget: iconbutton(
+                    iconwidget: Icon(
+                      islike.value ? favorite : favorite_outline,
+                      size: 27,
+                      color: islike.value ? spotify_green : white,
+                    ),
+                    onpress: () {
+                      islike.value = !islike.value;
+                    },
+                  ),
+                 );
+            });
+      }
+    });
   }
 }

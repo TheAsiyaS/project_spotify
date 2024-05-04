@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:project_spotifyclone/Domain/Db/infrastructure/firestoreMethod.dart';
 import 'package:project_spotifyclone/core/currentuser_detail.dart';
+import 'package:project_spotifyclone/presentation/Search/afterSearch.dart';
 import 'package:project_spotifyclone/widgets/iconbutton.dart';
 import 'package:project_spotifyclone/widgets/snapWaiting.dart';
 
@@ -71,7 +72,10 @@ class Search extends StatelessWidget {
                         },
                         onSubmitted: (value) async {
                           if (value.isNotEmpty) {
-                           //navigate to another screen
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => aftersearch(
+                                      query: value,
+                                    )));
 
                             log('isadd : $isadd');
 

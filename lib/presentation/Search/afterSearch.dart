@@ -75,7 +75,7 @@ class aftersearch extends StatelessWidget {
                                 separatorBuilder: (context, index) {
                                   return w20;
                                 },
-                                itemCount: values.length)),
+                                itemCount: values.length)), 
                         Expanded(child: screens[currentpage.value])
                       ],
                     );
