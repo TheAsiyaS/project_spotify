@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -59,15 +58,16 @@ class artist_profile extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: const Color.fromARGB(108, 43, 43, 43),
                     borderRadius: BorderRadius.circular(50)),
-                child: iconbutton(
-                  iconwidget: const Icon(
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pop();
+
+                  },
+                  child: const Icon(
                     goback,
                     size: 27,
                     color: white,
                   ),
-                  onpress: () {
-                    Navigator.of(context).pop();
-                  },
                 ),
               ),
               pinned: true,
@@ -232,7 +232,6 @@ class artist_profile extends StatelessWidget {
                                   color: grey,
                                 ),
                                 onpress: () {}),
-                          
                           ),
                         ),
                       ],
