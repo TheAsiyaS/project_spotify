@@ -257,7 +257,7 @@ class ListOfSongs extends StatelessWidget {
                                   '1234');
 
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => palysongui(
+                                  builder: (context) => PlaySongUi(
                                         artistId: state.playlistItems[index]
                                                 .track!.artists![0].id ??
                                             error_artist_id,

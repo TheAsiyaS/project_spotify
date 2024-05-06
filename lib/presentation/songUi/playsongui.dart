@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:audioplayers/audioplayers.dart';
 
 import 'package:flutter/material.dart';
@@ -20,17 +18,17 @@ import '../../widgets/image.dart';
 import '../../widgets/texts.dart';
 import 'Durationformat.dart';
 
-class palysongui extends StatefulWidget {
-  palysongui({
-    Key? key,
+class PlaySongUi extends StatefulWidget {
+  const PlaySongUi({
+    super.key,
     required this.songurl,
     required this.songCover,
     required this.songid,
-    required this.whoMix, 
+    required this.whoMix,
     required this.songname,
     required this.artistname,
     required this.artistId,
-  }) : super(key: key);
+  });
   final String songurl;
   final String songCover;
   final String songid;
@@ -40,24 +38,21 @@ class palysongui extends StatefulWidget {
   final String artistId;
 
   @override
-  State<palysongui> createState() => _palysonguiState();
+  State<PlaySongUi> createState() => _PlaySongUiState();
 }
 
-class _palysonguiState extends State<palysongui> {
+class _PlaySongUiState extends State<PlaySongUi> {
   AudioPlayer audioPlayer = AudioPlayer();
   bool isplaying = true;
-  Duration duration = Duration.zero;
+  Duration duration = const Duration(seconds: 1);
   Duration position = Duration.zero;
-
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     audioPlayer.setReleaseMode(ReleaseMode.loop);
     audioPlayer.onSeekComplete.listen((event) {
       audioPlayer.seek(Duration.zero);
-      // audioPlayer.play(UrlSource(widget.songurl));
       audioPlayer.setVolume(1);
     });
 
@@ -66,14 +61,17 @@ class _palysonguiState extends State<palysongui> {
 
   Future<void> playsong() async {
     await audioPlayer.play(UrlSource(widget.songurl));
-    audioPlayer.onPositionChanged.listen((newPosition) {
-      if (mounted) {
-        setState(() {
-          position = newPosition;
-        });
-      }
-    });
-    duration = await audioPlayer.getDuration() ?? Duration.zero;
+
+    // audioPlayer.onPositionChanged.listen((newPosition) {
+    //   if (mounted) {
+    //     setState(() {
+    //       position = newPosition;
+    //     });
+    //   }
+    // });
+
+    // Assign a default duration of 1 second if getDuration() returns null initially
+    duration = (await audioPlayer.getDuration()) ?? const Duration(seconds: 1);
   }
 
   @override
@@ -85,8 +83,16 @@ class _palysonguiState extends State<palysongui> {
           songname: widget.songname,
           artistname: widget.artistname,
           artistid: widget.artistId));
+      audioPlayer.onPositionChanged.listen((newPosition) {
+        if (mounted) {
+          setState(() {
+            position = newPosition;
+          });
+        }
+      });
     });
     final size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
@@ -97,9 +103,7 @@ class _palysonguiState extends State<palysongui> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 IconButton(
-                    onPressed: () {
-                      audioPlayer.dispose();
-
+                    onPressed: () async {
                       Navigator.of(context).pop();
                     },
                     icon: const Icon(
@@ -140,6 +144,7 @@ class _palysonguiState extends State<palysongui> {
                     img_url: widget.songCover,
                     borderRadius: 0,
                     opacity: 200),
+                //stack items starts
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -154,7 +159,7 @@ class _palysonguiState extends State<palysongui> {
                       child: SleekCircularSlider(
                         max: duration.inSeconds.toDouble(),
                         initialValue: position.inSeconds.toDouble(),
-                        innerWidget: (percentage) {
+                        innerWidget: (double percentage) {
                           return Padding(
                             padding: const EdgeInsets.all(8),
                             child: CircleAvatar(
@@ -168,7 +173,8 @@ class _palysonguiState extends State<palysongui> {
                             angleRange: 300,
                             startAngle: 300,
                             customColors: CustomSliderColors(
-                                progressBarColor: const Color(0xFFFFD700),
+                                progressBarColor:
+                                    const Color.fromARGB(255, 255, 220, 25),
                                 dotColor:
                                     const Color.fromARGB(255, 255, 202, 28),
                                 trackColor: transparentgrey),
@@ -243,7 +249,6 @@ class _palysonguiState extends State<palysongui> {
                                 const EdgeInsets.only(bottom: 30, right: 25),
                             child: IconButton(
                                 onPressed: () async {
-                                  log(duration.toString());
                                   setState(() {
                                     isplaying = !isplaying;
                                   });
@@ -288,11 +293,9 @@ class _palysonguiState extends State<palysongui> {
 
   @override
   void dispose() {
-    audioPlayer.stop();
+    // Release all sources and dispose the player.
     audioPlayer.dispose();
-    setState(() {});
 
-    // TODO: implement dispose
     super.dispose();
   }
 }
@@ -331,24 +334,24 @@ class artistbloc extends StatelessWidget {
             valueListenable: islike,
             builder: (context, snapshot, _) {
               return listtitle(
-                  leadingWidget: CircleAvatar(
-                    radius: 30,
-                    backgroundImage:
-                        NetworkImage(state.artist[0].images![0].url ?? noImg),
+                leadingWidget: CircleAvatar(
+                  radius: 30,
+                  backgroundImage:
+                      NetworkImage(state.artist[0].images![0].url ?? noImg),
+                ),
+                subtitleWidget: text(stringtext: songname),
+                titleWidget: text(stringtext: artistname),
+                trailingWidget: iconbutton(
+                  iconwidget: Icon(
+                    islike.value ? favorite : favorite_outline,
+                    size: 27,
+                    color: islike.value ? spotify_green : white,
                   ),
-                  subtitleWidget: text(stringtext: songname),
-                  titleWidget: text(stringtext: artistname),
-                  trailingWidget: iconbutton(
-                    iconwidget: Icon(
-                      islike.value ? favorite : favorite_outline,
-                      size: 27,
-                      color: islike.value ? spotify_green : white,
-                    ),
-                    onpress: () {
-                      islike.value = !islike.value;
-                    },
-                  ),
-                 );
+                  onpress: () {
+                    islike.value = !islike.value;
+                  },
+                ),
+              );
             });
       }
     });

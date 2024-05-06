@@ -31,7 +31,7 @@ class songs extends StatelessWidget {
             return GestureDetector(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => palysongui(
+                    builder: (context) => PlaySongUi(
                           artistId: trackList[0]['tracks']['items'][index]
                                   ['album']['artists'][0]['id'] ??
                               error_artist_id,

@@ -195,7 +195,7 @@ class artist_profile extends StatelessWidget {
                   (context, index) => GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => palysongui(
+                          builder: (context) => PlaySongUi(
                                 artistId:
                                     state.toptrackList[index].artists![0].id ??
                                         error_artist_id,
