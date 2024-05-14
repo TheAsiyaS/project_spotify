@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class snapwaiting extends StatelessWidget {
   const snapwaiting({super.key, required this.color});

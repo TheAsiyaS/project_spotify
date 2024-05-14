@@ -5,6 +5,6 @@ import 'package:project_spotifyclone/Domain/DependencyInjuction/injection.config
 final getIt = GetIt.instance;
 @InjectableInit()
 Future<void> configInjection() async {
-  await $initGetIt(getIt, environment: Environment.prod);
+  $initGetIt(getIt, environment: Environment.prod);
 }
          

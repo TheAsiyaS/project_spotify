@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class text_spotify extends StatelessWidget {
   const text_spotify({super.key, required this.fontSize});

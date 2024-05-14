@@ -14,9 +14,9 @@ import '../../profile/artist_profile.dart';
 
 class Artists extends StatelessWidget {
   const Artists({
-    Key? key,
+    super.key,
     required this.artistList,
-  }) : super(key: key);
+  });
   final List<Map<String, dynamic>> artistList;
   @override
   Widget build(BuildContext context) {

@@ -15,9 +15,9 @@ class PlaylistBloc extends Bloc<PlaylistEvent, PlaylistState> {
   final I_playlist_Repo obj_playlist_repo;
   PlaylistBloc(this.obj_playlist_repo) : super(PlaylistState.initial()) {
     on<_GetplaylistOverview>((event, emit) async {
-      final overview_result =
+      final overviewResult =
           await obj_playlist_repo.getplaylistoverview(event.playlistids);
-      final overviewemit = overview_result.fold(
+      final overviewemit = overviewResult.fold(
           (mainFailure failure) => const PlaylistState(
               paylistoverview1: [],
               playlistItems: [],
@@ -34,9 +34,9 @@ class PlaylistBloc extends Bloc<PlaylistEvent, PlaylistState> {
       emit(overviewemit);
     });
     on<_GetplaylistItems>((event, emit) async {
-      final Items_result =
+      final itemsResult =
           await obj_playlist_repo.getPlaylistsItems(event.playlistids);
-      final itememit = Items_result.fold(
+      final itememit = itemsResult.fold(
           (mainFailure failure) => const PlaylistState(
               paylistoverview1: [],
               playlistItems: [],
@@ -53,9 +53,9 @@ class PlaylistBloc extends Bloc<PlaylistEvent, PlaylistState> {
       emit(itememit);
     });
     on<_GetplaylistOverview1>((event, emit) async {
-      final overview_result =
+      final overviewResult =
           await obj_playlist_repo.getplaylistoverview1(event.playlistids);
-      final overviewemit = overview_result.fold(
+      final overviewemit = overviewResult.fold(
           (mainFailure failure) => const PlaylistState(
               paylistoverview1: [],
               playlistItems: [],

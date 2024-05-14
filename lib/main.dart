@@ -51,12 +51,14 @@ class MyApp extends StatelessWidget {
               scaffoldBackgroundColor: black,
               brightness: Brightness.dark,
               appBarTheme: const AppBarTheme(backgroundColor: black)),
-          home: SplashScreen()),
+          home: const SplashScreen()),
     );
   }
 }
 
 class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Simulating a delay of 3 seconds using Future.delayed

@@ -15,7 +15,7 @@ class Login_widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final _controller = TextEditingController();
+    final controller = TextEditingController();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
@@ -40,7 +40,7 @@ class Login_widget extends StatelessWidget {
                   ),
                   h10,
                   TextField(
-                    controller: _controller,
+                    controller: controller,
                     decoration: const InputDecoration(
                         hintText: ' Enter email adress.........',
                         hintStyle: TextStyle(
@@ -51,7 +51,7 @@ class Login_widget extends StatelessWidget {
                   const Divider(),
                   h10,
                   TextField(
-                    controller: _controller,
+                    controller: controller,
                     decoration: const InputDecoration(
                         hintText: ' Enter Passoword......',
                         hintStyle: TextStyle(
@@ -77,7 +77,7 @@ class Login_widget extends StatelessWidget {
             padding: const EdgeInsets.only(left: 40),
             child: GestureDetector(
               onTap: () async {
-                final provider = await Provider.of<GoogleSignInProvider>(
+                final provider = Provider.of<GoogleSignInProvider>(
                     context,
                     listen: false);
                 provider.login();

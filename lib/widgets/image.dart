@@ -3,13 +3,13 @@ import 'package:project_spotifyclone/core/colors.dart';
 
 class show_image extends StatelessWidget {
   const show_image({
-    Key? key,
+    super.key,
     required this.size,
     required this.height,
     required this.width,
     required this.img_url,
     required this.borderRadius,
-  }) : super(key: key);
+  });
 
   final Size size;
   final double height;

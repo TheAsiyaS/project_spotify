@@ -15,8 +15,8 @@ class AlbumBloc extends Bloc<AlbumEvent, AlbumState> {
   final I_Album_Repo Obj_album_repo;
   AlbumBloc(this.Obj_album_repo) : super(AlbumState.initial()) {
     on<_Getalbumlist>((event, emit) async {
-      final result_album = await Obj_album_repo.getalbums();
-      final emitalbumlist = result_album.fold(
+      final resultAlbum = await Obj_album_repo.getalbums();
+      final emitalbumlist = resultAlbum.fold(
         (mainFailure fail) => const AlbumState(
             albumList: [], isLoading: false, iserror: true, albumsongs: []),
         (List<Album> result) => AlbumState(
@@ -41,8 +41,8 @@ class AlbumBloc extends Bloc<AlbumEvent, AlbumState> {
       emit(emitalbum);
     });
     on<_Getalbumsongs>((event, emit) async {
-      final result_album = await Obj_album_repo.getalbumsongs();
-      final emitalbumlist = result_album.fold(
+      final resultAlbum = await Obj_album_repo.getalbumsongs();
+      final emitalbumlist = resultAlbum.fold(
         (mainFailure fail) => const AlbumState(
             albumList: [], isLoading: false, iserror: true, albumsongs: []),
         (List<Album> result) => AlbumState(

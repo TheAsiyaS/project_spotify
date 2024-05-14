@@ -4,9 +4,9 @@ import 'package:project_spotifyclone/widgets/home_gridview.dart';
 
 class playlists extends StatelessWidget {
   const playlists({
-    Key? key,
+    super.key,
     required this.playList,
-  }) : super(key: key);
+  });
   final List<Map<String, dynamic>> playList;
   @override
   Widget build(BuildContext context) {

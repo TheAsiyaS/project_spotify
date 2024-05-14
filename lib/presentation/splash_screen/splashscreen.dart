@@ -9,7 +9,7 @@ import '../../widgets/NavigationBar.dart';
 import '../../widgets/texts.dart';
 
 class splashScreen extends StatelessWidget {
-  const splashScreen({Key? key}) : super(key: key);
+  const splashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

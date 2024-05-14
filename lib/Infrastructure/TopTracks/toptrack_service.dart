@@ -11,20 +11,20 @@ import '../../core/failures/mainFailure.dart';
 class ToptrackRepo implements I_Toptrack_Repo {
   @override
   Future<Either<mainFailure, List<Track>>> getToptracks(String id) async {
-    final String Access_token = await getSpotifyAccessToken();
+    final String accessToken = await getSpotifyAccessToken();
     try {
       final Response response = await Dio(BaseOptions(
         headers: {
-          'Authorization': 'Bearer $Access_token',
+          'Authorization': 'Bearer $accessToken',
         },
       )).get('https://api.spotify.com/v1/artists/$id/top-tracks?country=KR');
       // log(response.data.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
-        final Track_List = (response.data['tracks'] as List).map((e) {
+        final trackList = (response.data['tracks'] as List).map((e) {
           return Track.fromJson(e);
         }).toList();
 
-        return right(Track_List);
+        return right(trackList);
       } else {
         return left(const mainFailure.serverFailure());
       }

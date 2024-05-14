@@ -13,12 +13,12 @@ class SearchRepo implements I_Search_Repo {
   @override
   Future<Either<mainFailure, List<Map<String, dynamic>>>> searchitem(
       {required String searchquery}) async {
-    final String Access_token = await getSpotifyAccessToken();
+    final String accessToken = await getSpotifyAccessToken();
     final List<Map<String, dynamic>> playlistcommon = [];
     try {
       final Response response = await Dio(BaseOptions(
         headers: {
-          'Authorization': 'Bearer $Access_token',
+          'Authorization': 'Bearer $accessToken',
         },
       )).get(
           'https://api.spotify.com/v1/search?q=$searchquery&type=album,artist,track,playlist');

@@ -15,20 +15,20 @@ class ArtistsRepo implements I_Artists_Repo {
   @override
   Future<Either<mainFailure, List<Artist>>> getArtist(
       List<String> artistid) async {
-    final String Access_token = await getSpotifyAccessToken();
+    final String accessToken = await getSpotifyAccessToken();
     try {
       final Response response = await Dio(BaseOptions(
         headers: {
-          'Authorization': 'Bearer $Access_token',
+          'Authorization': 'Bearer $accessToken',
         },
       )).get('https://api.spotify.com/v1/artists?ids=${artistid.join(',')}');
 
       if (response.statusCode == 200 || response.statusCode == 201) {
-        final Artists_list = (response.data['artists'] as List).map((e) {
+        final artistsList = (response.data['artists'] as List).map((e) {
           return Artist.fromJson(e);
         }).toList();
 
-        return right(Artists_list);
+        return right(artistsList);
       } else {
         return left(const mainFailure.serverFailure());
       }
@@ -39,20 +39,20 @@ class ArtistsRepo implements I_Artists_Repo {
 
   @override
   Future<Either<mainFailure, List<Artist>>> getArtistList() async {
-    final String Access_token = await getSpotifyAccessToken();
+    final String accessToken = await getSpotifyAccessToken();
     try {
       final Response response = await Dio(BaseOptions(
         headers: {
-          'Authorization': 'Bearer $Access_token',
+          'Authorization': 'Bearer $accessToken',
         },
       )).get('https://api.spotify.com/v1/artists?ids=${artists_id.join(',')}');
 
       if (response.statusCode == 200 || response.statusCode == 201) {
-        final Artists_list = (response.data['artists'] as List).map((e) {
+        final artistsList = (response.data['artists'] as List).map((e) {
           return Artist.fromJson(e);
         }).toList();
 
-        return right(Artists_list);
+        return right(artistsList);
       } else {
         return left(const mainFailure.serverFailure());
       }

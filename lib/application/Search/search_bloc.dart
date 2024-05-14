@@ -14,8 +14,8 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   final I_Search_Repo obj_search_repo;
   SearchBloc(this.obj_search_repo) : super(SearchState.initial()) {
     on<_SearchItem>((event, emit) async {
-      final overview_result = await obj_search_repo.searchitem(searchquery: event.query);
-      final overviewemit = overview_result.fold(
+      final overviewResult = await obj_search_repo.searchitem(searchquery: event.query);
+      final overviewemit = overviewResult.fold(
           (mainFailure failure) => const SearchState( 
               searchItems: [],
               isLoading: false,

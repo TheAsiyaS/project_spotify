@@ -13,12 +13,12 @@ class Playlistservice implements I_playlist_Repo {
   Future<Either<mainFailure, List<Item>>> getPlaylistsItems(
       List<String> playListIds) async {
     final List<Item> resultplaylist = [];
-    final String Access_token = await getSpotifyAccessToken();
+    final String accessToken = await getSpotifyAccessToken();
     final dio = Dio();
     for (final playlistId in playListIds) {
       final String url = 'https://api.spotify.com/v1/playlists/$playlistId';
       final Map<String, String> headers = {
-        'Authorization': 'Bearer $Access_token'
+        'Authorization': 'Bearer $accessToken'
       };
 
       try {
@@ -27,10 +27,10 @@ class Playlistservice implements I_playlist_Repo {
           options: Options(headers: headers),
         );
         if (response.statusCode == 200 || response.statusCode == 201) {
-          final playlist_result = (response.data['tracks']['items'] as List)
+          final playlistResult = (response.data['tracks']['items'] as List)
               .map((e) => Item.fromJson(e as Map<String, dynamic>))
               .toList();
-          resultplaylist.addAll(playlist_result);
+          resultplaylist.addAll(playlistResult);
         } else {
           return left(const mainFailure.serverFailure());
         }
@@ -45,14 +45,14 @@ class Playlistservice implements I_playlist_Repo {
   @override
   Future<Either<mainFailure, List<Map<String, dynamic>>>> getplaylistoverview(
       List<String> playListIds) async {
-    final access_token = await getSpotifyAccessToken();
+    final accessToken = await getSpotifyAccessToken();
 
     final List<Map<String, dynamic>> playlistcommon = [];
     final dio = Dio();
     for (final playlistId in playListIds) {
       final String url = 'https://api.spotify.com/v1/playlists/$playlistId';
       final Map<String, String> headers = {
-        'Authorization': 'Bearer $access_token'
+        'Authorization': 'Bearer $accessToken'
       };
 
       try {
@@ -83,14 +83,14 @@ class Playlistservice implements I_playlist_Repo {
   @override
   Future<Either<mainFailure, List<Map<String, dynamic>>>> getplaylistoverview1(
       List<String> playListIds) async {
-    final access_token = await getSpotifyAccessToken();
+    final accessToken = await getSpotifyAccessToken();
 
     final List<Map<String, dynamic>> playlistcommon = [];
     final dio = Dio();
     for (final playlistId in playListIds) {
       final String url = 'https://api.spotify.com/v1/playlists/$playlistId';
       final Map<String, String> headers = {
-        'Authorization': 'Bearer $access_token'
+        'Authorization': 'Bearer $accessToken'
       };
 
       try {

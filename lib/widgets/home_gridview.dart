@@ -18,7 +18,7 @@ import '../presentation/profile/artist_profile.dart';
 
 class gridview_home extends StatelessWidget {
   const gridview_home({
-    Key? key,
+    super.key,
     required this.size,
     required this.id,
     required this.itemCount,
@@ -32,7 +32,7 @@ class gridview_home extends StatelessWidget {
     required this.playlistoverview,
     required this.albumsList,
     required this.albumlist,
-  }) : super(key: key);
+  });
 
   final Size size;
   final String id;
@@ -296,7 +296,7 @@ class gridview_home extends StatelessWidget {
 }
 
 class gridviewcard extends StatelessWidget {
-  gridviewcard(
+  const gridviewcard(
       {super.key,
       required this.size,
       required this.wImgheight,

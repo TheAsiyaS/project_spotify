@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 // ignore: must_be_immutable
 class cupertino_textfield extends StatelessWidget {
   cupertino_textfield({
-    Key? key,
+    super.key,
     required this.Placeholder,
     required this.backgroundcolor,
     required this.id,
@@ -11,7 +11,7 @@ class cupertino_textfield extends StatelessWidget {
     required this.fontsize,
     required this.prefixicon,
     required this.suffixicon,
-  }) : super(key: key);
+  });
   final String Placeholder;
   final Color backgroundcolor;
   final IconData? prefixicon;

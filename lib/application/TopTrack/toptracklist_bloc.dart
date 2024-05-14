@@ -16,9 +16,9 @@ class ToptracklistBloc extends Bloc<ToptracklistEvent, ToptracklistState> {
   ToptracklistBloc(this.obj_i_repo_toptracks)
       : super(ToptracklistState.initial()) {
     on<_Gettoptrackslist>((event, emit) async {
-      final result_toptrack =
+      final resultToptrack =
           await obj_i_repo_toptracks.getToptracks(event.artistid);
-      final emittoptrack = result_toptrack.fold(
+      final emittoptrack = resultToptrack.fold(
         (mainFailure fail) => const ToptracklistState(
             toptrackList: [], isLoading: false, iserror: true),
         (result) => ToptracklistState(

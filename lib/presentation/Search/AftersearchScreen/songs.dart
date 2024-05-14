@@ -14,9 +14,9 @@ import '../../../core/CommonErrorText.dart';
 
 class songs extends StatelessWidget {
   const songs({
-    Key? key,
+    super.key,
     required this.trackList,
-  }) : super(key: key);
+  });
 
   final List<Map<String, dynamic>> trackList;
 

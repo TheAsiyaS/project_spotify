@@ -10,7 +10,7 @@ import 'package:project_spotifyclone/widgets/texts.dart';
 // ignore: must_be_immutable
 class rowText extends StatelessWidget {
   rowText(
-      {Key? key,
+      {super.key,
       required this.size,
       required this.stringtext,
       required this.image_url,
@@ -22,8 +22,7 @@ class rowText extends StatelessWidget {
       this.rotatevalue,
       this.iconclor,
       this.trailicon,
-      this.icon})   
-      : super(key: key);
+      this.icon});
 
   final Size size;
   final String stringtext;

@@ -6,7 +6,7 @@ import 'package:project_spotifyclone/widgets/texts.dart';
 
 
 class progress extends StatelessWidget {
-  const progress({Key? key}) : super(key: key);
+  const progress({super.key});
 
   @override
   Widget build(BuildContext context) {
