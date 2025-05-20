@@ -38,7 +38,7 @@ class permium extends StatelessWidget {
                   decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage(
-                            'asset/image/Screenshot 2023-04-26 111844.png',
+                            'asset/image/premium.png',
                           ),
                           fit: BoxFit.cover)),
                 ),

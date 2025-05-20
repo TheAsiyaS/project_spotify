@@ -18,11 +18,11 @@ class screen_signIn extends StatelessWidget {
         height: size.height,
         width: size.width,
         decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: NetworkImage(
-                    'https://media.distractify.com/brand-img/JIwpg5NiF/0x0/spotify-search-not-working-2-1655917894670.jpg'),
-                fit: BoxFit.cover,
-                opacity: 120),
+            // image: DecorationImage(
+            //     image: AssetImage(
+            //          'asset/image/premium.png'),
+            //     fit: BoxFit.cover, 
+            //     opacity: 120),
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(100),
             )),

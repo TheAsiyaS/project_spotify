@@ -102,7 +102,7 @@ class Login_widget extends StatelessWidget {
           h10,
           text(
             stringtext: 'you can logIn with e-mail account',
-            color: grey,
+            color: white,
           ),
         ],
       ),

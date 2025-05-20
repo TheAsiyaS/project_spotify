@@ -30,33 +30,33 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  firebase_storage: ^11.2.0
-  firebase_auth: ^4.6.0
-  firebase_core: ^2.12.0
-  cloud_firestore: ^4.7.0
+  firebase_storage: ^12.4.5
+  firebase_auth: ^5.5.2
+  firebase_core: ^3.13.0
+  cloud_firestore: ^5.6.6
   firebase_core_web: ^2.5.0
   firebase_auth_web: ^5.5.0
   cupertino_icons: ^1.0.6
   google_sign_in: ^6.1.0
-  google_fonts: ^4.0.4
+  google_fonts: ^6.2.1
   font_awesome_flutter: ^10.4.0
   flutter_spinkit: ^5.2.0
   json_annotation: ^4.8.1
   json_serializable: ^6.6.2
-  injectable: ^1.5.3
-  flutter_bloc: ^8.1.2
-  freezed_annotation: ^2.2.0
+  injectable: ^2.5.0
+  flutter_bloc: ^9.1.0
+  freezed_annotation: ^3.0.0
   dio: ^5.1.2
   dartz: ^0.10.1
-  get_it: ^7.6.0
+  get_it: ^8.0.3
   palette_generator: ^0.3.3+2
   sleek_circular_slider: ^2.0.1
-  audioplayers: ^4.0.1
-  flutter_web_auth: ^0.5.0
+  audioplayers: ^6.4.0
+  # flutter_web_auth: ^0.6.0
   url_launcher: ^6.1.11
-  uni_links: ^0.5.1
-  flutter_appauth: ^6.0.0
-  uuid: ^3.0.7
+
+  flutter_appauth: ^9.0.0
+  uuid: ^4.5.1
   provider: ^6.0.5
 dev_dependencies:
   flutter_test:
@@ -67,9 +67,9 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^3.0.0
-  freezed: ^2.3.4
-  injectable_generator: ^1.5.3
+  flutter_lints: ^5.0.0
+  freezed: ^3.0.6
+  injectable_generator: ^2.7.0
   build_runner: ^2.4.4
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -86,13 +86,12 @@ flutter:
   assets:
     - asset/image/some/google_318-278809-removebg-preview.png
     - asset/image/some/images-removebg-preview.png  
-    - asset/image/some/Screenshot 2023-04-15 114532.png
     - asset/image/some/Screenshot_2023-04-14_205918-removebg-preview.png
     - asset/image/some/Screenshot_2023-04-14_205826-removebg-preview.png
     - asset/image/some/Screenshot_2023-04-14_205725-removebg-preview.png
     - asset/image/some/Screenshot_2023-04-14_210746-removebg-preview.png
     - asset/image/some/Screenshot 2023-04-21 205150.png
-    - asset/image/Screenshot 2023-04-26 111844.png
+    - asset/image/premium.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
