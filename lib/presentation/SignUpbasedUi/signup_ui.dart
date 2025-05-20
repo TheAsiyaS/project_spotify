@@ -2,10 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:project_spotifyclone/core/colors.dart';
-import 'package:project_spotifyclone/core/size.dart';
-import 'package:project_spotifyclone/widgets/image.dart';
 import 'package:project_spotifyclone/presentation/SignUpbasedUi/loginwidget.dart';
-import 'package:project_spotifyclone/widgets/texts.dart';
+import 'package:project_spotifyclone/widgets/image.dart';
 
 class screen_signIn extends StatelessWidget {
   const screen_signIn({super.key});
@@ -59,6 +57,7 @@ class screen_signIn extends StatelessWidget {
                     ],
                   ),
                 )),
+                Login_widget()
           ],
         ),
       ),

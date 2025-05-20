@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:project_spotifyclone/Domain/provider/signIn_working_class.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:project_spotifyclone/core/colors.dart';
 import 'package:project_spotifyclone/core/size.dart';
-import 'package:project_spotifyclone/presentation/SignUpbasedUi/whatmusiclike.dart';
-import 'package:project_spotifyclone/widgets/rowtext.dart';
 import 'package:project_spotifyclone/widgets/texts.dart';
 
-import 'package:provider/provider.dart';
 class Login_widget extends StatelessWidget {
   const Login_widget({
     super.key,
@@ -15,97 +12,146 @@ class Login_widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final controller = TextEditingController();
+
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Column(
-        children: [
-          Card(
-            elevation: 10,
-            color: const Color.fromARGB(117, 115, 115, 115),
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  Align(
-                      alignment: Alignment.centerLeft,
-                      child: text(
-                        stringtext: 'Login',
-                        fontSize: 40,
-                      )),
-                  const Divider(
-                    color: green,
-                    endIndent: 20,
-                    indent: 20,
-                  ),
-                  h10,
-                  TextField(
-                    controller: controller,
-                    decoration: const InputDecoration(
-                        hintText: ' Enter email adress.........',
-                        hintStyle: TextStyle(
-                          fontSize: 20,
-                          color: white,
-                        )),
-                  ),
-                  const Divider(),
-                  h10,
-                  TextField(
-                    controller: controller,
-                    decoration: const InputDecoration(
-                        hintText: ' Enter Passoword......',
-                        hintStyle: TextStyle(
-                          fontSize: 20,
-                          color: white,
-                        )),
-                  ),
-                  const Divider(),
-                  GestureDetector(
-                      onTap: () {},
-                      child: Align(
-                          alignment: Alignment.centerRight,
-                          child: text(
-                            stringtext: 'Forget password?',
-                            color: const Color.fromARGB(255, 192, 191, 191),
-                          ))),
-                ],
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: SizedBox(
+          height: size.height / 1.99,
+          width: size.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              SizedBox(
+                height: size.height / 17,
+                width: size.width,
               ),
-            ),
-          ),
-          h50,
-          Padding(
-            padding: const EdgeInsets.only(left: 40),
-            child: GestureDetector(
-              onTap: () async {
-                final provider = Provider.of<GoogleSignInProvider>(
-                    context,
-                    listen: false);
-                provider.login();
-                Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(
-                        builder: (context) =>  const whatmusiclike()),
-                    (route) => false);
-              },
-              child: rowText(
-                iconornot: false,
-                size: size,   
-                image_url:
-                    'asset/image/some/google_318-278809-removebg-preview.png',
-                stringtext: 'LogIn with google',
-                height_img: 15,
-                width_img: 8,
+              buttonInLogin(
+                size: size,
                 color: spotify_green,
-                fontSize: 25,
+                buttonwidget: Text(
+                  'Sign up free',
+                  style: TextStyle(
+                      color: white, fontWeight: FontWeight.w500, fontSize: 20),
+                ),
+                isbgneed: true,
+                buttonID: 'free',
               ),
+              buttonInLogin(
+                size: size,
+                color: transparent,
+                buttonwidget: Row(
+                  children: [
+                    FaIcon(
+                      FontAwesomeIcons.google,
+                      size: 24.0,
+                      color: white,
+                    ),
+                    w20,
+                    Text(
+                      'LogIn with Google',
+                      style: TextStyle(
+                          color: white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20),
+                    )
+                  ],
+                ),
+                isbgneed: false,
+                buttonID: 'google',
+              ),
+              buttonInLogin(
+                size: size,
+                color: transparent,
+                buttonwidget: Row(
+                  children: [
+                    FaIcon(
+                      FontAwesomeIcons.facebook,
+                      size: 24.0,
+                      color: Colors.blueAccent,
+                    ),
+                    w20,
+                    Text(
+                      'LogIn with Facebook',
+                      style: TextStyle(
+                          color: white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20),
+                    )
+                  ],
+                ),
+                isbgneed: false,
+                buttonID: 'facebook',
+              ),
+              buttonInLogin(
+                size: size,
+                color: transparent,
+                buttonwidget: Row(
+                  children: [
+                    Icon(
+                      Icons.phone_android_outlined,
+                      size: 24.0,
+                      color: white,
+                    ),
+                    w20,
+                    Text(
+                      'LogIn with Phone number',
+                      style: TextStyle(
+                          color: white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 18),
+                    )
+                  ],
+                ),
+                isbgneed: false,
+                buttonID: 'phonenumber',
+              ),
+              h10,
+              text(
+                stringtext:
+                    "Currently, you can sign in using your Google account.",
+                color: const Color.fromARGB(255, 213, 213, 213),
+              ),
+            ],
+          ),
+        ));
+  }
+}
+
+class buttonInLogin extends StatelessWidget {
+  const buttonInLogin({
+    super.key,
+    required this.size,
+    required this.color,
+    required this.buttonwidget,
+    required this.isbgneed,
+    required this.buttonID,
+  });
+
+  final Size size;
+  final Color color;
+  final Widget buttonwidget;
+  final bool isbgneed;
+  final String buttonID;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: size.height / 17,
+      width: size.width,
+      child: ElevatedButton(
+          onPressed: () {
+            if (buttonID == 'google') {}
+          },
+          style: ElevatedButton.styleFrom(
+            side: BorderSide(
+              width: 2.0, // Specify the border width
+              color: isbgneed
+                  ? transparent
+                  : const Color.fromARGB(
+                      119, 230, 229, 229), // Specify the border color
             ),
+            backgroundColor: isbgneed ? button_green : transparent,
           ),
-          h10,
-          text(
-            stringtext: 'you can logIn with e-mail account',
-            color: white,
-          ),
-        ],
-      ),
+          child: buttonwidget),
     );
   }
 }
