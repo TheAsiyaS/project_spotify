@@ -1,3 +1,4 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,6 +41,7 @@ class artist_profile extends StatelessWidget {
     FirebaseFirestore.instance
         .collection('followartists')
         .where('uid', isEqualTo: CurrentUserData!.uid)
+        .where('artistid', isEqualTo: artistId)
         .get()
         .then((querySnapshot) {
       if (querySnapshot.docs.isNotEmpty) {
@@ -117,25 +119,19 @@ class artist_profile extends StatelessWidget {
                           builder: (context, snapshot, newdata) {
                             return GestureDetector(
                               onTap: () async {
-                                DocumentReference docRef = FirebaseFirestore
-                                    .instance
-                                    .collection('followartists')
-                                    .doc(artistId);
-                                bool documentExists =
-                                    (await docRef.get()).exists;
-
-                                isfollow.value = !isfollow.value;
-
-                                if (documentExists == true) {
-                                  await FirestoreMethod()
+                                if (isfollow.value == true) {
+                                    await FirestoreMethod()
                                       .unfollow_artists(artistuid: artistId);
+                               
                                 } else {
-                                  await FirestoreMethod().follow_artists(
-                                      artistid: artistId,
-                                      profileImg: CurrentUserData!.photoURL,
-                                      uid: CurrentUserData!.uid,
-                                      username: CurrentUserData!.displayName!);
+                                    await FirestoreMethod().follow_artists(
+                                    artistid: artistId,
+                                    profileImg: CurrentUserData!.photoURL,
+                                    uid: CurrentUserData!.uid,
+                                    username: CurrentUserData!.displayName!,
+                                  );
                                 }
+                                isfollow.value =! isfollow.value;
                               },
                               child: containertext(
                                   bordercolor:
