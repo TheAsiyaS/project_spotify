@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_spotifyclone/Domain/provider/signIn_working_class.dart';
@@ -8,6 +10,7 @@ import 'package:project_spotifyclone/application/playlistBloc/playlist_bloc.dart
 import 'package:project_spotifyclone/core/CommonErrorText.dart';
 import 'package:project_spotifyclone/core/Ids.dart';
 import 'package:project_spotifyclone/core/colors.dart';
+import 'package:project_spotifyclone/core/currentuser_detail.dart';
 import 'package:project_spotifyclone/core/icons.dart';
 import 'package:project_spotifyclone/core/size.dart';
 import 'package:project_spotifyclone/presentation/SignUpbasedUi/signup_ui.dart';
@@ -208,7 +211,7 @@ class home extends StatelessWidget {
               h30,
               text(
                 maxline: 1,
-                stringtext: 'Made for username',
+                stringtext: 'Made for ${CurrentUserData!.displayName}',
                 fontSize: 25,
               ),
               h20,
@@ -217,8 +220,9 @@ class home extends StatelessWidget {
                 if (state.isLoading) {
                   return const snapwaiting(color: white);
                 } else if (state.paylistoverview.isEmpty) {
+                  log('usernaem : ${state.paylistoverview}');
                   return const Center(
-                    child: snapwaiting(color: spotify_green),
+                    child: Text('No playlists available at the moment'),
                   );
                 } else if (state.iserror) {
                   return Center(child: text(stringtext: error_text));
@@ -253,7 +257,7 @@ class home extends StatelessWidget {
                   return const snapwaiting(color: white);
                 } else if (state.albumList.isEmpty) {
                   return const Center(
-                    child: snapwaiting(color: spotify_green),
+                    child:  Text('No playlists available at the moment'),
                   );
                 } else if (state.iserror) {
                   return Center(child: text(stringtext: error_text));
@@ -287,7 +291,7 @@ class home extends StatelessWidget {
                   return const snapwaiting(color: white);
                 } else if (state.paylistoverview1.isEmpty) {
                   return const Center(
-                    child: snapwaiting(color: spotify_green),
+                    child:  Text('No audio available at the moment'),
                   );
                 } else if (state.iserror) {
                   return Center(child: text(stringtext: error_text));
