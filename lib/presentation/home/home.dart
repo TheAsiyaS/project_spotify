@@ -47,7 +47,7 @@ class home extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: PopupMenuButton<String>( 
+        leading: PopupMenuButton<String>(
           icon: CircleAvatar(
             radius: 18,
             backgroundColor: green,
@@ -89,6 +89,7 @@ class home extends StatelessWidget {
           fontSize: 25,
         ),
         actions: [
+         
           iconbutton(
             iconwidget: const Icon(
               notification,

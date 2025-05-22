@@ -123,7 +123,7 @@ class Login_widget extends StatelessWidget {
 }
 
 class buttonInLogin extends StatelessWidget {
- const buttonInLogin({
+  const buttonInLogin({
     super.key,
     required this.size,
     required this.color,
@@ -149,7 +149,7 @@ class buttonInLogin extends StatelessWidget {
               final provider =
                   Provider.of<GoogleSignInProvider>(context, listen: false);
               final result = await provider.login();
-             
+  
               result == false
                   ? ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
@@ -162,9 +162,6 @@ class buttonInLogin extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => const whatmusiclike()),
                       (route) => false);
-              /*
-          
-               */
             }
           },
           style: ElevatedButton.styleFrom(

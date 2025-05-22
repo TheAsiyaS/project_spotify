@@ -39,13 +39,16 @@ class artist_profile extends StatelessWidget {
     ValueNotifier<bool> isfollow = ValueNotifier(false);
     FirebaseFirestore.instance
         .collection('followartists')
-        .doc(artistId)
+        .where('uid', isEqualTo: CurrentUserData!.uid)
         .get()
-        .then((docSnapshot) {
-      if (docSnapshot.exists) {
-        isfollow.value = true; // Set isfollow value to true if artistId exists
+        .then((querySnapshot) {
+      if (querySnapshot.docs.isNotEmpty) {
+        isfollow.value = true; // Set isfollow to true if any document exists
+      } else {
+        isfollow.value = false; // Optional: false if no such document
       }
     });
+
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -61,7 +64,6 @@ class artist_profile extends StatelessWidget {
                 child: GestureDetector(
                   onTap: () {
                     Navigator.of(context).pop();
-
                   },
                   child: const Icon(
                     goback,
