@@ -1,8 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:project_spotifyclone/Domain/provider/signIn_working_class.dart';
 import 'package:project_spotifyclone/core/colors.dart';
 import 'package:project_spotifyclone/core/size.dart';
+import 'package:project_spotifyclone/presentation/SignUpbasedUi/whatmusiclike.dart';
 import 'package:project_spotifyclone/widgets/texts.dart';
+import 'package:provider/provider.dart';
 
 class Login_widget extends StatelessWidget {
   const Login_widget({
@@ -118,7 +123,7 @@ class Login_widget extends StatelessWidget {
 }
 
 class buttonInLogin extends StatelessWidget {
-  const buttonInLogin({
+ const buttonInLogin({
     super.key,
     required this.size,
     required this.color,
@@ -132,14 +137,35 @@ class buttonInLogin extends StatelessWidget {
   final Widget buttonwidget;
   final bool isbgneed;
   final String buttonID;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: size.height / 17,
       width: size.width,
       child: ElevatedButton(
-          onPressed: () {
-            if (buttonID == 'google') {}
+          onPressed: () async {
+            if (buttonID == 'google') {
+              final provider =
+                  Provider.of<GoogleSignInProvider>(context, listen: false);
+              final result = await provider.login();
+             
+              result == false
+                  ? ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: const Text('Wait.. SignIn in process'),
+                        duration:
+                            const Duration(seconds: 2), // Set the duration
+                      ),
+                    )
+                  : Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                          builder: (context) => const whatmusiclike()),
+                      (route) => false);
+              /*
+          
+               */
+            }
           },
           style: ElevatedButton.styleFrom(
             side: BorderSide(
