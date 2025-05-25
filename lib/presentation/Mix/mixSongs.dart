@@ -251,9 +251,10 @@ class ListOfSongs extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
-                              log(state.playlistItems[index].track!.artists![0]
-                                      .id ??
-                                  '1234');
+                              log(state.playlistItems[index]
+                                                .track!.previewUrl
+                                      ??
+                                  'currently no url');
 
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => PlaySongUi(

@@ -7,7 +7,7 @@ import 'package:project_spotifyclone/Models/album/i_album-repo.dart';
 import 'package:project_spotifyclone/core/Ids.dart';
 import 'package:project_spotifyclone/core/api/Spotify_token_acces.dart';
 import 'package:project_spotifyclone/core/failures/mainFailure.dart';
-
+import 'dart:developer';
 
 @LazySingleton(as: I_Album_Repo)
 class AlbumsRepo implements I_Album_Repo {
@@ -26,7 +26,7 @@ class AlbumsRepo implements I_Album_Repo {
         final albumList = (response.data['albums'] as List).map((e) {
           return Album.fromJson(e);
         }).toList();
-
+log('album list : ${albumList[0].tracks!.items![0].previewUrl}');
         return right(albumList);
       } else {
         return left(const mainFailure.serverFailure());

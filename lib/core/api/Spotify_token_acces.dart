@@ -10,7 +10,7 @@ Future<String> getSpotifyAccessToken() async {
   Uri tokenUrl = Uri.parse('https://accounts.spotify.com/api/token');
 
   // Prepare the POST request body
-  var body = {
+  var body = { 
     'grant_type': 'client_credentials',
   };
 

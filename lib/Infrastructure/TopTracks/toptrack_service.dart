@@ -16,7 +16,7 @@ class ToptrackRepo implements I_Toptrack_Repo {
       final Response response = await Dio(BaseOptions(
         headers: {
           'Authorization': 'Bearer $accessToken',
-        },
+        },//https://api.spotify.com/v1/tracks/2ThslNnPGmK82KFcCF2Lxm?market=SE
       )).get('https://api.spotify.com/v1/artists/$id/top-tracks?country=KR');
       // log(response.data.toString());
       if (response.statusCode == 200 || response.statusCode == 201) {
