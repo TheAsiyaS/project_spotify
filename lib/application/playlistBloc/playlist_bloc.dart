@@ -6,6 +6,7 @@ import 'package:project_spotifyclone/Models/Playlists/I_playlist_repo.dart';
 import 'package:project_spotifyclone/Models/Playlists/playlist_model/item.dart';
 import 'package:project_spotifyclone/core/failures/mainFailure.dart';
 
+import 'dart:developer';
 part 'playlist_event.dart';
 part 'playlist_state.dart';
 part 'playlist_bloc.freezed.dart';
@@ -24,6 +25,7 @@ class PlaylistBloc extends Bloc<PlaylistEvent, PlaylistState> {
               paylistoverview: [],
               isLoading: false,
               iserror: true), (List<Map<String, dynamic>> result) {
+                log('result in username overvierw playlist : $result : ');
         return PlaylistState(
             paylistoverview1: state.paylistoverview1,
             playlistItems: state.playlistItems,

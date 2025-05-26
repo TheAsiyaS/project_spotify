@@ -1,4 +1,6 @@
 
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:dartz/dartz.dart';
@@ -54,7 +56,7 @@ class Playlistservice implements I_playlist_Repo {
       final Map<String, String> headers = {
         'Authorization': 'Bearer $accessToken'
       };
-
+log('hello , over view ');
       try {
         final response = await dio.get(
           url,
@@ -68,11 +70,12 @@ class Playlistservice implements I_playlist_Repo {
             'images': response.data['images'][0]['url'],
             'id': response.data['id'],
           });
-          //log('length : ${response.data['name']}');
+          log('length overview : ${response.data['name']}');
         } else {
           return left(const mainFailure.clientFailure());
         }
       } catch (e) {
+      log('error is showing in the overview $e');
         return left(const mainFailure.serverFailure());
       }
     }
@@ -92,6 +95,7 @@ class Playlistservice implements I_playlist_Repo {
       final Map<String, String> headers = {
         'Authorization': 'Bearer $accessToken'
       };
+log('hello , over view 111111111111 ');
 
       try {
         final response = await dio.get(
@@ -106,11 +110,13 @@ class Playlistservice implements I_playlist_Repo {
             'images': response.data['images'][0]['url'],
             'id': response.data['id'],
           });
-          //log('length : ${response.data['name']}');
+          log('length radio : ${response.data['name']}');
         } else {
           return left(const mainFailure.clientFailure());
         }
       } catch (e) {
+              log('error is showing in the overview 1 $e');
+
         return left(const mainFailure.serverFailure());
       }
     }

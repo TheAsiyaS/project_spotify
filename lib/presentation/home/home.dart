@@ -78,7 +78,7 @@ class home extends StatelessWidget {
               const PopupMenuItem<String>(
                 value: 'Profile',
                 child: Text('Profile'),
-              ),
+              ), 
               const PopupMenuItem<String>(
                 value: 'LogOut',
                 child: Text('LogOut'),
@@ -92,7 +92,6 @@ class home extends StatelessWidget {
           fontSize: 25,
         ),
         actions: [
-         
           iconbutton(
             iconwidget: const Icon(
               notification,
@@ -220,9 +219,9 @@ class home extends StatelessWidget {
                 if (state.isLoading) {
                   return const snapwaiting(color: white);
                 } else if (state.paylistoverview.isEmpty) {
-                  log('usernaem : ${state.paylistoverview}');
                   return const Center(
-                    child: Text('No playlists available at the moment'),
+                    child: Text(
+                        'Apologies! We’re doing our best to display the playlist, but the data is currently unavailable from the server. We’ll show it as soon as it becomes available.\n'),
                   );
                 } else if (state.iserror) {
                   return Center(child: text(stringtext: error_text));
@@ -257,7 +256,7 @@ class home extends StatelessWidget {
                   return const snapwaiting(color: white);
                 } else if (state.albumList.isEmpty) {
                   return const Center(
-                    child:  Text('No playlists available at the moment'),
+                    child: Text('No playlists available at the moment'),
                   );
                 } else if (state.iserror) {
                   return Center(child: text(stringtext: error_text));
@@ -291,7 +290,8 @@ class home extends StatelessWidget {
                   return const snapwaiting(color: white);
                 } else if (state.paylistoverview1.isEmpty) {
                   return const Center(
-                    child:  Text('No audio available at the moment'),
+                    child: Text(
+                        'Apologies! We’re doing our best to display the playlist, but the data is currently unavailable from the server. We’ll show it as soon as it becomes available.\n'),
                   );
                 } else if (state.iserror) {
                   return Center(child: text(stringtext: error_text));

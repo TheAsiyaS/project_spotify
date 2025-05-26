@@ -1,6 +1,6 @@
 part of 'playlist_bloc.dart';
 
-@freezed
+@freezed 
 class PlaylistEvent with _$PlaylistEvent {
   const factory PlaylistEvent.getplaylistOverview(
       {required List<String> playlistids}) = _GetplaylistOverview;
