@@ -49,33 +49,6 @@ class _PlaySongUiState extends State<PlaySongUi> {
   @override
   void initState() {
     super.initState();
-
-    audioPlayer.setReleaseMode(ReleaseMode.loop);
-    audioPlayer.onSeekComplete.listen((event) {
-      audioPlayer.seek(Duration.zero);
-      audioPlayer.setVolume(1);
-    });
-
-    playsong();
-  }
-
-  Future<void> playsong() async {
-    await audioPlayer.play(UrlSource(widget.songurl));
-
-    // audioPlayer.onPositionChanged.listen((newPosition) {
-    //   if (mounted) {
-    //     setState(() {
-    //       position = newPosition;
-    //     });
-    //   }
-    // });
-
-    // Assign a default duration of 1 second if getDuration() returns null initially
-    duration = (await audioPlayer.getDuration()) ?? const Duration(seconds: 1);
-  }
-
-  @override
-  Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<SongvaluesBloc>(context).add(SongvaluesEvent.getSongvalue(
           songimgurl: widget.songCover,
@@ -90,7 +63,37 @@ class _PlaySongUiState extends State<PlaySongUi> {
           });
         }
       });
+      if (widget.songurl ==
+          'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Apologies! We’re doing our best to play the music, but the data is currently unavailable from the server. We’ll play it as soon as it becomes available.',
+              style: TextStyle(color: white),
+            ),
+            duration: Duration(seconds: 10),
+            backgroundColor: darkgreen,
+          ),
+        );
+      }
     });
+    audioPlayer.setReleaseMode(ReleaseMode.loop);
+    audioPlayer.onSeekComplete.listen((event) {
+      audioPlayer.seek(Duration.zero);
+      audioPlayer.setVolume(1);
+    });
+
+    playsong();
+  }
+
+  Future<void> playsong() async {
+    await audioPlayer.play(UrlSource(widget.songurl));
+
+    duration = (await audioPlayer.getDuration()) ?? const Duration(seconds: 1);
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
