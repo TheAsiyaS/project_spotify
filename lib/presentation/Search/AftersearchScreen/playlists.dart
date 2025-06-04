@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:project_spotifyclone/widgets/home_gridview.dart';
@@ -11,6 +13,10 @@ class playlists extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+if (playList.length <5) {
+  return Center(child: Text('No playlist is available now'));
+} else {
+  log(playList.length.toString());
 
     return Scaffold(
         body: SafeArea(
@@ -18,6 +24,7 @@ class playlists extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: kIsWeb ? size.width / 6 : 0),
         child: Column(
           children: [
+            
             Expanded(
               child: gridview_home(
                 albumlist: const [],
@@ -38,6 +45,6 @@ class playlists extends StatelessWidget {
           ],
         ),
       ),
-    ));
+    ));}
   }
 }

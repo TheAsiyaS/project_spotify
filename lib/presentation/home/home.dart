@@ -14,6 +14,7 @@ import 'package:project_spotifyclone/core/currentuser_detail.dart';
 import 'package:project_spotifyclone/core/icons.dart';
 import 'package:project_spotifyclone/core/size.dart';
 import 'package:project_spotifyclone/presentation/SignUpbasedUi/signup_ui.dart';
+import 'package:project_spotifyclone/presentation/SignUpbasedUi/whatmusiclike.dart';
 import 'package:project_spotifyclone/widgets/home_gridview.dart';
 import 'package:project_spotifyclone/widgets/iconbutton.dart';
 import 'package:project_spotifyclone/widgets/snapWaiting.dart';
@@ -92,13 +93,18 @@ class home extends StatelessWidget {
           fontSize: 25,
         ),
         actions: [
-          iconbutton(
-            iconwidget: const Icon(
+          IconButton(
+            icon: const Icon(
               notification,
               size: 27,
               color: white,
             ),
-            onpress: () {},
+            onPressed: () {
+              Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                          builder: (context) => const whatmusiclike()),
+                      (route) => false);
+            },
           ),
           iconbutton(
             iconwidget: const Icon(

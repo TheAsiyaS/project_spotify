@@ -155,6 +155,8 @@ class gridview_home extends StatelessWidget {
             }).toList();
             final formattedArtistNames = artistNames.join(', ');
 
+  
+
             return GestureDetector(
               onTap: () async {
                 Navigator.of(context)
@@ -209,8 +211,9 @@ class gridview_home extends StatelessWidget {
               ),
             );
           } else if (id == 'searchplaylist') {
-            log('artist name : ${playlistoverview[0]['playlists']['items'][index]['tracks']}');
-            return GestureDetector(
+if (playlistoverview.isEmpty) {
+  return Text('No playlist available');
+} else {            return GestureDetector(
               onTap: () async {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
@@ -239,7 +242,7 @@ class gridview_home extends StatelessWidget {
                         ['name'] ??
                     'no name ',
               ),
-            );
+            );}
           } else if (id == "searchalbum") {
             return GestureDetector(
               onTap: () {
