@@ -66,7 +66,7 @@ class _bottom_songState extends State<bottom_song> {
               height: size.height / 10,
               width: size.width,
               decoration: BoxDecoration(
-                  color: dominantColor!.withOpacity(0.6),
+                  color: dominantColor!.withValues(alpha: 0.6),
                   borderRadius: BorderRadius.circular(10)),
               child: ListTile(
                 leading: show_networkimage(

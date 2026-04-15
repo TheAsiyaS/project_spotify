@@ -30,7 +30,7 @@ Future<void> main() async {
           apiKey: 'AIzaSyBHHgw5mINO2uCLzb6EElFjSN_jUMdZyRI', 
           appId: '1:353992947181:web:2761512b584a1fbed523e4',
           messagingSenderId: '353992947181',
-          projectId: 'project-spotify-ed3ad'));
+          projectId: 'project-spotify-ed3ad')); 
   runApp(const MyApp());
 }
 
