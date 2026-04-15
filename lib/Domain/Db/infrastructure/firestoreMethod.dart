@@ -31,13 +31,10 @@ class FirestoreMethod {
     return isOk;
   }
 
-  Future<bool> deleteSearch({required uid}) async {
+  Future<bool> deleteSearch({required String uid}) async {
     bool isok;
     try {
-      if (uid != null) {
-        await _firestore.collection('search').doc(uid).delete();
-        isok = true;
-      }
+      await _firestore.collection('search').doc(uid).delete();
       isok = true;
     } catch (e) {
       isok = false;
@@ -46,10 +43,10 @@ class FirestoreMethod {
   }
 
   Future<bool> follow_artists({
-    required artistid,
-    required profileImg,
-    required uid,
-    required username,
+    required String artistid,
+    required String profileImg,
+    required String uid,
+    required String username,
   }) async {
     bool isOk;
     try {
@@ -69,13 +66,10 @@ class FirestoreMethod {
     return isOk;
   }
 
-  Future<bool> unfollow_artists({required artistuid}) async {
+  Future<bool> unfollow_artists({required String artistuid}) async {
     bool isok;
     try {
-      if (artistuid != null) {
-        await _firestore.collection('followartists').doc(artistuid).delete();
-        isok = true;
-      }
+      await _firestore.collection('followartists').doc(artistuid).delete();
       isok = true;
     } catch (e) {
       isok = false;

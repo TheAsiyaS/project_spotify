@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:project_spotifyclone/core/colors.dart';
 import 'package:project_spotifyclone/core/divider.dart';
@@ -32,7 +33,7 @@ class rowText extends StatelessWidget {
   double? height_img;
   double? width_img;
   final bool iconornot;
-  IconData? icon;
+  Object? icon;
   double? rotatevalue;
   IconData? trailicon;
   Color? iconclor;
@@ -44,10 +45,15 @@ class rowText extends StatelessWidget {
         iconornot
             ? RotationTransition(
                 turns: AlwaysStoppedAnimation(rotatevalue ?? 0 / 360),
-                child: Icon(
-                  icon,
-                  color: iconclor ?? white,
-                ))
+                child: icon is FaIconData
+                    ? FaIcon(
+                        icon as FaIconData,
+                        color: iconclor ?? white,
+                      )
+                    : Icon(
+                        icon as IconData?,
+                        color: iconclor ?? white,
+                      ))
             : show_image(
                 size: size,
                 height: height_img ?? 0,

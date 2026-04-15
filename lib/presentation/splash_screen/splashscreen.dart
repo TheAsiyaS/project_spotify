@@ -14,6 +14,9 @@ class splashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 3), () {
+      if (!context.mounted) {
+        return;
+      }
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (context) => const navigationBar()),
           (route) => false);

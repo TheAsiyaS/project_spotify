@@ -25,7 +25,7 @@ class carditem extends StatelessWidget {
   Color? color;
   String? cardtext;
   String? img_url;
-  final size;
+  final Size size;
   double? fontsize;
   final bool isselect;
   final bool assetornet;

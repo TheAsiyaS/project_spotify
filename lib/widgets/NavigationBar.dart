@@ -54,7 +54,7 @@ class navigationBar extends StatelessWidget {
                       ),
                       label: 'Library'),
                   BottomNavigationBarItem(
-                      icon: Icon(FontAwesomeIcons.spotify), label: 'Premium'),
+                      icon: FaIcon(FontAwesomeIcons.spotify), label: 'Premium'),
                 ]),
             body: Stack(
               alignment: AlignmentDirectional.bottomCenter,

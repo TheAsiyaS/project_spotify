@@ -66,6 +66,9 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // Simulating a delay of 3 seconds using Future.delayed
     Future.delayed(const Duration(seconds: 3), () {
+      if (!context.mounted) {
+        return;
+      }
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
         return ChangeNotifierProvider(
           create: ((context) => GoogleSignInProvider()),

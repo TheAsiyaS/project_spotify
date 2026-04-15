@@ -63,6 +63,9 @@ class home extends StatelessWidget {
             if (value == 'Setting') {
             } else if (value == 'LogOut') {
               await GoogleSignInProvider().logout();
+              if (!context.mounted) {
+                return;
+              }
               Navigator.of(context).pushAndRemoveUntil(
                   MaterialPageRoute(
                       builder: (context) => const screen_signIn()),

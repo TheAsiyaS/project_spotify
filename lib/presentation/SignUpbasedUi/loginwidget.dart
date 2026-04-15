@@ -148,6 +148,9 @@ class buttonInLogin extends StatelessWidget {
               final provider =
                   Provider.of<GoogleSignInProvider>(context, listen: false);
               final result = await provider.login();
+              if (!context.mounted) {
+                return;
+              }
   
               result == false
                   ? ScaffoldMessenger.of(context).showSnackBar(

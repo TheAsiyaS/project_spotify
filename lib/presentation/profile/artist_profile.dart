@@ -126,7 +126,7 @@ class artist_profile extends StatelessWidget {
                                 } else {
                                     await FirestoreMethod().follow_artists(
                                     artistid: artistId,
-                                    profileImg: CurrentUserData!.photoURL,
+                                    profileImg: CurrentUserData!.photoURL ?? '',
                                     uid: CurrentUserData!.uid,
                                     username: CurrentUserData!.displayName!,
                                   );
