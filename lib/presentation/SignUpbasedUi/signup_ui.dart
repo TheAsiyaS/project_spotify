@@ -1,10 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:project_spotifyclone/core/colors.dart';
 import 'package:project_spotifyclone/presentation/SignUpbasedUi/loginwidget.dart';
 import 'package:project_spotifyclone/widgets/image.dart';
-
 class screen_signIn extends StatelessWidget {
   const screen_signIn({super.key});
 
@@ -12,12 +9,12 @@ class screen_signIn extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    log(size.width.toString());
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Container(
+        child: SingleChildScrollView(       
+          child: Column(
+            children: [
+              Container(
                 height: size.height / 2.5,
                 width: size.width,
                 decoration: const BoxDecoration(
@@ -56,9 +53,11 @@ class screen_signIn extends StatelessWidget {
                       )
                     ],
                   ),
-                )),
-                Login_widget()
-          ],
+                ),
+              ),
+              Login_widget(),               
+            ],
+          ),
         ),
       ),
     );
