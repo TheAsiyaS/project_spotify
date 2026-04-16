@@ -1,7 +1,9 @@
+// ignore_for_file: non_abstract_class_inherits_abstract_member
+
 part of 'playlist_bloc.dart';
 
 @freezed 
-class PlaylistEvent with _$PlaylistEvent {
+abstract class PlaylistEvent with _$PlaylistEvent {
   const factory PlaylistEvent.getplaylistOverview(
       {required List<String> playlistids}) = _GetplaylistOverview;
   const factory PlaylistEvent.getplaylistItems(

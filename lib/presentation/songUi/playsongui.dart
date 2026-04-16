@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:audioplayers/audioplayers.dart';
 
 import 'package:flutter/material.dart';
@@ -46,17 +48,36 @@ class _PlaySongUiState extends State<PlaySongUi> {
   bool isplaying = true;
   Duration duration = const Duration(seconds: 1);
   Duration position = Duration.zero;
+
+  SongvaluesBloc? _songBloc;
+  StreamSubscription<Duration>? _positionSub;
+  StreamSubscription<void>? _seekSub;
+  bool _playerTornDown = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _songBloc ??= context.read<SongvaluesBloc>();
+  }
+
   @override
   void initState() {
     super.initState();
+    audioPlayer.setReleaseMode(ReleaseMode.loop);
+    _seekSub = audioPlayer.onSeekComplete.listen((event) {
+      audioPlayer.seek(Duration.zero);
+      audioPlayer.setVolume(1);
+    });
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<SongvaluesBloc>(context).add(SongvaluesEvent.getSongvalue(
+      if (!mounted) return;
+      _songBloc?.add(SongvaluesEvent.getSongvalue(
           songimgurl: widget.songCover,
           songUrl: widget.songurl,
           songname: widget.songname,
           artistname: widget.artistname,
           artistid: widget.artistId));
-      audioPlayer.onPositionChanged.listen((newPosition) {
+      _positionSub = audioPlayer.onPositionChanged.listen((newPosition) {
         if (mounted) {
           setState(() {
             position = newPosition;
@@ -77,13 +98,25 @@ class _PlaySongUiState extends State<PlaySongUi> {
         );
       }
     });
-    audioPlayer.setReleaseMode(ReleaseMode.loop);
-    audioPlayer.onSeekComplete.listen((event) {
-      audioPlayer.seek(Duration.zero);
-      audioPlayer.setVolume(1);
-    });
 
     playsong();
+  }
+
+  void _tearDownPlayer() {
+    if (_playerTornDown) return;
+    _playerTornDown = true;
+    _positionSub?.cancel();
+    _seekSub?.cancel();
+    _songBloc?.add(const SongvaluesEvent.setFullScreenPlayerOpen(open: false));
+    _songBloc?.add(const SongvaluesEvent.updatePlayback(isPlaying: false));
+    audioPlayer
+        .stop()
+        .then((_) => audioPlayer.dispose())
+        .catchError((_) {
+          try {
+            audioPlayer.dispose();
+          } catch (_) {}
+        });
   }
 
   Future<void> playsong() async {
@@ -96,7 +129,14 @@ class _PlaySongUiState extends State<PlaySongUi> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    return Scaffold(
+    return PopScope(
+      canPop: true,
+      onPopInvokedWithResult: (bool didPop, dynamic result) {
+        if (didPop) {
+          _tearDownPlayer();
+        }
+      },
+      child: Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(
@@ -106,7 +146,7 @@ class _PlaySongUiState extends State<PlaySongUi> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 IconButton(
-                    onPressed: () async {
+                    onPressed: () {
                       Navigator.of(context).pop();
                     },
                     icon: const Icon(
@@ -255,11 +295,17 @@ class _PlaySongUiState extends State<PlaySongUi> {
                                   setState(() {
                                     isplaying = !isplaying;
                                   });
-                                  if (isplaying == true) {
+                                  if (isplaying) {
                                     await audioPlayer
                                         .play(UrlSource(widget.songurl));
+                                    _songBloc?.add(
+                                        const SongvaluesEvent.updatePlayback(
+                                            isPlaying: true));
                                   } else {
-                                    audioPlayer.pause();
+                                    await audioPlayer.pause();
+                                    _songBloc?.add(
+                                        const SongvaluesEvent.updatePlayback(
+                                            isPlaying: false));
                                   }
                                 },
                                 icon: Icon(
@@ -291,14 +337,13 @@ class _PlaySongUiState extends State<PlaySongUi> {
           ],
         ),
       )),
+    ),
     );
   }
 
   @override
   void dispose() {
-    // Release all sources and dispose the player.
-    audioPlayer.dispose();
-
+    _tearDownPlayer();
     super.dispose();
   }
 }

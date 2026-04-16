@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,788 +9,712 @@ part of 'playlist_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$PlaylistEvent {
-  List<String> get playlistids => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<String> playlistids) getplaylistOverview,
-    required TResult Function(List<String> playlistids) getplaylistItems,
-    required TResult Function(List<String> playlistids) getplaylistOverview1,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<String> playlistids)? getplaylistOverview,
-    TResult? Function(List<String> playlistids)? getplaylistItems,
-    TResult? Function(List<String> playlistids)? getplaylistOverview1,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<String> playlistids)? getplaylistOverview,
-    TResult Function(List<String> playlistids)? getplaylistItems,
-    TResult Function(List<String> playlistids)? getplaylistOverview1,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetplaylistOverview value) getplaylistOverview,
-    required TResult Function(_GetplaylistItems value) getplaylistItems,
-    required TResult Function(_GetplaylistOverview1 value) getplaylistOverview1,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetplaylistOverview value)? getplaylistOverview,
-    TResult? Function(_GetplaylistItems value)? getplaylistItems,
-    TResult? Function(_GetplaylistOverview1 value)? getplaylistOverview1,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetplaylistOverview value)? getplaylistOverview,
-    TResult Function(_GetplaylistItems value)? getplaylistItems,
-    TResult Function(_GetplaylistOverview1 value)? getplaylistOverview1,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
-  $PlaylistEventCopyWith<PlaylistEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+ List<String> get playlistids;
+/// Create a copy of PlaylistEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PlaylistEventCopyWith<PlaylistEvent> get copyWith => _$PlaylistEventCopyWithImpl<PlaylistEvent>(this as PlaylistEvent, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PlaylistEvent&&const DeepCollectionEquality().equals(other.playlistids, playlistids));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(playlistids));
+
+@override
+String toString() {
+  return 'PlaylistEvent(playlistids: $playlistids)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $PlaylistEventCopyWith<$Res> {
-  factory $PlaylistEventCopyWith(
-          PlaylistEvent value, $Res Function(PlaylistEvent) then) =
-      _$PlaylistEventCopyWithImpl<$Res, PlaylistEvent>;
-  @useResult
-  $Res call({List<String> playlistids});
-}
+abstract mixin class $PlaylistEventCopyWith<$Res>  {
+  factory $PlaylistEventCopyWith(PlaylistEvent value, $Res Function(PlaylistEvent) _then) = _$PlaylistEventCopyWithImpl;
+@useResult
+$Res call({
+ List<String> playlistids
+});
 
+
+
+
+}
 /// @nodoc
-class _$PlaylistEventCopyWithImpl<$Res, $Val extends PlaylistEvent>
+class _$PlaylistEventCopyWithImpl<$Res>
     implements $PlaylistEventCopyWith<$Res> {
-  _$PlaylistEventCopyWithImpl(this._value, this._then);
+  _$PlaylistEventCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final PlaylistEvent _self;
+  final $Res Function(PlaylistEvent) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? playlistids = null,
-  }) {
-    return _then(_value.copyWith(
-      playlistids: null == playlistids
-          ? _value.playlistids
-          : playlistids // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ) as $Val);
-  }
+/// Create a copy of PlaylistEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? playlistids = null,}) {
+  return _then(_self.copyWith(
+playlistids: null == playlistids ? _self.playlistids : playlistids // ignore: cast_nullable_to_non_nullable
+as List<String>,
+  ));
 }
 
-/// @nodoc
-abstract class _$$GetplaylistOverviewImplCopyWith<$Res>
-    implements $PlaylistEventCopyWith<$Res> {
-  factory _$$GetplaylistOverviewImplCopyWith(_$GetplaylistOverviewImpl value,
-          $Res Function(_$GetplaylistOverviewImpl) then) =
-      __$$GetplaylistOverviewImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<String> playlistids});
 }
 
-/// @nodoc
-class __$$GetplaylistOverviewImplCopyWithImpl<$Res>
-    extends _$PlaylistEventCopyWithImpl<$Res, _$GetplaylistOverviewImpl>
-    implements _$$GetplaylistOverviewImplCopyWith<$Res> {
-  __$$GetplaylistOverviewImplCopyWithImpl(_$GetplaylistOverviewImpl _value,
-      $Res Function(_$GetplaylistOverviewImpl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? playlistids = null,
-  }) {
-    return _then(_$GetplaylistOverviewImpl(
-      playlistids: null == playlistids
-          ? _value._playlistids
-          : playlistids // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ));
-  }
+/// Adds pattern-matching-related methods to [PlaylistEvent].
+extension PlaylistEventPatterns on PlaylistEvent {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _GetplaylistOverview value)?  getplaylistOverview,TResult Function( _GetplaylistItems value)?  getplaylistItems,TResult Function( _GetplaylistOverview1 value)?  getplaylistOverview1,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _GetplaylistOverview() when getplaylistOverview != null:
+return getplaylistOverview(_that);case _GetplaylistItems() when getplaylistItems != null:
+return getplaylistItems(_that);case _GetplaylistOverview1() when getplaylistOverview1 != null:
+return getplaylistOverview1(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _GetplaylistOverview value)  getplaylistOverview,required TResult Function( _GetplaylistItems value)  getplaylistItems,required TResult Function( _GetplaylistOverview1 value)  getplaylistOverview1,}){
+final _that = this;
+switch (_that) {
+case _GetplaylistOverview():
+return getplaylistOverview(_that);case _GetplaylistItems():
+return getplaylistItems(_that);case _GetplaylistOverview1():
+return getplaylistOverview1(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _GetplaylistOverview value)?  getplaylistOverview,TResult? Function( _GetplaylistItems value)?  getplaylistItems,TResult? Function( _GetplaylistOverview1 value)?  getplaylistOverview1,}){
+final _that = this;
+switch (_that) {
+case _GetplaylistOverview() when getplaylistOverview != null:
+return getplaylistOverview(_that);case _GetplaylistItems() when getplaylistItems != null:
+return getplaylistItems(_that);case _GetplaylistOverview1() when getplaylistOverview1 != null:
+return getplaylistOverview1(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function( List<String> playlistids)?  getplaylistOverview,TResult Function( List<String> playlistids)?  getplaylistItems,TResult Function( List<String> playlistids)?  getplaylistOverview1,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _GetplaylistOverview() when getplaylistOverview != null:
+return getplaylistOverview(_that.playlistids);case _GetplaylistItems() when getplaylistItems != null:
+return getplaylistItems(_that.playlistids);case _GetplaylistOverview1() when getplaylistOverview1 != null:
+return getplaylistOverview1(_that.playlistids);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function( List<String> playlistids)  getplaylistOverview,required TResult Function( List<String> playlistids)  getplaylistItems,required TResult Function( List<String> playlistids)  getplaylistOverview1,}) {final _that = this;
+switch (_that) {
+case _GetplaylistOverview():
+return getplaylistOverview(_that.playlistids);case _GetplaylistItems():
+return getplaylistItems(_that.playlistids);case _GetplaylistOverview1():
+return getplaylistOverview1(_that.playlistids);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function( List<String> playlistids)?  getplaylistOverview,TResult? Function( List<String> playlistids)?  getplaylistItems,TResult? Function( List<String> playlistids)?  getplaylistOverview1,}) {final _that = this;
+switch (_that) {
+case _GetplaylistOverview() when getplaylistOverview != null:
+return getplaylistOverview(_that.playlistids);case _GetplaylistItems() when getplaylistItems != null:
+return getplaylistItems(_that.playlistids);case _GetplaylistOverview1() when getplaylistOverview1 != null:
+return getplaylistOverview1(_that.playlistids);case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-
-class _$GetplaylistOverviewImpl implements _GetplaylistOverview {
-  const _$GetplaylistOverviewImpl({required final List<String> playlistids})
-      : _playlistids = playlistids;
-
-  final List<String> _playlistids;
-  @override
-  List<String> get playlistids {
-    if (_playlistids is EqualUnmodifiableListView) return _playlistids;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_playlistids);
-  }
-
-  @override
-  String toString() {
-    return 'PlaylistEvent.getplaylistOverview(playlistids: $playlistids)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetplaylistOverviewImpl &&
-            const DeepCollectionEquality()
-                .equals(other._playlistids, _playlistids));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_playlistids));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetplaylistOverviewImplCopyWith<_$GetplaylistOverviewImpl> get copyWith =>
-      __$$GetplaylistOverviewImplCopyWithImpl<_$GetplaylistOverviewImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<String> playlistids) getplaylistOverview,
-    required TResult Function(List<String> playlistids) getplaylistItems,
-    required TResult Function(List<String> playlistids) getplaylistOverview1,
-  }) {
-    return getplaylistOverview(playlistids);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<String> playlistids)? getplaylistOverview,
-    TResult? Function(List<String> playlistids)? getplaylistItems,
-    TResult? Function(List<String> playlistids)? getplaylistOverview1,
-  }) {
-    return getplaylistOverview?.call(playlistids);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<String> playlistids)? getplaylistOverview,
-    TResult Function(List<String> playlistids)? getplaylistItems,
-    TResult Function(List<String> playlistids)? getplaylistOverview1,
-    required TResult orElse(),
-  }) {
-    if (getplaylistOverview != null) {
-      return getplaylistOverview(playlistids);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetplaylistOverview value) getplaylistOverview,
-    required TResult Function(_GetplaylistItems value) getplaylistItems,
-    required TResult Function(_GetplaylistOverview1 value) getplaylistOverview1,
-  }) {
-    return getplaylistOverview(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetplaylistOverview value)? getplaylistOverview,
-    TResult? Function(_GetplaylistItems value)? getplaylistItems,
-    TResult? Function(_GetplaylistOverview1 value)? getplaylistOverview1,
-  }) {
-    return getplaylistOverview?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetplaylistOverview value)? getplaylistOverview,
-    TResult Function(_GetplaylistItems value)? getplaylistItems,
-    TResult Function(_GetplaylistOverview1 value)? getplaylistOverview1,
-    required TResult orElse(),
-  }) {
-    if (getplaylistOverview != null) {
-      return getplaylistOverview(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _GetplaylistOverview implements PlaylistEvent {
-  const factory _GetplaylistOverview(
-      {required final List<String> playlistids}) = _$GetplaylistOverviewImpl;
-
-  @override
-  List<String> get playlistids;
-  @override
-  @JsonKey(ignore: true)
-  _$$GetplaylistOverviewImplCopyWith<_$GetplaylistOverviewImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$GetplaylistItemsImplCopyWith<$Res>
-    implements $PlaylistEventCopyWith<$Res> {
-  factory _$$GetplaylistItemsImplCopyWith(_$GetplaylistItemsImpl value,
-          $Res Function(_$GetplaylistItemsImpl) then) =
-      __$$GetplaylistItemsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<String> playlistids});
-}
-
-/// @nodoc
-class __$$GetplaylistItemsImplCopyWithImpl<$Res>
-    extends _$PlaylistEventCopyWithImpl<$Res, _$GetplaylistItemsImpl>
-    implements _$$GetplaylistItemsImplCopyWith<$Res> {
-  __$$GetplaylistItemsImplCopyWithImpl(_$GetplaylistItemsImpl _value,
-      $Res Function(_$GetplaylistItemsImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? playlistids = null,
-  }) {
-    return _then(_$GetplaylistItemsImpl(
-      playlistids: null == playlistids
-          ? _value._playlistids
-          : playlistids // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$GetplaylistItemsImpl implements _GetplaylistItems {
-  const _$GetplaylistItemsImpl({required final List<String> playlistids})
-      : _playlistids = playlistids;
 
-  final List<String> _playlistids;
-  @override
-  List<String> get playlistids {
-    if (_playlistids is EqualUnmodifiableListView) return _playlistids;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_playlistids);
-  }
+class _GetplaylistOverview implements PlaylistEvent {
+  const _GetplaylistOverview({required final  List<String> playlistids}): _playlistids = playlistids;
+  
 
-  @override
-  String toString() {
-    return 'PlaylistEvent.getplaylistItems(playlistids: $playlistids)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetplaylistItemsImpl &&
-            const DeepCollectionEquality()
-                .equals(other._playlistids, _playlistids));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_playlistids));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetplaylistItemsImplCopyWith<_$GetplaylistItemsImpl> get copyWith =>
-      __$$GetplaylistItemsImplCopyWithImpl<_$GetplaylistItemsImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<String> playlistids) getplaylistOverview,
-    required TResult Function(List<String> playlistids) getplaylistItems,
-    required TResult Function(List<String> playlistids) getplaylistOverview1,
-  }) {
-    return getplaylistItems(playlistids);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<String> playlistids)? getplaylistOverview,
-    TResult? Function(List<String> playlistids)? getplaylistItems,
-    TResult? Function(List<String> playlistids)? getplaylistOverview1,
-  }) {
-    return getplaylistItems?.call(playlistids);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<String> playlistids)? getplaylistOverview,
-    TResult Function(List<String> playlistids)? getplaylistItems,
-    TResult Function(List<String> playlistids)? getplaylistOverview1,
-    required TResult orElse(),
-  }) {
-    if (getplaylistItems != null) {
-      return getplaylistItems(playlistids);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetplaylistOverview value) getplaylistOverview,
-    required TResult Function(_GetplaylistItems value) getplaylistItems,
-    required TResult Function(_GetplaylistOverview1 value) getplaylistOverview1,
-  }) {
-    return getplaylistItems(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetplaylistOverview value)? getplaylistOverview,
-    TResult? Function(_GetplaylistItems value)? getplaylistItems,
-    TResult? Function(_GetplaylistOverview1 value)? getplaylistOverview1,
-  }) {
-    return getplaylistItems?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetplaylistOverview value)? getplaylistOverview,
-    TResult Function(_GetplaylistItems value)? getplaylistItems,
-    TResult Function(_GetplaylistOverview1 value)? getplaylistOverview1,
-    required TResult orElse(),
-  }) {
-    if (getplaylistItems != null) {
-      return getplaylistItems(this);
-    }
-    return orElse();
-  }
+ final  List<String> _playlistids;
+@override List<String> get playlistids {
+  if (_playlistids is EqualUnmodifiableListView) return _playlistids;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_playlistids);
 }
 
-abstract class _GetplaylistItems implements PlaylistEvent {
-  const factory _GetplaylistItems({required final List<String> playlistids}) =
-      _$GetplaylistItemsImpl;
 
-  @override
-  List<String> get playlistids;
-  @override
-  @JsonKey(ignore: true)
-  _$$GetplaylistItemsImplCopyWith<_$GetplaylistItemsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+/// Create a copy of PlaylistEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$GetplaylistOverviewCopyWith<_GetplaylistOverview> get copyWith => __$GetplaylistOverviewCopyWithImpl<_GetplaylistOverview>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetplaylistOverview&&const DeepCollectionEquality().equals(other._playlistids, _playlistids));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_playlistids));
+
+@override
+String toString() {
+  return 'PlaylistEvent.getplaylistOverview(playlistids: $playlistids)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$GetplaylistOverview1ImplCopyWith<$Res>
-    implements $PlaylistEventCopyWith<$Res> {
-  factory _$$GetplaylistOverview1ImplCopyWith(_$GetplaylistOverview1Impl value,
-          $Res Function(_$GetplaylistOverview1Impl) then) =
-      __$$GetplaylistOverview1ImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<String> playlistids});
+abstract mixin class _$GetplaylistOverviewCopyWith<$Res> implements $PlaylistEventCopyWith<$Res> {
+  factory _$GetplaylistOverviewCopyWith(_GetplaylistOverview value, $Res Function(_GetplaylistOverview) _then) = __$GetplaylistOverviewCopyWithImpl;
+@override @useResult
+$Res call({
+ List<String> playlistids
+});
+
+
+
+
+}
+/// @nodoc
+class __$GetplaylistOverviewCopyWithImpl<$Res>
+    implements _$GetplaylistOverviewCopyWith<$Res> {
+  __$GetplaylistOverviewCopyWithImpl(this._self, this._then);
+
+  final _GetplaylistOverview _self;
+  final $Res Function(_GetplaylistOverview) _then;
+
+/// Create a copy of PlaylistEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? playlistids = null,}) {
+  return _then(_GetplaylistOverview(
+playlistids: null == playlistids ? _self._playlistids : playlistids // ignore: cast_nullable_to_non_nullable
+as List<String>,
+  ));
 }
 
-/// @nodoc
-class __$$GetplaylistOverview1ImplCopyWithImpl<$Res>
-    extends _$PlaylistEventCopyWithImpl<$Res, _$GetplaylistOverview1Impl>
-    implements _$$GetplaylistOverview1ImplCopyWith<$Res> {
-  __$$GetplaylistOverview1ImplCopyWithImpl(_$GetplaylistOverview1Impl _value,
-      $Res Function(_$GetplaylistOverview1Impl) _then)
-      : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? playlistids = null,
-  }) {
-    return _then(_$GetplaylistOverview1Impl(
-      playlistids: null == playlistids
-          ? _value._playlistids
-          : playlistids // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$GetplaylistOverview1Impl implements _GetplaylistOverview1 {
-  const _$GetplaylistOverview1Impl({required final List<String> playlistids})
-      : _playlistids = playlistids;
 
-  final List<String> _playlistids;
-  @override
-  List<String> get playlistids {
-    if (_playlistids is EqualUnmodifiableListView) return _playlistids;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_playlistids);
-  }
+class _GetplaylistItems implements PlaylistEvent {
+  const _GetplaylistItems({required final  List<String> playlistids}): _playlistids = playlistids;
+  
 
-  @override
-  String toString() {
-    return 'PlaylistEvent.getplaylistOverview1(playlistids: $playlistids)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetplaylistOverview1Impl &&
-            const DeepCollectionEquality()
-                .equals(other._playlistids, _playlistids));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_playlistids));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetplaylistOverview1ImplCopyWith<_$GetplaylistOverview1Impl>
-      get copyWith =>
-          __$$GetplaylistOverview1ImplCopyWithImpl<_$GetplaylistOverview1Impl>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<String> playlistids) getplaylistOverview,
-    required TResult Function(List<String> playlistids) getplaylistItems,
-    required TResult Function(List<String> playlistids) getplaylistOverview1,
-  }) {
-    return getplaylistOverview1(playlistids);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<String> playlistids)? getplaylistOverview,
-    TResult? Function(List<String> playlistids)? getplaylistItems,
-    TResult? Function(List<String> playlistids)? getplaylistOverview1,
-  }) {
-    return getplaylistOverview1?.call(playlistids);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<String> playlistids)? getplaylistOverview,
-    TResult Function(List<String> playlistids)? getplaylistItems,
-    TResult Function(List<String> playlistids)? getplaylistOverview1,
-    required TResult orElse(),
-  }) {
-    if (getplaylistOverview1 != null) {
-      return getplaylistOverview1(playlistids);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetplaylistOverview value) getplaylistOverview,
-    required TResult Function(_GetplaylistItems value) getplaylistItems,
-    required TResult Function(_GetplaylistOverview1 value) getplaylistOverview1,
-  }) {
-    return getplaylistOverview1(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_GetplaylistOverview value)? getplaylistOverview,
-    TResult? Function(_GetplaylistItems value)? getplaylistItems,
-    TResult? Function(_GetplaylistOverview1 value)? getplaylistOverview1,
-  }) {
-    return getplaylistOverview1?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetplaylistOverview value)? getplaylistOverview,
-    TResult Function(_GetplaylistItems value)? getplaylistItems,
-    TResult Function(_GetplaylistOverview1 value)? getplaylistOverview1,
-    required TResult orElse(),
-  }) {
-    if (getplaylistOverview1 != null) {
-      return getplaylistOverview1(this);
-    }
-    return orElse();
-  }
+ final  List<String> _playlistids;
+@override List<String> get playlistids {
+  if (_playlistids is EqualUnmodifiableListView) return _playlistids;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_playlistids);
 }
 
-abstract class _GetplaylistOverview1 implements PlaylistEvent {
-  const factory _GetplaylistOverview1(
-      {required final List<String> playlistids}) = _$GetplaylistOverview1Impl;
 
-  @override
-  List<String> get playlistids;
-  @override
-  @JsonKey(ignore: true)
-  _$$GetplaylistOverview1ImplCopyWith<_$GetplaylistOverview1Impl>
-      get copyWith => throw _privateConstructorUsedError;
+/// Create a copy of PlaylistEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$GetplaylistItemsCopyWith<_GetplaylistItems> get copyWith => __$GetplaylistItemsCopyWithImpl<_GetplaylistItems>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetplaylistItems&&const DeepCollectionEquality().equals(other._playlistids, _playlistids));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_playlistids));
+
+@override
+String toString() {
+  return 'PlaylistEvent.getplaylistItems(playlistids: $playlistids)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$GetplaylistItemsCopyWith<$Res> implements $PlaylistEventCopyWith<$Res> {
+  factory _$GetplaylistItemsCopyWith(_GetplaylistItems value, $Res Function(_GetplaylistItems) _then) = __$GetplaylistItemsCopyWithImpl;
+@override @useResult
+$Res call({
+ List<String> playlistids
+});
+
+
+
+
+}
+/// @nodoc
+class __$GetplaylistItemsCopyWithImpl<$Res>
+    implements _$GetplaylistItemsCopyWith<$Res> {
+  __$GetplaylistItemsCopyWithImpl(this._self, this._then);
+
+  final _GetplaylistItems _self;
+  final $Res Function(_GetplaylistItems) _then;
+
+/// Create a copy of PlaylistEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? playlistids = null,}) {
+  return _then(_GetplaylistItems(
+playlistids: null == playlistids ? _self._playlistids : playlistids // ignore: cast_nullable_to_non_nullable
+as List<String>,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class _GetplaylistOverview1 implements PlaylistEvent {
+  const _GetplaylistOverview1({required final  List<String> playlistids}): _playlistids = playlistids;
+  
+
+ final  List<String> _playlistids;
+@override List<String> get playlistids {
+  if (_playlistids is EqualUnmodifiableListView) return _playlistids;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_playlistids);
+}
+
+
+/// Create a copy of PlaylistEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$GetplaylistOverview1CopyWith<_GetplaylistOverview1> get copyWith => __$GetplaylistOverview1CopyWithImpl<_GetplaylistOverview1>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetplaylistOverview1&&const DeepCollectionEquality().equals(other._playlistids, _playlistids));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_playlistids));
+
+@override
+String toString() {
+  return 'PlaylistEvent.getplaylistOverview1(playlistids: $playlistids)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$GetplaylistOverview1CopyWith<$Res> implements $PlaylistEventCopyWith<$Res> {
+  factory _$GetplaylistOverview1CopyWith(_GetplaylistOverview1 value, $Res Function(_GetplaylistOverview1) _then) = __$GetplaylistOverview1CopyWithImpl;
+@override @useResult
+$Res call({
+ List<String> playlistids
+});
+
+
+
+
+}
+/// @nodoc
+class __$GetplaylistOverview1CopyWithImpl<$Res>
+    implements _$GetplaylistOverview1CopyWith<$Res> {
+  __$GetplaylistOverview1CopyWithImpl(this._self, this._then);
+
+  final _GetplaylistOverview1 _self;
+  final $Res Function(_GetplaylistOverview1) _then;
+
+/// Create a copy of PlaylistEvent
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? playlistids = null,}) {
+  return _then(_GetplaylistOverview1(
+playlistids: null == playlistids ? _self._playlistids : playlistids // ignore: cast_nullable_to_non_nullable
+as List<String>,
+  ));
+}
+
+
 }
 
 /// @nodoc
 mixin _$PlaylistState {
-  List<Item> get playlistItems => throw _privateConstructorUsedError;
-  List<Map<String, dynamic>> get paylistoverview =>
-      throw _privateConstructorUsedError;
-  List<Map<String, dynamic>> get paylistoverview1 =>
-      throw _privateConstructorUsedError;
-  bool get isLoading => throw _privateConstructorUsedError;
-  bool get iserror => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
-  $PlaylistStateCopyWith<PlaylistState> get copyWith =>
-      throw _privateConstructorUsedError;
+ List<Item> get playlistItems; List<Map<String, dynamic>> get paylistoverview; List<Map<String, dynamic>> get paylistoverview1; bool get isLoading; bool get iserror;
+/// Create a copy of PlaylistState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PlaylistStateCopyWith<PlaylistState> get copyWith => _$PlaylistStateCopyWithImpl<PlaylistState>(this as PlaylistState, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PlaylistState&&const DeepCollectionEquality().equals(other.playlistItems, playlistItems)&&const DeepCollectionEquality().equals(other.paylistoverview, paylistoverview)&&const DeepCollectionEquality().equals(other.paylistoverview1, paylistoverview1)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.iserror, iserror) || other.iserror == iserror));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(playlistItems),const DeepCollectionEquality().hash(paylistoverview),const DeepCollectionEquality().hash(paylistoverview1),isLoading,iserror);
+
+@override
+String toString() {
+  return 'PlaylistState(playlistItems: $playlistItems, paylistoverview: $paylistoverview, paylistoverview1: $paylistoverview1, isLoading: $isLoading, iserror: $iserror)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $PlaylistStateCopyWith<$Res> {
-  factory $PlaylistStateCopyWith(
-          PlaylistState value, $Res Function(PlaylistState) then) =
-      _$PlaylistStateCopyWithImpl<$Res, PlaylistState>;
-  @useResult
-  $Res call(
-      {List<Item> playlistItems,
-      List<Map<String, dynamic>> paylistoverview,
-      List<Map<String, dynamic>> paylistoverview1,
-      bool isLoading,
-      bool iserror});
-}
+abstract mixin class $PlaylistStateCopyWith<$Res>  {
+  factory $PlaylistStateCopyWith(PlaylistState value, $Res Function(PlaylistState) _then) = _$PlaylistStateCopyWithImpl;
+@useResult
+$Res call({
+ List<Item> playlistItems, List<Map<String, dynamic>> paylistoverview, List<Map<String, dynamic>> paylistoverview1, bool isLoading, bool iserror
+});
 
+
+
+
+}
 /// @nodoc
-class _$PlaylistStateCopyWithImpl<$Res, $Val extends PlaylistState>
+class _$PlaylistStateCopyWithImpl<$Res>
     implements $PlaylistStateCopyWith<$Res> {
-  _$PlaylistStateCopyWithImpl(this._value, this._then);
+  _$PlaylistStateCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final PlaylistState _self;
+  final $Res Function(PlaylistState) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? playlistItems = null,
-    Object? paylistoverview = null,
-    Object? paylistoverview1 = null,
-    Object? isLoading = null,
-    Object? iserror = null,
-  }) {
-    return _then(_value.copyWith(
-      playlistItems: null == playlistItems
-          ? _value.playlistItems
-          : playlistItems // ignore: cast_nullable_to_non_nullable
-              as List<Item>,
-      paylistoverview: null == paylistoverview
-          ? _value.paylistoverview
-          : paylistoverview // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>,
-      paylistoverview1: null == paylistoverview1
-          ? _value.paylistoverview1
-          : paylistoverview1 // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      iserror: null == iserror
-          ? _value.iserror
-          : iserror // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
+/// Create a copy of PlaylistState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? playlistItems = null,Object? paylistoverview = null,Object? paylistoverview1 = null,Object? isLoading = null,Object? iserror = null,}) {
+  return _then(_self.copyWith(
+playlistItems: null == playlistItems ? _self.playlistItems : playlistItems // ignore: cast_nullable_to_non_nullable
+as List<Item>,paylistoverview: null == paylistoverview ? _self.paylistoverview : paylistoverview // ignore: cast_nullable_to_non_nullable
+as List<Map<String, dynamic>>,paylistoverview1: null == paylistoverview1 ? _self.paylistoverview1 : paylistoverview1 // ignore: cast_nullable_to_non_nullable
+as List<Map<String, dynamic>>,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
+as bool,iserror: null == iserror ? _self.iserror : iserror // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [PlaylistState].
+extension PlaylistStatePatterns on PlaylistState {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Initial value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _Initial() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Initial value)  $default,){
+final _that = this;
+switch (_that) {
+case _Initial():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Initial value)?  $default,){
+final _that = this;
+switch (_that) {
+case _Initial() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<Item> playlistItems,  List<Map<String, dynamic>> paylistoverview,  List<Map<String, dynamic>> paylistoverview1,  bool isLoading,  bool iserror)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _Initial() when $default != null:
+return $default(_that.playlistItems,_that.paylistoverview,_that.paylistoverview1,_that.isLoading,_that.iserror);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<Item> playlistItems,  List<Map<String, dynamic>> paylistoverview,  List<Map<String, dynamic>> paylistoverview1,  bool isLoading,  bool iserror)  $default,) {final _that = this;
+switch (_that) {
+case _Initial():
+return $default(_that.playlistItems,_that.paylistoverview,_that.paylistoverview1,_that.isLoading,_that.iserror);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<Item> playlistItems,  List<Map<String, dynamic>> paylistoverview,  List<Map<String, dynamic>> paylistoverview1,  bool isLoading,  bool iserror)?  $default,) {final _that = this;
+switch (_that) {
+case _Initial() when $default != null:
+return $default(_that.playlistItems,_that.paylistoverview,_that.paylistoverview1,_that.isLoading,_that.iserror);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res>
-    implements $PlaylistStateCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {List<Item> playlistItems,
-      List<Map<String, dynamic>> paylistoverview,
-      List<Map<String, dynamic>> paylistoverview1,
-      bool isLoading,
-      bool iserror});
+
+
+class _Initial implements PlaylistState {
+  const _Initial({required final  List<Item> playlistItems, required final  List<Map<String, dynamic>> paylistoverview, required final  List<Map<String, dynamic>> paylistoverview1, required this.isLoading, required this.iserror}): _playlistItems = playlistItems,_paylistoverview = paylistoverview,_paylistoverview1 = paylistoverview1;
+  
+
+ final  List<Item> _playlistItems;
+@override List<Item> get playlistItems {
+  if (_playlistItems is EqualUnmodifiableListView) return _playlistItems;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_playlistItems);
+}
+
+ final  List<Map<String, dynamic>> _paylistoverview;
+@override List<Map<String, dynamic>> get paylistoverview {
+  if (_paylistoverview is EqualUnmodifiableListView) return _paylistoverview;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_paylistoverview);
+}
+
+ final  List<Map<String, dynamic>> _paylistoverview1;
+@override List<Map<String, dynamic>> get paylistoverview1 {
+  if (_paylistoverview1 is EqualUnmodifiableListView) return _paylistoverview1;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_paylistoverview1);
+}
+
+@override final  bool isLoading;
+@override final  bool iserror;
+
+/// Create a copy of PlaylistState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$InitialCopyWith<_Initial> get copyWith => __$InitialCopyWithImpl<_Initial>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initial&&const DeepCollectionEquality().equals(other._playlistItems, _playlistItems)&&const DeepCollectionEquality().equals(other._paylistoverview, _paylistoverview)&&const DeepCollectionEquality().equals(other._paylistoverview1, _paylistoverview1)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.iserror, iserror) || other.iserror == iserror));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_playlistItems),const DeepCollectionEquality().hash(_paylistoverview),const DeepCollectionEquality().hash(_paylistoverview1),isLoading,iserror);
+
+@override
+String toString() {
+  return 'PlaylistState(playlistItems: $playlistItems, paylistoverview: $paylistoverview, paylistoverview1: $paylistoverview1, isLoading: $isLoading, iserror: $iserror)';
+}
+
+
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$PlaylistStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+abstract mixin class _$InitialCopyWith<$Res> implements $PlaylistStateCopyWith<$Res> {
+  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) _then) = __$InitialCopyWithImpl;
+@override @useResult
+$Res call({
+ List<Item> playlistItems, List<Map<String, dynamic>> paylistoverview, List<Map<String, dynamic>> paylistoverview1, bool isLoading, bool iserror
+});
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? playlistItems = null,
-    Object? paylistoverview = null,
-    Object? paylistoverview1 = null,
-    Object? isLoading = null,
-    Object? iserror = null,
-  }) {
-    return _then(_$InitialImpl(
-      playlistItems: null == playlistItems
-          ? _value._playlistItems
-          : playlistItems // ignore: cast_nullable_to_non_nullable
-              as List<Item>,
-      paylistoverview: null == paylistoverview
-          ? _value._paylistoverview
-          : paylistoverview // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>,
-      paylistoverview1: null == paylistoverview1
-          ? _value._paylistoverview1
-          : paylistoverview1 // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      iserror: null == iserror
-          ? _value.iserror
-          : iserror // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
+
+
+
 }
-
 /// @nodoc
+class __$InitialCopyWithImpl<$Res>
+    implements _$InitialCopyWith<$Res> {
+  __$InitialCopyWithImpl(this._self, this._then);
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl(
-      {required final List<Item> playlistItems,
-      required final List<Map<String, dynamic>> paylistoverview,
-      required final List<Map<String, dynamic>> paylistoverview1,
-      required this.isLoading,
-      required this.iserror})
-      : _playlistItems = playlistItems,
-        _paylistoverview = paylistoverview,
-        _paylistoverview1 = paylistoverview1;
+  final _Initial _self;
+  final $Res Function(_Initial) _then;
 
-  final List<Item> _playlistItems;
-  @override
-  List<Item> get playlistItems {
-    if (_playlistItems is EqualUnmodifiableListView) return _playlistItems;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_playlistItems);
-  }
-
-  final List<Map<String, dynamic>> _paylistoverview;
-  @override
-  List<Map<String, dynamic>> get paylistoverview {
-    if (_paylistoverview is EqualUnmodifiableListView) return _paylistoverview;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_paylistoverview);
-  }
-
-  final List<Map<String, dynamic>> _paylistoverview1;
-  @override
-  List<Map<String, dynamic>> get paylistoverview1 {
-    if (_paylistoverview1 is EqualUnmodifiableListView)
-      return _paylistoverview1;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_paylistoverview1);
-  }
-
-  @override
-  final bool isLoading;
-  @override
-  final bool iserror;
-
-  @override
-  String toString() {
-    return 'PlaylistState(playlistItems: $playlistItems, paylistoverview: $paylistoverview, paylistoverview1: $paylistoverview1, isLoading: $isLoading, iserror: $iserror)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$InitialImpl &&
-            const DeepCollectionEquality()
-                .equals(other._playlistItems, _playlistItems) &&
-            const DeepCollectionEquality()
-                .equals(other._paylistoverview, _paylistoverview) &&
-            const DeepCollectionEquality()
-                .equals(other._paylistoverview1, _paylistoverview1) &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
-            (identical(other.iserror, iserror) || other.iserror == iserror));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_playlistItems),
-      const DeepCollectionEquality().hash(_paylistoverview),
-      const DeepCollectionEquality().hash(_paylistoverview1),
-      isLoading,
-      iserror);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
-      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
+/// Create a copy of PlaylistState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? playlistItems = null,Object? paylistoverview = null,Object? paylistoverview1 = null,Object? isLoading = null,Object? iserror = null,}) {
+  return _then(_Initial(
+playlistItems: null == playlistItems ? _self._playlistItems : playlistItems // ignore: cast_nullable_to_non_nullable
+as List<Item>,paylistoverview: null == paylistoverview ? _self._paylistoverview : paylistoverview // ignore: cast_nullable_to_non_nullable
+as List<Map<String, dynamic>>,paylistoverview1: null == paylistoverview1 ? _self._paylistoverview1 : paylistoverview1 // ignore: cast_nullable_to_non_nullable
+as List<Map<String, dynamic>>,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
+as bool,iserror: null == iserror ? _self.iserror : iserror // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
 }
 
-abstract class _Initial implements PlaylistState {
-  const factory _Initial(
-      {required final List<Item> playlistItems,
-      required final List<Map<String, dynamic>> paylistoverview,
-      required final List<Map<String, dynamic>> paylistoverview1,
-      required final bool isLoading,
-      required final bool iserror}) = _$InitialImpl;
 
-  @override
-  List<Item> get playlistItems;
-  @override
-  List<Map<String, dynamic>> get paylistoverview;
-  @override
-  List<Map<String, dynamic>> get paylistoverview1;
-  @override
-  bool get isLoading;
-  @override
-  bool get iserror;
-  @override
-  @JsonKey(ignore: true)
-  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
+
+// dart format on

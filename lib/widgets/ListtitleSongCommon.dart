@@ -2,7 +2,9 @@ import 'dart:developer';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:palette_generator/palette_generator.dart';
+import 'package:project_spotifyclone/application/SongVlaues/songvalues_bloc.dart';
 import 'package:project_spotifyclone/core/CommonErrorText.dart';
 import 'package:project_spotifyclone/core/colors.dart';
 import 'package:project_spotifyclone/core/icons.dart';
@@ -17,12 +19,14 @@ class bottom_song extends StatefulWidget {
       required this.songname,
       required this.artistname,
       required this.id,
-      required this.songurl});
+      required this.songurl,
+      required this.isPlayingFromBloc});
   final String imageurl;
   final String songname;
   final String artistname;
   final String id;
   final String songurl;
+  final bool isPlayingFromBloc;
 
   @override
   State<bottom_song> createState() => _bottom_songState();
@@ -30,7 +34,6 @@ class bottom_song extends StatefulWidget {
 
 class _bottom_songState extends State<bottom_song> {
   AudioPlayer audioPlayer = AudioPlayer();
-  bool isplaying = false;
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
   @override
@@ -46,11 +49,21 @@ class _bottom_songState extends State<bottom_song> {
   }
 
   bool islike = false;
+
+  @override
+  void didUpdateWidget(covariant bottom_song oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.songurl != widget.songurl && oldWidget.songurl.isNotEmpty) {
+      audioPlayer.stop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     return FutureBuilder<PaletteGenerator>(
+        key: ValueKey(widget.imageurl),
         future:
             PaletteGenerator.fromImageProvider(NetworkImage(widget.imageurl)),
         builder: (context, snapshot) {
@@ -88,17 +101,20 @@ class _bottom_songState extends State<bottom_song> {
                       IconButton(
                           onPressed: () async {
                             log(duration.toString());
-                            setState(() {
-                              isplaying = !isplaying;
-                            });
-                            if (isplaying == true) {
-                              await audioPlayer.play(UrlSource(widget.songurl));
+                            final bloc = context.read<SongvaluesBloc>();
+                            if (widget.isPlayingFromBloc) {
+                              await audioPlayer.pause();
+                              bloc.add(const SongvaluesEvent.updatePlayback(
+                                  isPlaying: false));
                             } else {
-                              audioPlayer.pause();
+                              await audioPlayer.play(
+                                  UrlSource(widget.songurl));
+                              bloc.add(const SongvaluesEvent.updatePlayback(
+                                  isPlaying: true));
                             }
                           },
                           icon: Icon(
-                            isplaying ? pause : play,
+                            widget.isPlayingFromBloc ? pause : play,
                             size: 32,
                           )),
                       IconButton(
@@ -122,9 +138,8 @@ class _bottom_songState extends State<bottom_song> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    audioPlayer.dispose();
     audioPlayer.stop();
+    audioPlayer.dispose();
+    super.dispose();
   }
 }

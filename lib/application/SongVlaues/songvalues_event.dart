@@ -1,7 +1,9 @@
+// ignore_for_file: non_abstract_class_inherits_abstract_member
+
 part of 'songvalues_bloc.dart';
 
 @freezed
-class SongvaluesEvent with _$SongvaluesEvent {
+abstract class SongvaluesEvent with _$SongvaluesEvent {
   const factory SongvaluesEvent.getSongvalue({
     required String songimgurl,
     required String songUrl,
@@ -9,4 +11,8 @@ class SongvaluesEvent with _$SongvaluesEvent {
     required String artistname,
     required String artistid,
   }) = _GetSongvalue;
+  const factory SongvaluesEvent.updatePlayback({required bool isPlaying}) =
+      _UpdatePlayback;
+  const factory SongvaluesEvent.setFullScreenPlayerOpen({required bool open}) =
+      _SetFullScreenPlayerOpen;
 }

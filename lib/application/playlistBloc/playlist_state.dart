@@ -1,7 +1,9 @@
+// ignore_for_file: non_abstract_class_inherits_abstract_member
+
 part of 'playlist_bloc.dart';
 
 @freezed
-class PlaylistState with _$PlaylistState {
+abstract class PlaylistState with _$PlaylistState {
   const factory PlaylistState({
     required List<Item> playlistItems,
     required List<Map<String, dynamic>> paylistoverview,

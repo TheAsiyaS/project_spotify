@@ -1,56 +1,75 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 // **************************************************************************
 // InjectableConfigGenerator
 // **************************************************************************
 
+// ignore_for_file: type=lint
+// coverage:ignore-file
+
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:get_it/get_it.dart' as _i1;
-import 'package:injectable/injectable.dart' as _i2;
+import 'package:get_it/get_it.dart' as _i174;
+import 'package:injectable/injectable.dart' as _i526;
+import 'package:project_spotifyclone/application/Album/album_bloc.dart'
+    as _i903;
+import 'package:project_spotifyclone/application/Artists/list_artists_bloc.dart'
+    as _i242;
+import 'package:project_spotifyclone/application/playlistBloc/playlist_bloc.dart'
+    as _i679;
+import 'package:project_spotifyclone/application/Search/search_bloc.dart'
+    as _i658;
+import 'package:project_spotifyclone/application/SongVlaues/songvalues_bloc.dart'
+    as _i75;
+import 'package:project_spotifyclone/application/TopTrack/toptracklist_bloc.dart'
+    as _i66;
+import 'package:project_spotifyclone/Infrastructure/Album/albumlist_service.dart'
+    as _i29;
+import 'package:project_spotifyclone/Infrastructure/Artist_list/Artists_service.dart'
+    as _i523;
+import 'package:project_spotifyclone/Infrastructure/playlist/playlist_service.dart'
+    as _i506;
+import 'package:project_spotifyclone/Infrastructure/Search/search_service.dart'
+    as _i225;
+import 'package:project_spotifyclone/Infrastructure/TopTracks/toptrack_service.dart'
+    as _i324;
+import 'package:project_spotifyclone/Models/album/i_album-repo.dart' as _i1055;
+import 'package:project_spotifyclone/Models/Artist_list/I_artist_list_repo.dart'
+    as _i814;
+import 'package:project_spotifyclone/Models/Playlists/I_playlist_repo.dart'
+    as _i184;
+import 'package:project_spotifyclone/Models/Search/i_search_repo.dart' as _i107;
+import 'package:project_spotifyclone/Models/topTracks/i_toptracks_repo.dart'
+    as _i1021;
 
-import '../../application/Album/album_bloc.dart' as _i18;
-import '../../application/Artists/list_artists_bloc.dart' as _i13;
-import '../../application/playlistBloc/playlist_bloc.dart' as _i14;
-import '../../application/Search/search_bloc.dart' as _i15;
-import '../../application/SongVlaues/songvalues_bloc.dart' as _i16;
-import '../../application/TopTrack/toptracklist_bloc.dart' as _i17;
-import '../../Infrastructure/Album/albumlist_service.dart' as _i4;
-import '../../Infrastructure/Artist_list/Artists_service.dart' as _i6;
-import '../../Infrastructure/playlist/playlist_service.dart' as _i12;
-import '../../Infrastructure/Search/search_service.dart' as _i8;
-import '../../Infrastructure/TopTracks/toptrack_service.dart' as _i10;
-import '../../Models/album/i_album-repo.dart' as _i3;
-import '../../Models/Artist_list/I_artist_list_repo.dart' as _i5;
-import '../../Models/Playlists/I_playlist_repo.dart' as _i11;
-import '../../Models/Search/i_search_repo.dart' as _i7;
-import '../../Models/topTracks/i_toptracks_repo.dart'
-    as _i9; // ignore_for_file: unnecessary_lambdas
-
-// ignore_for_file: lines_longer_than_80_chars
-/// initializes the registration of provided dependencies inside of [GetIt]
-_i1.GetIt $initGetIt(
-  _i1.GetIt get, {
-  String? environment,
-  _i2.EnvironmentFilter? environmentFilter,
-}) {
-  final gh = _i2.GetItHelper(
-    get,
-    environment,
-    environmentFilter,
-  );
-  gh.lazySingleton<_i3.I_Album_Repo>(() => _i4.AlbumsRepo());
-  gh.lazySingleton<_i5.I_Artists_Repo>(() => _i6.ArtistsRepo());
-  gh.lazySingleton<_i7.I_Search_Repo>(() => _i8.SearchRepo());
-  gh.lazySingleton<_i9.I_Toptrack_Repo>(() => _i10.ToptrackRepo());
-  gh.lazySingleton<_i11.I_playlist_Repo>(() => _i12.Playlistservice());
-  gh.factory<_i13.ListArtistsBloc>(
-      () => _i13.ListArtistsBloc(get<_i5.I_Artists_Repo>()));
-  gh.factory<_i14.PlaylistBloc>(
-      () => _i14.PlaylistBloc(get<_i11.I_playlist_Repo>()));
-  gh.factory<_i15.SearchBloc>(() => _i15.SearchBloc(get<_i7.I_Search_Repo>()));
-  gh.factory<_i16.SongvaluesBloc>(() => _i16.SongvaluesBloc());
-  gh.factory<_i17.ToptracklistBloc>(
-      () => _i17.ToptracklistBloc(get<_i9.I_Toptrack_Repo>()));
-  gh.factory<_i18.AlbumBloc>(() => _i18.AlbumBloc(get<_i3.I_Album_Repo>()));
-  return get;
+extension GetItInjectableX on _i174.GetIt {
+  // initializes the registration of main-scope dependencies inside of GetIt
+  _i174.GetIt init({
+    String? environment,
+    _i526.EnvironmentFilter? environmentFilter,
+  }) {
+    final gh = _i526.GetItHelper(this, environment, environmentFilter);
+    gh.factory<_i75.SongvaluesBloc>(() => _i75.SongvaluesBloc());
+    gh.lazySingleton<_i184.I_playlist_Repo>(() => _i506.Playlistservice());
+    gh.lazySingleton<_i107.I_Search_Repo>(() => _i225.SearchRepo());
+    gh.factory<_i658.SearchBloc>(
+      () => _i658.SearchBloc(gh<_i107.I_Search_Repo>()),
+    );
+    gh.lazySingleton<_i1055.I_Album_Repo>(() => _i29.AlbumsRepo());
+    gh.lazySingleton<_i814.I_Artists_Repo>(() => _i523.ArtistsRepo());
+    gh.lazySingleton<_i1021.I_Toptrack_Repo>(() => _i324.ToptrackRepo());
+    gh.factory<_i242.ListArtistsBloc>(
+      () => _i242.ListArtistsBloc(gh<_i814.I_Artists_Repo>()),
+    );
+    gh.factory<_i903.AlbumBloc>(
+      () => _i903.AlbumBloc(gh<_i1055.I_Album_Repo>()),
+    );
+    gh.factory<_i679.PlaylistBloc>(
+      () => _i679.PlaylistBloc(gh<_i184.I_playlist_Repo>()),
+    );
+    gh.factory<_i66.ToptracklistBloc>(
+      () => _i66.ToptracklistBloc(gh<_i1021.I_Toptrack_Repo>()),
+    );
+    return this;
+  }
 }

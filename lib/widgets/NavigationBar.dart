@@ -65,12 +65,17 @@ class navigationBar extends StatelessWidget {
                         const EdgeInsets.only(bottom: 20, left: 5, right: 5),
                     child: BlocBuilder<SongvaluesBloc, SongvaluesState>(
                       builder: (context, state) {
+                        if (state.songUrl.isEmpty ||
+                            state.fullScreenPlayerOpen) {
+                          return const SizedBox.shrink();
+                        }
                         return bottom_song(
                             imageurl: state.songimgurl,
                             songname: state.songname,
                             songurl: state.songUrl,
                             artistname: state.artistname,
-                            id: state.artistid);
+                            id: state.artistid,
+                            isPlayingFromBloc: state.isPlaying);
                       },
                     ))
               ],

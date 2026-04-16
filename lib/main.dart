@@ -59,26 +59,20 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    // Keep the same 3-second splash behavior, but schedule once in lifecycle.
+  Widget build(BuildContext context) {
+    // Simulating a delay of 3 seconds using Future.delayed
     Future.delayed(const Duration(seconds: 3), () {
-      if (!mounted) {
+      if (!context.mounted) {
         return;
       }
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
         return ChangeNotifierProvider(
           create: ((context) => GoogleSignInProvider()),
-          child: StreamBuilder<User?>(
+          child: StreamBuilder(
             stream: FirebaseAuth.instance.authStateChanges(),
             builder: (context, snapshot) {
               final provider = Provider.of<GoogleSignInProvider>(context);
@@ -105,10 +99,7 @@ class _SplashScreenState extends State<SplashScreen> {
         );
       }));
     });
-  }
 
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
           child: Center(

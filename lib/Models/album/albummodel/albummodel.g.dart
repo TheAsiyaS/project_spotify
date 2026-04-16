@@ -7,12 +7,10 @@ part of 'albummodel.dart';
 // **************************************************************************
 
 Albummodel _$AlbummodelFromJson(Map<String, dynamic> json) => Albummodel(
-      albums: (json['albums'] as List<dynamic>?)
-          ?.map((e) => Album.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
+  albums: (json['albums'] as List<dynamic>?)
+      ?.map((e) => Album.fromJson(e as Map<String, dynamic>))
+      .toList(),
+);
 
 Map<String, dynamic> _$AlbummodelToJson(Albummodel instance) =>
-    <String, dynamic>{
-      'albums': instance.albums,
-    };
+    <String, dynamic>{'albums': instance.albums};

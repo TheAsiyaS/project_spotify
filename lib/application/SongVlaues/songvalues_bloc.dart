@@ -10,12 +10,19 @@ part 'songvalues_bloc.freezed.dart';
 class SongvaluesBloc extends Bloc<SongvaluesEvent, SongvaluesState> {
   SongvaluesBloc() : super(SongvaluesState.initial()) {
     on<_GetSongvalue>((event, emit) {
-      return emit(state.copyWith(
-          artistid: event.artistid,
-          artistname: event.artistname,
-          songUrl: event.songUrl,
-          songimgurl: event.songimgurl,
-          songname: event.songname));
+      emit(state.copyWith(
+        artistid: event.artistid,
+        artistname: event.artistname,
+        songUrl: event.songUrl,
+        songimgurl: event.songimgurl,
+        songname: event.songname,
+        isPlaying: true,
+        fullScreenPlayerOpen: true,
+      ));
     });
+    on<_UpdatePlayback>(
+        (event, emit) => emit(state.copyWith(isPlaying: event.isPlaying)));
+    on<_SetFullScreenPlayerOpen>((event, emit) =>
+        emit(state.copyWith(fullScreenPlayerOpen: event.open)));
   }
 }

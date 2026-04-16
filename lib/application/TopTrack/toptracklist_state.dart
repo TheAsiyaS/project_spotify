@@ -1,7 +1,9 @@
+// ignore_for_file: non_abstract_class_inherits_abstract_member
+
 part of 'toptracklist_bloc.dart';
 
 @freezed
-class ToptracklistState with _$ToptracklistState {
+abstract class ToptracklistState with _$ToptracklistState {
   const factory ToptracklistState({
     required List<Track> toptrackList,
     required bool isLoading,

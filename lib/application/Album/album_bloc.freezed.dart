@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,639 +9,592 @@ part of 'album_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$AlbumEvent {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() getalbumlist,
-    required TResult Function(List<String> albumid) getalbum,
-    required TResult Function() getalbumsongs,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getalbumlist,
-    TResult? Function(List<String> albumid)? getalbum,
-    TResult? Function()? getalbumsongs,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getalbumlist,
-    TResult Function(List<String> albumid)? getalbum,
-    TResult Function()? getalbumsongs,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Getalbumlist value) getalbumlist,
-    required TResult Function(_Getalbum value) getalbum,
-    required TResult Function(_Getalbumsongs value) getalbumsongs,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Getalbumlist value)? getalbumlist,
-    TResult? Function(_Getalbum value)? getalbum,
-    TResult? Function(_Getalbumsongs value)? getalbumsongs,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Getalbumlist value)? getalbumlist,
-    TResult Function(_Getalbum value)? getalbum,
-    TResult Function(_Getalbumsongs value)? getalbumsongs,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AlbumEvent);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'AlbumEvent()';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AlbumEventCopyWith<$Res> {
-  factory $AlbumEventCopyWith(
-          AlbumEvent value, $Res Function(AlbumEvent) then) =
-      _$AlbumEventCopyWithImpl<$Res, AlbumEvent>;
+class $AlbumEventCopyWith<$Res>  {
+$AlbumEventCopyWith(AlbumEvent _, $Res Function(AlbumEvent) __);
 }
 
-/// @nodoc
-class _$AlbumEventCopyWithImpl<$Res, $Val extends AlbumEvent>
-    implements $AlbumEventCopyWith<$Res> {
-  _$AlbumEventCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// Adds pattern-matching-related methods to [AlbumEvent].
+extension AlbumEventPatterns on AlbumEvent {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Getalbumlist value)?  getalbumlist,TResult Function( _Getalbum value)?  getalbum,TResult Function( _Getalbumsongs value)?  getalbumsongs,required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _Getalbumlist() when getalbumlist != null:
+return getalbumlist(_that);case _Getalbum() when getalbum != null:
+return getalbum(_that);case _Getalbumsongs() when getalbumsongs != null:
+return getalbumsongs(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Getalbumlist value)  getalbumlist,required TResult Function( _Getalbum value)  getalbum,required TResult Function( _Getalbumsongs value)  getalbumsongs,}){
+final _that = this;
+switch (_that) {
+case _Getalbumlist():
+return getalbumlist(_that);case _Getalbum():
+return getalbum(_that);case _Getalbumsongs():
+return getalbumsongs(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Getalbumlist value)?  getalbumlist,TResult? Function( _Getalbum value)?  getalbum,TResult? Function( _Getalbumsongs value)?  getalbumsongs,}){
+final _that = this;
+switch (_that) {
+case _Getalbumlist() when getalbumlist != null:
+return getalbumlist(_that);case _Getalbum() when getalbum != null:
+return getalbum(_that);case _Getalbumsongs() when getalbumsongs != null:
+return getalbumsongs(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  getalbumlist,TResult Function( List<String> albumid)?  getalbum,TResult Function()?  getalbumsongs,required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _Getalbumlist() when getalbumlist != null:
+return getalbumlist();case _Getalbum() when getalbum != null:
+return getalbum(_that.albumid);case _Getalbumsongs() when getalbumsongs != null:
+return getalbumsongs();case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  getalbumlist,required TResult Function( List<String> albumid)  getalbum,required TResult Function()  getalbumsongs,}) {final _that = this;
+switch (_that) {
+case _Getalbumlist():
+return getalbumlist();case _Getalbum():
+return getalbum(_that.albumid);case _Getalbumsongs():
+return getalbumsongs();case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  getalbumlist,TResult? Function( List<String> albumid)?  getalbum,TResult? Function()?  getalbumsongs,}) {final _that = this;
+switch (_that) {
+case _Getalbumlist() when getalbumlist != null:
+return getalbumlist();case _Getalbum() when getalbum != null:
+return getalbum(_that.albumid);case _Getalbumsongs() when getalbumsongs != null:
+return getalbumsongs();case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-abstract class _$$GetalbumlistImplCopyWith<$Res> {
-  factory _$$GetalbumlistImplCopyWith(
-          _$GetalbumlistImpl value, $Res Function(_$GetalbumlistImpl) then) =
-      __$$GetalbumlistImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$GetalbumlistImplCopyWithImpl<$Res>
-    extends _$AlbumEventCopyWithImpl<$Res, _$GetalbumlistImpl>
-    implements _$$GetalbumlistImplCopyWith<$Res> {
-  __$$GetalbumlistImplCopyWithImpl(
-      _$GetalbumlistImpl _value, $Res Function(_$GetalbumlistImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$GetalbumlistImpl implements _Getalbumlist {
-  const _$GetalbumlistImpl();
-
-  @override
-  String toString() {
-    return 'AlbumEvent.getalbumlist()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GetalbumlistImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() getalbumlist,
-    required TResult Function(List<String> albumid) getalbum,
-    required TResult Function() getalbumsongs,
-  }) {
-    return getalbumlist();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getalbumlist,
-    TResult? Function(List<String> albumid)? getalbum,
-    TResult? Function()? getalbumsongs,
-  }) {
-    return getalbumlist?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getalbumlist,
-    TResult Function(List<String> albumid)? getalbum,
-    TResult Function()? getalbumsongs,
-    required TResult orElse(),
-  }) {
-    if (getalbumlist != null) {
-      return getalbumlist();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Getalbumlist value) getalbumlist,
-    required TResult Function(_Getalbum value) getalbum,
-    required TResult Function(_Getalbumsongs value) getalbumsongs,
-  }) {
-    return getalbumlist(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Getalbumlist value)? getalbumlist,
-    TResult? Function(_Getalbum value)? getalbum,
-    TResult? Function(_Getalbumsongs value)? getalbumsongs,
-  }) {
-    return getalbumlist?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Getalbumlist value)? getalbumlist,
-    TResult Function(_Getalbum value)? getalbum,
-    TResult Function(_Getalbumsongs value)? getalbumsongs,
-    required TResult orElse(),
-  }) {
-    if (getalbumlist != null) {
-      return getalbumlist(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Getalbumlist implements AlbumEvent {
-  const factory _Getalbumlist() = _$GetalbumlistImpl;
-}
-
-/// @nodoc
-abstract class _$$GetalbumImplCopyWith<$Res> {
-  factory _$$GetalbumImplCopyWith(
-          _$GetalbumImpl value, $Res Function(_$GetalbumImpl) then) =
-      __$$GetalbumImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({List<String> albumid});
-}
-
-/// @nodoc
-class __$$GetalbumImplCopyWithImpl<$Res>
-    extends _$AlbumEventCopyWithImpl<$Res, _$GetalbumImpl>
-    implements _$$GetalbumImplCopyWith<$Res> {
-  __$$GetalbumImplCopyWithImpl(
-      _$GetalbumImpl _value, $Res Function(_$GetalbumImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? albumid = null,
-  }) {
-    return _then(_$GetalbumImpl(
-      albumid: null == albumid
-          ? _value._albumid
-          : albumid // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$GetalbumImpl implements _Getalbum {
-  const _$GetalbumImpl({required final List<String> albumid})
-      : _albumid = albumid;
 
-  final List<String> _albumid;
-  @override
-  List<String> get albumid {
-    if (_albumid is EqualUnmodifiableListView) return _albumid;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_albumid);
-  }
+class _Getalbumlist implements AlbumEvent {
+  const _Getalbumlist();
+  
 
-  @override
-  String toString() {
-    return 'AlbumEvent.getalbum(albumid: $albumid)';
-  }
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetalbumImpl &&
-            const DeepCollectionEquality().equals(other._albumid, _albumid));
-  }
 
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_albumid));
 
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetalbumImplCopyWith<_$GetalbumImpl> get copyWith =>
-      __$$GetalbumImplCopyWithImpl<_$GetalbumImpl>(this, _$identity);
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() getalbumlist,
-    required TResult Function(List<String> albumid) getalbum,
-    required TResult Function() getalbumsongs,
-  }) {
-    return getalbum(albumid);
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getalbumlist,
-    TResult? Function(List<String> albumid)? getalbum,
-    TResult? Function()? getalbumsongs,
-  }) {
-    return getalbum?.call(albumid);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getalbumlist,
-    TResult Function(List<String> albumid)? getalbum,
-    TResult Function()? getalbumsongs,
-    required TResult orElse(),
-  }) {
-    if (getalbum != null) {
-      return getalbum(albumid);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Getalbumlist value) getalbumlist,
-    required TResult Function(_Getalbum value) getalbum,
-    required TResult Function(_Getalbumsongs value) getalbumsongs,
-  }) {
-    return getalbum(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Getalbumlist value)? getalbumlist,
-    TResult? Function(_Getalbum value)? getalbum,
-    TResult? Function(_Getalbumsongs value)? getalbumsongs,
-  }) {
-    return getalbum?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Getalbumlist value)? getalbumlist,
-    TResult Function(_Getalbum value)? getalbum,
-    TResult Function(_Getalbumsongs value)? getalbumsongs,
-    required TResult orElse(),
-  }) {
-    if (getalbum != null) {
-      return getalbum(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Getalbumlist);
 }
 
-abstract class _Getalbum implements AlbumEvent {
-  const factory _Getalbum({required final List<String> albumid}) =
-      _$GetalbumImpl;
 
-  List<String> get albumid;
-  @JsonKey(ignore: true)
-  _$$GetalbumImplCopyWith<_$GetalbumImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'AlbumEvent.getalbumlist()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _Getalbum implements AlbumEvent {
+  const _Getalbum({required final  List<String> albumid}): _albumid = albumid;
+  
+
+ final  List<String> _albumid;
+ List<String> get albumid {
+  if (_albumid is EqualUnmodifiableListView) return _albumid;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_albumid);
+}
+
+
+/// Create a copy of AlbumEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$GetalbumCopyWith<_Getalbum> get copyWith => __$GetalbumCopyWithImpl<_Getalbum>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Getalbum&&const DeepCollectionEquality().equals(other._albumid, _albumid));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_albumid));
+
+@override
+String toString() {
+  return 'AlbumEvent.getalbum(albumid: $albumid)';
+}
+
+
 }
 
 /// @nodoc
-abstract class _$$GetalbumsongsImplCopyWith<$Res> {
-  factory _$$GetalbumsongsImplCopyWith(
-          _$GetalbumsongsImpl value, $Res Function(_$GetalbumsongsImpl) then) =
-      __$$GetalbumsongsImplCopyWithImpl<$Res>;
+abstract mixin class _$GetalbumCopyWith<$Res> implements $AlbumEventCopyWith<$Res> {
+  factory _$GetalbumCopyWith(_Getalbum value, $Res Function(_Getalbum) _then) = __$GetalbumCopyWithImpl;
+@useResult
+$Res call({
+ List<String> albumid
+});
+
+
+
+
+}
+/// @nodoc
+class __$GetalbumCopyWithImpl<$Res>
+    implements _$GetalbumCopyWith<$Res> {
+  __$GetalbumCopyWithImpl(this._self, this._then);
+
+  final _Getalbum _self;
+  final $Res Function(_Getalbum) _then;
+
+/// Create a copy of AlbumEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? albumid = null,}) {
+  return _then(_Getalbum(
+albumid: null == albumid ? _self._albumid : albumid // ignore: cast_nullable_to_non_nullable
+as List<String>,
+  ));
 }
 
-/// @nodoc
-class __$$GetalbumsongsImplCopyWithImpl<$Res>
-    extends _$AlbumEventCopyWithImpl<$Res, _$GetalbumsongsImpl>
-    implements _$$GetalbumsongsImplCopyWith<$Res> {
-  __$$GetalbumsongsImplCopyWithImpl(
-      _$GetalbumsongsImpl _value, $Res Function(_$GetalbumsongsImpl) _then)
-      : super(_value, _then);
+
 }
 
 /// @nodoc
 
-class _$GetalbumsongsImpl implements _Getalbumsongs {
-  const _$GetalbumsongsImpl();
 
-  @override
-  String toString() {
-    return 'AlbumEvent.getalbumsongs()';
-  }
+class _Getalbumsongs implements AlbumEvent {
+  const _Getalbumsongs();
+  
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GetalbumsongsImpl);
-  }
 
-  @override
-  int get hashCode => runtimeType.hashCode;
 
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() getalbumlist,
-    required TResult Function(List<String> albumid) getalbum,
-    required TResult Function() getalbumsongs,
-  }) {
-    return getalbumsongs();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getalbumlist,
-    TResult? Function(List<String> albumid)? getalbum,
-    TResult? Function()? getalbumsongs,
-  }) {
-    return getalbumsongs?.call();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getalbumlist,
-    TResult Function(List<String> albumid)? getalbum,
-    TResult Function()? getalbumsongs,
-    required TResult orElse(),
-  }) {
-    if (getalbumsongs != null) {
-      return getalbumsongs();
-    }
-    return orElse();
-  }
 
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Getalbumlist value) getalbumlist,
-    required TResult Function(_Getalbum value) getalbum,
-    required TResult Function(_Getalbumsongs value) getalbumsongs,
-  }) {
-    return getalbumsongs(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Getalbumlist value)? getalbumlist,
-    TResult? Function(_Getalbum value)? getalbum,
-    TResult? Function(_Getalbumsongs value)? getalbumsongs,
-  }) {
-    return getalbumsongs?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Getalbumlist value)? getalbumlist,
-    TResult Function(_Getalbum value)? getalbum,
-    TResult Function(_Getalbumsongs value)? getalbumsongs,
-    required TResult orElse(),
-  }) {
-    if (getalbumsongs != null) {
-      return getalbumsongs(this);
-    }
-    return orElse();
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Getalbumsongs);
 }
 
-abstract class _Getalbumsongs implements AlbumEvent {
-  const factory _Getalbumsongs() = _$GetalbumsongsImpl;
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'AlbumEvent.getalbumsongs()';
 }
+
+
+}
+
+
+
 
 /// @nodoc
 mixin _$AlbumState {
-  List<Album> get albumList => throw _privateConstructorUsedError;
-  List<Album> get albumsongs => throw _privateConstructorUsedError;
-  bool get isLoading => throw _privateConstructorUsedError;
-  bool get iserror => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
-  $AlbumStateCopyWith<AlbumState> get copyWith =>
-      throw _privateConstructorUsedError;
+ List<Album> get albumList; List<Album> get albumsongs; bool get isLoading; bool get iserror;
+/// Create a copy of AlbumState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AlbumStateCopyWith<AlbumState> get copyWith => _$AlbumStateCopyWithImpl<AlbumState>(this as AlbumState, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AlbumState&&const DeepCollectionEquality().equals(other.albumList, albumList)&&const DeepCollectionEquality().equals(other.albumsongs, albumsongs)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.iserror, iserror) || other.iserror == iserror));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(albumList),const DeepCollectionEquality().hash(albumsongs),isLoading,iserror);
+
+@override
+String toString() {
+  return 'AlbumState(albumList: $albumList, albumsongs: $albumsongs, isLoading: $isLoading, iserror: $iserror)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AlbumStateCopyWith<$Res> {
-  factory $AlbumStateCopyWith(
-          AlbumState value, $Res Function(AlbumState) then) =
-      _$AlbumStateCopyWithImpl<$Res, AlbumState>;
-  @useResult
-  $Res call(
-      {List<Album> albumList,
-      List<Album> albumsongs,
-      bool isLoading,
-      bool iserror});
-}
+abstract mixin class $AlbumStateCopyWith<$Res>  {
+  factory $AlbumStateCopyWith(AlbumState value, $Res Function(AlbumState) _then) = _$AlbumStateCopyWithImpl;
+@useResult
+$Res call({
+ List<Album> albumList, List<Album> albumsongs, bool isLoading, bool iserror
+});
 
+
+
+
+}
 /// @nodoc
-class _$AlbumStateCopyWithImpl<$Res, $Val extends AlbumState>
+class _$AlbumStateCopyWithImpl<$Res>
     implements $AlbumStateCopyWith<$Res> {
-  _$AlbumStateCopyWithImpl(this._value, this._then);
+  _$AlbumStateCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AlbumState _self;
+  final $Res Function(AlbumState) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? albumList = null,
-    Object? albumsongs = null,
-    Object? isLoading = null,
-    Object? iserror = null,
-  }) {
-    return _then(_value.copyWith(
-      albumList: null == albumList
-          ? _value.albumList
-          : albumList // ignore: cast_nullable_to_non_nullable
-              as List<Album>,
-      albumsongs: null == albumsongs
-          ? _value.albumsongs
-          : albumsongs // ignore: cast_nullable_to_non_nullable
-              as List<Album>,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      iserror: null == iserror
-          ? _value.iserror
-          : iserror // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
+/// Create a copy of AlbumState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? albumList = null,Object? albumsongs = null,Object? isLoading = null,Object? iserror = null,}) {
+  return _then(_self.copyWith(
+albumList: null == albumList ? _self.albumList : albumList // ignore: cast_nullable_to_non_nullable
+as List<Album>,albumsongs: null == albumsongs ? _self.albumsongs : albumsongs // ignore: cast_nullable_to_non_nullable
+as List<Album>,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
+as bool,iserror: null == iserror ? _self.iserror : iserror // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [AlbumState].
+extension AlbumStatePatterns on AlbumState {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Initial value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _Initial() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Initial value)  $default,){
+final _that = this;
+switch (_that) {
+case _Initial():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Initial value)?  $default,){
+final _that = this;
+switch (_that) {
+case _Initial() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<Album> albumList,  List<Album> albumsongs,  bool isLoading,  bool iserror)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _Initial() when $default != null:
+return $default(_that.albumList,_that.albumsongs,_that.isLoading,_that.iserror);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<Album> albumList,  List<Album> albumsongs,  bool isLoading,  bool iserror)  $default,) {final _that = this;
+switch (_that) {
+case _Initial():
+return $default(_that.albumList,_that.albumsongs,_that.isLoading,_that.iserror);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<Album> albumList,  List<Album> albumsongs,  bool isLoading,  bool iserror)?  $default,) {final _that = this;
+switch (_that) {
+case _Initial() when $default != null:
+return $default(_that.albumList,_that.albumsongs,_that.isLoading,_that.iserror);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
-abstract class _$$InitialImplCopyWith<$Res>
-    implements $AlbumStateCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(
-          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {List<Album> albumList,
-      List<Album> albumsongs,
-      bool isLoading,
-      bool iserror});
+
+
+class _Initial implements AlbumState {
+  const _Initial({required final  List<Album> albumList, required final  List<Album> albumsongs, required this.isLoading, required this.iserror}): _albumList = albumList,_albumsongs = albumsongs;
+  
+
+ final  List<Album> _albumList;
+@override List<Album> get albumList {
+  if (_albumList is EqualUnmodifiableListView) return _albumList;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_albumList);
+}
+
+ final  List<Album> _albumsongs;
+@override List<Album> get albumsongs {
+  if (_albumsongs is EqualUnmodifiableListView) return _albumsongs;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_albumsongs);
+}
+
+@override final  bool isLoading;
+@override final  bool iserror;
+
+/// Create a copy of AlbumState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$InitialCopyWith<_Initial> get copyWith => __$InitialCopyWithImpl<_Initial>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initial&&const DeepCollectionEquality().equals(other._albumList, _albumList)&&const DeepCollectionEquality().equals(other._albumsongs, _albumsongs)&&(identical(other.isLoading, isLoading) || other.isLoading == isLoading)&&(identical(other.iserror, iserror) || other.iserror == iserror));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_albumList),const DeepCollectionEquality().hash(_albumsongs),isLoading,iserror);
+
+@override
+String toString() {
+  return 'AlbumState(albumList: $albumList, albumsongs: $albumsongs, isLoading: $isLoading, iserror: $iserror)';
+}
+
+
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res>
-    extends _$AlbumStateCopyWithImpl<$Res, _$InitialImpl>
-    implements _$$InitialImplCopyWith<$Res> {
-  __$$InitialImplCopyWithImpl(
-      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
-      : super(_value, _then);
+abstract mixin class _$InitialCopyWith<$Res> implements $AlbumStateCopyWith<$Res> {
+  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) _then) = __$InitialCopyWithImpl;
+@override @useResult
+$Res call({
+ List<Album> albumList, List<Album> albumsongs, bool isLoading, bool iserror
+});
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? albumList = null,
-    Object? albumsongs = null,
-    Object? isLoading = null,
-    Object? iserror = null,
-  }) {
-    return _then(_$InitialImpl(
-      albumList: null == albumList
-          ? _value._albumList
-          : albumList // ignore: cast_nullable_to_non_nullable
-              as List<Album>,
-      albumsongs: null == albumsongs
-          ? _value._albumsongs
-          : albumsongs // ignore: cast_nullable_to_non_nullable
-              as List<Album>,
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-      iserror: null == iserror
-          ? _value.iserror
-          : iserror // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
+
+
+
 }
-
 /// @nodoc
+class __$InitialCopyWithImpl<$Res>
+    implements _$InitialCopyWith<$Res> {
+  __$InitialCopyWithImpl(this._self, this._then);
 
-class _$InitialImpl implements _Initial {
-  const _$InitialImpl(
-      {required final List<Album> albumList,
-      required final List<Album> albumsongs,
-      required this.isLoading,
-      required this.iserror})
-      : _albumList = albumList,
-        _albumsongs = albumsongs;
+  final _Initial _self;
+  final $Res Function(_Initial) _then;
 
-  final List<Album> _albumList;
-  @override
-  List<Album> get albumList {
-    if (_albumList is EqualUnmodifiableListView) return _albumList;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_albumList);
-  }
-
-  final List<Album> _albumsongs;
-  @override
-  List<Album> get albumsongs {
-    if (_albumsongs is EqualUnmodifiableListView) return _albumsongs;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_albumsongs);
-  }
-
-  @override
-  final bool isLoading;
-  @override
-  final bool iserror;
-
-  @override
-  String toString() {
-    return 'AlbumState(albumList: $albumList, albumsongs: $albumsongs, isLoading: $isLoading, iserror: $iserror)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$InitialImpl &&
-            const DeepCollectionEquality()
-                .equals(other._albumList, _albumList) &&
-            const DeepCollectionEquality()
-                .equals(other._albumsongs, _albumsongs) &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
-            (identical(other.iserror, iserror) || other.iserror == iserror));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_albumList),
-      const DeepCollectionEquality().hash(_albumsongs),
-      isLoading,
-      iserror);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
-      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
+/// Create a copy of AlbumState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? albumList = null,Object? albumsongs = null,Object? isLoading = null,Object? iserror = null,}) {
+  return _then(_Initial(
+albumList: null == albumList ? _self._albumList : albumList // ignore: cast_nullable_to_non_nullable
+as List<Album>,albumsongs: null == albumsongs ? _self._albumsongs : albumsongs // ignore: cast_nullable_to_non_nullable
+as List<Album>,isLoading: null == isLoading ? _self.isLoading : isLoading // ignore: cast_nullable_to_non_nullable
+as bool,iserror: null == iserror ? _self.iserror : iserror // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
 }
 
-abstract class _Initial implements AlbumState {
-  const factory _Initial(
-      {required final List<Album> albumList,
-      required final List<Album> albumsongs,
-      required final bool isLoading,
-      required final bool iserror}) = _$InitialImpl;
 
-  @override
-  List<Album> get albumList;
-  @override
-  List<Album> get albumsongs;
-  @override
-  bool get isLoading;
-  @override
-  bool get iserror;
-  @override
-  @JsonKey(ignore: true)
-  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
+
+// dart format on

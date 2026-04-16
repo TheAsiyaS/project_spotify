@@ -7,13 +7,13 @@ part of 'image.dart';
 // **************************************************************************
 
 Image _$ImageFromJson(Map<String, dynamic> json) => Image(
-      url: json['url'] as String?,
-      height: json['height'] as int?,
-      width: json['width'] as int?,
-    );
+  url: json['url'] as String?,
+  height: (json['height'] as num?)?.toInt(),
+  width: (json['width'] as num?)?.toInt(),
+);
 
 Map<String, dynamic> _$ImageToJson(Image instance) => <String, dynamic>{
-      'url': instance.url,
-      'height': instance.height,
-      'width': instance.width,
-    };
+  'url': instance.url,
+  'height': instance.height,
+  'width': instance.width,
+};

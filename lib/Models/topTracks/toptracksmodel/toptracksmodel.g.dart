@@ -14,6 +14,4 @@ Toptracksmodel _$ToptracksmodelFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$ToptracksmodelToJson(Toptracksmodel instance) =>
-    <String, dynamic>{
-      'tracks': instance.tracks,
-    };
+    <String, dynamic>{'tracks': instance.tracks};
